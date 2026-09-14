@@ -1,0 +1,60 @@
+erDiagram
+    USUARIOS ||--o{ RECEITAS : possui
+    USUARIOS ||--o{ HISTORICO_LOGINS : registra
+    RECEITAS ||--o{ IODOS : configura
+    RECEITAS ||--o{ TEMPERATURAS : configura
+
+    USUARIOS {
+        INT id PK
+        VARCHAR nome
+        VARCHAR email
+        VARCHAR telefone
+        VARCHAR senha
+        VARCHAR url_imagem
+        DATETIME createdAt
+        DATETIME updatedAt
+    }
+
+    RECEITAS {
+        INT id PK
+        VARCHAR nome
+        INT usuario_id FK
+        DATETIME createdAt
+        DATETIME updatedAt
+    }
+
+    IODOS {
+        INT id PK
+        TIME tempo_primeira_coleta
+        TIME intervalo_testes
+        INT qtd_max_testes
+        INT receita_id FK
+        DATETIME createdAt
+        DATETIME updatedAt
+    }
+
+    TEMPERATURAS {
+        INT id PK
+        INT rampa_temperatura_minima
+        INT rampa_temperatura_maxima
+        INT temp_maxima_limite
+        INT temp_minima_limite
+        TIME temporizador
+        TIME inicializacao
+        TIME tempo_ideal
+        BOOLEAN temperatura_ativa
+        INT receita_id FK
+        DATETIME createdAt
+        DATETIME updatedAt
+    }
+
+    HISTORICO_LOGINS {
+        INT id PK
+        VARCHAR endereco_ip
+        DATETIME data_hora
+        VARCHAR localidade
+        BOOLEAN status
+        INT usuario_id FK
+        DATETIME createdAt
+        DATETIME updatedAt
+    }
