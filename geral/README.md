@@ -22,7 +22,7 @@ O Mash propõe uma plataforma para apoiar pequenos produtores de cerveja artesan
 ## ODS (Objetivos de Desenvolvimento Sustentável)
 
 - **ODS 9** (Indústria, Inovação e Infraestrutura) — alternativa de automação acessível para pequenos produtores
-- **ODS 12** (Consumo e Produção Responsáveis) — potencial redução de desperdícios e melhoria de rendimento (a validar)
+- **ODS 12** (Consumo e Produção Responsáveis) — potencial redução de desperdício e melhoria de rendimento (a validar)
 
 ## Canvas (Modelo de Negócio)
 
@@ -74,7 +74,7 @@ Feature, Bug, Improvement, Research, Documentation, Design, Test
 
 | Área | Ferramenta | Uso |
 |---|---|---|
-| Artigo | Prism (OpenAI) | Escrita científica, revisão, LaTeX, busca de literatura |
+| Artigo | Prism ([OI]) | Escrita científica, revisão, LaTeX, busca de literatura |
 | Design/Frontend | Open Design | Ideias de interface, componentes, responsividade |
 | Backend | OpenCode | APIs, CRUDs, banco, debug, testes, Flask/OpenCV |
 
@@ -103,13 +103,15 @@ Tipos: `feat`, `fix`, `refactor`, `test`, `docs`, `style`, `chore`.
 | JWT vs session | JWT (implementado no Back-End) | #38 |
 | Argon2id vs bcrypt | Argon2id (implementado no Back-End) | #38 |
 | Migrations vs sync() | Migrations (a implementar) | #40 |
-| Padrão HTTP de erros | `{ error: { code, message, fields? } }` | #41 |
+| Padrão HTTP de erros | Sucesso `{ message }`, erro `{ error }`, `204` sem corpo no DELETE (padrão aula-05) | #30, #41 |
+| Nomenclatura da API | EN + camelCase (`users`, `recipes`, `lots`, `analyses`) — Opção A aprovada | #30 |
+| Resultado da análise (enum) | `PASSED` / `FAILED` / `null` | #34 |
 | Espaço de cor (HSV vs CIELab) | Ambos (a definir na bancada) | #42 |
 | Tempo real (polling/SSE/WS) | A definir pela equipe | #36 |
 | Credencial de dispositivo IoT | Revogável, própria | #36 |
 | IA generativa no classificador | NÃO decide o resultado | #34 |
 | Database `cervejaria` vs `mash` | ⚠️ Divergente — unificar na migração | #30 |
-| Tabela `usuarios` vs `users` | ⚠️ Divergente — unificar na migração | #30 |
+| Tabela `usuarios` vs `users` | Resolvido — tabela `users` (padrão do Back-End) | #30 |
 
 ## Bugs conhecidos (código real)
 
