@@ -55,8 +55,8 @@ Este é o documento de referência para saber **a ordem de execução das issues
 |---|---|---|---|
 | Sprint 1 | 10/08 – 01/09 | Base do projeto + artigo (fundamentação inicial) | 11 |
 | Sprint 2 | 01/09 – 16/09 | Artigo (Estado da Arte, lacuna científica) | 15 |
-| **Sprint 3** | **16/09 – 01/10** | **CRUD receitas + contrato temp/iodo + segredos** | **10** |
-| Sprint 4 | 01/10 – 16/10 | CRUD lotes + auth/IDOR + migrations + ESP32 + OpenCV + UML | ~40 |
+| **Sprint 3** | **16/09 – 01/10** | **CRUD receitas + contrato temp/iodo + segredos** | **9** |
+| Sprint 4 | 01/10 – 16/10 | CRUD lotes + auth/IDOR + ESP32 + OpenCV + UML | ~37 |
 | Sprint 5 | 16/10 – 31/10 | Análises de iodo + frontend resultado + deploy | ~19 |
 | Sprint 6 | 31/10 – 15/11 | Relatório + alertas + frontend temp + **depósito PI 03/11** | ~10 |
 | Sprint 7 | 15/11 – 30/11 | Pitch + legendas + trilha + banner + **bancas 16–27/11** | ~4 |
@@ -153,7 +153,7 @@ Tipos: `feat`, `fix`, `refactor`, `test`, `docs`, `style`, `chore`.
 | Migração para API REST | Em andamento | #30 |
 | JWT vs session | JWT (implementado no Back-End) | #38 |
 | Argon2id vs bcrypt | Argon2id (implementado no Back-End) | #38 |
-| Migrations vs sync() | Migrations (a implementar) | #40 |
+| Schema do banco | `sync({ force: false })` no startup (sem migrations) | #30 |
 | Padrão HTTP de erros | Sucesso `{ message }`, erro `{ error }`, `204` sem corpo no DELETE (padrão aula-05) | #30, #41 |
 | Nomenclatura da API | EN + camelCase (`users`, `recipes`, `lots`, `analyses`) — Opção A aprovada | #30 |
 | Resultado da análise (enum) | `PASSED` / `FAILED` / `null` | #34 |
