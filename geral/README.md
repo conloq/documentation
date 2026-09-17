@@ -10,6 +10,17 @@ Projeto Integrador — Desenvolvimento de Software Multiplataforma — FATEC Reg
 
 O Mash propõe uma plataforma para apoiar pequenos produtores de cerveja artesanal no acompanhamento da mosturação, no teste de iodo e na rastreabilidade das análises. A visão computacional com Python/OpenCV é prevista para auxiliar na identificação de amido residual por características de cor.
 
+## Papéis ágeis (GAPS)
+
+| Papel | Responsável | Atribuições |
+|---|---|---|
+| **Product Owner (PO)** | IA — Team Lead (agente de IA do projeto) | Gestão e refinamento do backlog, priorização das issues (MoSCoW), validação dos critérios de aceite e atualização do Project |
+| **Product Manager (PM)** | Haimon Cugler Vieira | Visão de produto, decisões de escopo, aprovação de prioridades e responsabilidade final das entregas |
+| **Scrum Master (SM)** | Haimon Cugler Vieira (rotativo) | Facilitação do processo ágil, cerimônias (planning, review, retrospectiva), remoção de impedimentos e organização do quadro |
+| **Desenvolvedores** | Todos os integrantes (incluindo PO e SM) | Implementação, testes, revisão por pares e documentação |
+
+> Papéis de PO e SM são rotativos entre os ciclos do projeto. A IA atua como apoio de gestão e revisão; todas as decisões finais passam pelo PM.
+
 ## Equipe
 
 | Integrante | Área |
@@ -31,6 +42,46 @@ Disponível em `artefatos_projeto.pdf`, seção 3 (Figura 5). Detalha os nove bl
 ## SWOT
 
 A definir na issue #52 (sub-issue de #37).
+
+## Roteiro de Execução
+
+> **Issue central:** [conloq/mash#66](https://github.com/conloq/mash/issues/66) — 🗺️ Roteiro de Execução
+
+Este é o documento de referência para saber **a ordem de execução das issues, as metas de cada sprint e o que fazer a qualquer momento**. Atualizado pelo PO a cada sprint.
+
+### Sprints do semestre
+
+| Sprint | Período | Foco | Pontos |
+|---|---|---|---|
+| Sprint 1 | 10/08 – 01/09 | Base do projeto + artigo (fundamentação inicial) | 11 |
+| Sprint 2 | 01/09 – 16/09 | Artigo (Estado da Arte, lacuna científica) | 15 |
+| **Sprint 3** | **16/09 – 01/10** | **CRUD receitas + contrato temp/iodo + segredos** | **10** |
+| Sprint 4 | 01/10 – 16/10 | CRUD lotes + auth/IDOR + migrations + ESP32 + OpenCV + UML | ~40 |
+| Sprint 5 | 16/10 – 31/10 | Análises de iodo + frontend resultado + deploy | ~19 |
+| Sprint 6 | 31/10 – 15/11 | Relatório + alertas + frontend temp + **depósito PI 03/11** | ~10 |
+| Sprint 7 | 15/11 – 30/11 | Pitch + legendas + trilha + banner + **bancas 16–27/11** | ~4 |
+
+### Ordem de execução por épico
+
+Cada épico tem um comentário fixo no topo com a ordem de execução das suas sub-issues, links diretos abaixo:
+
+| Épico | Sprint | Link da ordem |
+|---|---|---|
+| [#30 — API REST do Mash](https://github.com/conloq/mash/issues/30) | S3–S5 | [Ordem](https://github.com/conloq/mash/issues/30#issuecomment-5720845904) |
+| [#36 — Contrato temperatura/iodo](https://github.com/conloq/mash/issues/36) | S4 | [Ordem](https://github.com/conloq/mash/issues/36#issuecomment-5720852657) |
+| [#12 — Frontend ↔ Backend](https://github.com/conloq/mash/issues/12) | S5–S6 | [Ordem](https://github.com/conloq/mash/issues/12#issuecomment-5720858568) |
+| [#34 — Análise OpenCV](https://github.com/conloq/mash/issues/34) | S4 | [Ordem](https://github.com/conloq/mash/issues/36#issuecomment-5720852657) |
+| [#37 — Artefatos do PI](https://github.com/conloq/mash/issues/37) | S4–S6 | [Ordem](https://github.com/conloq/mash/issues/37#issuecomment-5720861684) |
+| [#56 — Artigo Científico](https://github.com/conloq/mash/issues/56) | Contínuo | [Ordem](https://github.com/conloq/mash/issues/56#issuecomment-5720849209) |
+| [#57 — Pitch do Mash](https://github.com/conloq/mash/issues/57) | S7 | [Ordem](https://github.com/conloq/mash/issues/57#issuecomment-5720868314) |
+
+### Regras de ouro antes de puxar uma issue
+
+1. Ela está na sprint atual? (consulte o [roteiro](https://github.com/conloq/mash/issues/66))
+2. Tem assignee atribuído?
+3. Não está bloqueada por outra issue?
+
+Se qualquer resposta for **"não"**, consulte o PO antes de iniciar.
 
 ## Regras de trabalho
 
@@ -117,8 +168,8 @@ Tipos: `feat`, `fix`, `refactor`, `test`, `docs`, `style`, `chore`.
 
 | Bug | Local | Issue |
 |---|---|---|
-| ReferenceError (`id` usado antes de declarar) | Back-End `recipeController.js` | #32 |
+| ~~ReferenceError (`id` usado antes de declarar)~~ — corrigido no código | Back-End `recipeController.js` | #32 |
 | `createRecipe()` vazio | Back-End `recipeService.js` | #32 |
 | Sem CRUD completo de receita (só GET list) | Back-End `recipeRoutes.js` | #32 |
-| API key Context7 versionada | frontend `opencode.json` | #39 |
+| ~~API key Context7 versionada~~ — removida via [frontend#1](https://github.com/conloq/frontend/pull/1) | frontend `opencode.json` | #54 |
 | Credenciais hardcoded | mash `sequelize-config.js`, `session.js` | #39 |
