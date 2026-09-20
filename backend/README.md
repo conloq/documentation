@@ -2,6 +2,8 @@
 
 Documentação da área Backend do projeto Mash.
 
+> **Sincronizado em 20/09** com o estado real do código (commits 159c1ce→2981318) e as decisões vigentes (#30, #32, #66).
+
 ## Repositórios
 
 | Repositório | Papel | Status |
@@ -16,7 +18,7 @@ Documentação da área Backend do projeto Mash.
 - **Autenticação:** express-session (cookie `connect.sid`, 7 dias) + SequelizeStore (MySQL)
 - **Identidade:** `req.session.userId`
 - **Porta:** 8080
-- **Sem migrations:** Models sincronizados via `.sync({force: false})` no startup
+- **Sem migrations:** por decisão (#40 not_planned) — Models sincronizados via `.sync({force: false})` no startup
 
 ## Arquitetura da migração (Back-End — código real)
 
@@ -29,6 +31,14 @@ Documentação da área Backend do projeto Mash.
 - **Tabela usuário:** `users` (name, email, fone, password, url_image) — ⚠️ diferente de `usuarios` do mash
 - **Foreign key:** `user_id` (⚠️ diferente de `usuario_id` do mash)
 
+## Padrão de resposta (decisão da equipe — base aula-05 DW3)
+
+- Sucesso: `{ "message": "..." }` (com `"data"` quando houver dados)
+- Erro: `{ "error": "mensagem em pt-BR" }` — string direta, **sem código interno**
+- DELETE: `204` sem corpo
+- **Mensagens sempre em pt-BR** — o frontend exibe o texto da API sem traduzir
+- Implementado e verificado nos commits 922e6eb ("Mensagens em pt-br") e 2981318 ("Trocando messages por error")
+
 ## Rotas HTTP (Back-End — código real)
 
 | Método | Rota | Middleware | Descrição |
@@ -40,15 +50,16 @@ Documentação da área Backend do projeto Mash.
 | PUT | `/user` | authMiddleware | Atualizar perfil |
 | PUT | `/user/upload` | authMiddleware, Multer | Upload imagem → Cloudinary |
 | GET | `/receitas` | authMiddleware | Listar receitas do usuário |
+| POST | `/receitas` | authMiddleware | Criar receita (201) |
+| PUT | `/receitas/:id` | authMiddleware | Atualizar receita |
+| DELETE | `/receitas/:id` | authMiddleware | Deletar receita (204) |
+| GET | `/api-docs` | — | Documentação Swagger |
 
-## Bugs encontrados (Back-End — código real)
+## Pendências da revisão da #32 (CRUD receitas — In review)
 
-| Bug | Local | Descrição |
-|---|---|---|
-| ReferenceError | `recipeController.js` → `showRecipe` | `if(!id)` usado ANTES de `const id = req.userId` |
-| Service incompleto | `recipeService.js` → `createRecipe` | Método vazio (só chaves) |
-| Sem CRUD completo | `recipeRoutes.js` | Só GET /receitas — sem PUT/DELETE/:id |
-| Sem validação de senha atual | `userService.js` → `updateUser` | Permite trocar senha sem verificar a atual |
+1. **Rotas em inglês:** código usa `/receitas`; contrato da #30 define `/recipes` — ⚠️ breaking change para o frontend (#58)
+2. **409 ausente:** contrato prevê `409 { "error": "Receita já existe" }`; não há verificação de duplicata
+3. **Testes:** escopo da #41 (`npm test` ainda sem suíte)
 
 ## Models Sequelize (mash)
 
@@ -94,24 +105,26 @@ Receita (receitas)
 
 ## Issues ativas (Backend)
 
-| Issue | Título | Prioridade |
-|---|---|---|
-| #30 | Migrar gradualmente para a API REST | Urgent |
-| #31 | Implementar CRUD de lotes | Urgent |
-| #32 | Corrigir CRUD de receitas | Urgent |
-| #33 | Implementar upload da imagem do teste de iodo | High |
-| #34 | Implementar análise do teste de iodo com OpenCV | Low |
-| #36 | Definir contrato de configurações de temperatura e teste de iodo | Urgent |
-| #38 | Corrigir autenticação e autorização | — |
-| #39 | Proteger segredos | — |
-| #40 | Definir migrations Sequelize | — |
-| #41 | Criar testes e padrão HTTP | — |
+| Issue | Título | Prioridade | Status (19/09) |
+|---|---|---|---|
+| #30 | Migrar gradualmente para a API REST | Urgent | In progress |
+| #31 | Implementar CRUD de lotes | Urgent | Ready (S4) |
+| #32 | Corrigir CRUD de receitas | Urgent | In review (S3) |
+| #33 | Implementar upload da imagem do teste de iodo | High | Backlog (S4) |
+| #34 | Implementar análise do teste de iodo com OpenCV | Low | Backlog (S4, Could) |
+| #36 | Definir contrato de configurações de temperatura e teste de iodo | Urgent | Backlog (S6) |
+| #38 | Corrigir autenticação e autorização | Urgent | Ready (S4) |
+| #39 | Proteger segredos | High | In review (fechamento contestado — 3 checkboxes abertos) |
+| #41 | Criar testes e padrão HTTP | Urgent | Ready (S4) |
+| #60 | Documentar contrato de temperatura e teste de iodo (desbloqueador) | Urgent | Ready (S3) |
+
+> **#40 (migrations) foi FECHADA como not_planned** — não haverá migrations; `Model.sync()` é a estratégia definitiva. Não listá-la como ativa.
 
 ## Pontos de atenção
 
-1. **Credenciais hardcoded** em `config/sequelize-config.js` e `config/session.js`
-2. **Sem `.env`** — não há dotenv no projeto
-3. **Sem testes** — `npm test` retorna erro
-4. **Sem migrations** — usa `.sync()` no startup
+1. **Credenciais hardcoded** em `config/sequelize-config.js` e `config/session.js` (mash) — #39
+2. **`.env.example` inexistente** em Back-End e mash; boot não valida env obrigatória — #39 (fechamento em revisão)
+3. **Sem testes** — `npm test` retorna erro — #41
+4. **Sem migrations** — por decisão (#40 not_planned), `.sync()` no startup é vigente
 5. **Middleware inconsistente** — algumas rotas POST não têm `isLogado`
 6. **Geolocalização externa** — `loginController.js` chama `ip-api.com` no login
