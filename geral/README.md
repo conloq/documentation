@@ -45,21 +45,23 @@ A definir na issue #52 (sub-issue de #37).
 
 ## Roteiro de Execução
 
-> **Issue central:** [conloq/mash#66](https://github.com/conloq/mash/issues/66) — 🗺️ Roteiro de Execução
+> **Issue central (fonte de verdade):** [conloq/mash#66](https://github.com/conloq/mash/issues/66) — 🗺️ Roteiro de Execução
 
-Este é o documento de referência para saber **a ordem de execução das issues, as metas de cada sprint e o que fazer a qualquer momento**. Atualizado pelo PO a cada sprint.
+Este é o documento de referência para saber **a ordem de execução das issues, as metas de cada sprint e o que fazer a qualquer momento**. Atualizado pelo PO a cada sprint. **Os resumos abaixo são espelho — em caso de divergência, vale a #66.**
 
 ### Sprints do semestre
+
+> ⚠️ Pontos de S4–S7 são provisórios: recalibrados na Sprint Review de 01/10 com a velocity real (histórica: 13 pts/sprint).
 
 | Sprint | Período | Foco | Pontos |
 |---|---|---|---|
 | Sprint 1 | 10/08 – 01/09 | Base do projeto + artigo (fundamentação inicial) | 11 |
 | Sprint 2 | 01/09 – 16/09 | Artigo (Estado da Arte, lacuna científica) | 15 |
-| **Sprint 3** | **16/09 – 01/10** | **CRUD receitas + contrato temp/iodo + segredos** | **10** |
-| Sprint 4 | 01/10 – 16/10 | CRUD lotes + auth/IDOR + migrations + ESP32 + OpenCV + UML | ~40 |
-| Sprint 5 | 16/10 – 31/10 | Análises de iodo + frontend resultado + deploy | ~19 |
-| Sprint 6 | 31/10 – 15/11 | Relatório + alertas + frontend temp + **depósito PI 03/11** | ~10 |
-| Sprint 7 | 15/11 – 30/11 | Pitch + legendas + trilha + banner + **bancas 16–27/11** | ~4 |
+| **Sprint 3** | **16/09 – 01/10** | **CRUD receitas + contrato temp/iodo + segredos + branch protection** | **10** |
+| Sprint 4 | 01/10 – 16/10 | CRUD lotes + auth/IDOR + upload + frontend resultado + OpenCV (Could) | ~60 — recalcular na planning |
+| Sprint 5 | 16/10 – 31/10 | Análises de iodo (#1, #2, #3) + frontend resultado + deploy | ~26 |
+| Sprint 6 | 31/10 – 15/11 | Relatório + alertas + frontend temp + épicos #36/#57 + **depósito PI 03/11** | ~17+ |
+| Sprint 7 | 15/11 – 30/11 | Avaliação classificação (#65) + pitch + **bancas 16–27/11** | 13 |
 
 ### Ordem de execução por épico
 
@@ -68,12 +70,12 @@ Cada épico tem um comentário fixo no topo com a ordem de execução das suas s
 | Épico | Sprint | Link da ordem |
 |---|---|---|
 | [#30 — API REST do Mash](https://github.com/conloq/mash/issues/30) | S3–S5 | [Ordem](https://github.com/conloq/mash/issues/30#issuecomment-5720845904) |
-| [#36 — Contrato temperatura/iodo](https://github.com/conloq/mash/issues/36) | S4 | [Ordem](https://github.com/conloq/mash/issues/36#issuecomment-5720852657) |
-| [#12 — Frontend ↔ Backend](https://github.com/conloq/mash/issues/12) | S5–S6 | [Ordem](https://github.com/conloq/mash/issues/12#issuecomment-5720858568) |
-| [#34 — Análise OpenCV](https://github.com/conloq/mash/issues/34) | S4 | [Ordem](https://github.com/conloq/mash/issues/36#issuecomment-5720852657) |
+| [#36 — Contrato temperatura/iodo](https://github.com/conloq/mash/issues/36) | S6 | [Ordem](https://github.com/conloq/mash/issues/36#issuecomment-5720852657) |
+| [#12 — Frontend ↔ Backend](https://github.com/conloq/mash/issues/12) | S6 (filhas S4–S6) | [Ordem](https://github.com/conloq/mash/issues/12#issuecomment-5720858568) |
+| [#34 — Análise OpenCV](https://github.com/conloq/mash/issues/34) | S4 (Could — cortar primeiro) | [Ordem da #34](https://github.com/conloq/mash/issues/34) |
 | [#37 — Artefatos do PI](https://github.com/conloq/mash/issues/37) | S4–S6 | [Ordem](https://github.com/conloq/mash/issues/37#issuecomment-5720861684) |
-| [#56 — Artigo Científico](https://github.com/conloq/mash/issues/56) | Contínuo | [Ordem](https://github.com/conloq/mash/issues/56#issuecomment-5720849209) |
-| [#57 — Pitch do Mash](https://github.com/conloq/mash/issues/57) | S7 | [Ordem](https://github.com/conloq/mash/issues/57#issuecomment-5720868314) |
+| [#56 — Artigo Científico](https://github.com/conloq/mash/issues/56) | S5 (In progress) | [Ordem](https://github.com/conloq/mash/issues/56#issuecomment-5720849209) |
+| [#57 — Pitch do Mash](https://github.com/conloq/mash/issues/57) | S6 (filhas S6–S7) | [Ordem](https://github.com/conloq/mash/issues/57#issuecomment-5720868314) |
 
 ### Regras de ouro antes de puxar uma issue
 
@@ -132,10 +134,10 @@ Feature, Bug, Improvement, Research, Documentation, Design, Test
 ## Convenção de commits
 
 ```text
-<tipo>: descrição curta da alteração
+<tipo>(<escopo>)?: descrição curta da alteração
 ```
 
-Tipos: `feat`, `fix`, `refactor`, `test`, `docs`, `style`, `chore`.
+Tipos: `feat`, `fix`, `refactor`, `test`, `docs`, `style`, `chore`, `build`, `ci`, `perf`, `revert`.
 
 ### Regras
 
@@ -145,6 +147,7 @@ Tipos: `feat`, `fix`, `refactor`, `test`, `docs`, `style`, `chore`.
 - Relacionar à issue quando aplicável
 - Evitar misturar frentes diferentes
 - Revisar e testar antes de commit
+- **Nunca commitar direto na `main`** — branch própria + PR + peer review
 
 ## Decisões técnicas relevantes
 
@@ -153,23 +156,29 @@ Tipos: `feat`, `fix`, `refactor`, `test`, `docs`, `style`, `chore`.
 | Migração para API REST | Em andamento | #30 |
 | JWT vs session | JWT (implementado no Back-End) | #38 |
 | Argon2id vs bcrypt | Argon2id (implementado no Back-End) | #38 |
-| Migrations vs sync() | Migrations (a implementar) | #40 |
-| Padrão HTTP de erros | Sucesso `{ message }`, erro `{ error }`, `204` sem corpo no DELETE (padrão aula-05) | #30, #41 |
+| Migrations vs sync() | **Resolvido: SEM migrations** — `Model.sync({ force: false })` no startup (#40 fechada como not_planned) | #40 |
+| Padrão de resposta | Sucesso `{ "message": "..." }`, erro `{ "error": "..." }` — string direta, **mensagens sempre em pt-BR** (base aula-05 DW3); `204` sem corpo no DELETE | #30, #41 |
+| Portas | Frontend **4000** / API **8080** — nunca a mesma (decisão 19/09) | #6, #66 |
 | Nomenclatura da API | EN + camelCase (`users`, `recipes`, `lots`, `analyses`) — Opção A aprovada | #30 |
 | Resultado da análise (enum) | `PASSED` / `FAILED` / `null` | #34 |
 | Espaço de cor (HSV vs CIELab) | Ambos (a definir na bancada) | #42 |
-| Tempo real (polling/SSE/WS) | A definir pela equipe | #36 |
+| Tempo real (polling/SSE/WS) | **Resolvido: re-render server-side** — sem `fetch()` no browser nem WebSocket, salvo exceção aprovada | #36, #8 |
 | Credencial de dispositivo IoT | Revogável, própria | #36 |
 | IA generativa no classificador | NÃO decide o resultado | #34 |
 | Database `cervejaria` vs `mash` | ⚠️ Divergente — unificar na migração | #30 |
 | Tabela `usuarios` vs `users` | Resolvido — tabela `users` (padrão do Back-End) | #30 |
+| #4 relatório consolidado | Resolvido — #4 fechada como duplicata de #64 (19/09) | #64 |
+| #2 reprocessamento | Reaberta intencionalmente (19/08) — Sprint 5 | #2 |
 
 ## Bugs conhecidos (código real)
 
 | Bug | Local | Issue |
 |---|---|---|
 | ~~ReferenceError (`id` usado antes de declarar)~~ — corrigido no código | Back-End `recipeController.js` | #32 |
-| `createRecipe()` vazio | Back-End `recipeService.js` | #32 |
-| Sem CRUD completo de receita (só GET list) | Back-End `recipeRoutes.js` | #32 |
-| ~~API key Context7 versionada~~ — removida via [frontend#1](https://github.com/conloq/frontend/pull/1) | frontend `opencode.json` | #54 |
+| ~~`createRecipe()` vazio~~ — implementado em 18/09 (commit 159c1ce) | Back-End `recipeService.js` | #32 |
+| ~~Sem CRUD completo de receita~~ — CRUD completo funcional (commits 159c1ce→2981318) | Back-End `recipeRoutes.js` | #32 |
+| Rotas ainda em `/receitas` — migrar para `/recipes` (breaking para o frontend #58) | Back-End `recipeRoutes.js` | #32 |
+| 409 "Receita já existe" ausente no createRecipe | Back-End `recipeService.js` | #32 |
+| ~~API key Context7 versionada~~ — removida via [frontend#1](https://github.com/conloq/frontend/pull/1); **rotação da chave pendente de confirmação** | frontend `opencode.json` | #54 |
 | Credenciais hardcoded | mash `sequelize-config.js`, `session.js` | #39 |
+| `.env.example` inexistente em Back-End e mash; boot não valida env obrigatória | Back-End, mash | #39 (fechamento em revisão) |
