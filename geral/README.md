@@ -72,7 +72,7 @@ Cada épico tem um comentário fixo no topo com a ordem de execução das suas s
 | [#30 — API REST do Mash](https://github.com/conloq/mash/issues/30) | S3–S5 | [Ordem](https://github.com/conloq/mash/issues/30#issuecomment-5720845904) |
 | [#36 — Contrato de iodo](https://github.com/conloq/mash/issues/36) | S6 | [Ordem](https://github.com/conloq/mash/issues/36#issuecomment-5720852657) |
 | [#12 — Frontend ↔ Backend](https://github.com/conloq/mash/issues/12) | S6 (filhas S4–S6) | [Ordem](https://github.com/conloq/mash/issues/12#issuecomment-5720858568) |
-| [#34 — Análise OpenCV](https://github.com/conloq/mash/issues/34) | S7 (Could — pós-depósito) | [Ordem da #34](https://github.com/conloq/mash/issues/34) |
+| [#34 — Análise OpenCV](https://github.com/conloq/mash/issues/34) | S7 (Could — pós-depósito) | [Ordem](https://github.com/conloq/mash/issues/34) |
 | [#37 — Artefatos do PI](https://github.com/conloq/mash/issues/37) | S4–S6 | [Ordem](https://github.com/conloq/mash/issues/37#issuecomment-5720861684) |
 | [#56 — Artigo Científico](https://github.com/conloq/mash/issues/56) | S5 (In progress) | [Ordem](https://github.com/conloq/mash/issues/56#issuecomment-5720849209) |
 | [#57 — Pitch do Mash](https://github.com/conloq/mash/issues/57) | S6 (filhas S6–S7) | [Ordem](https://github.com/conloq/mash/issues/57#issuecomment-5720868314) |
@@ -185,4 +185,4 @@ Tipos: `feat`, `fix`, `refactor`, `test`, `docs`, `style`, `chore`, `build`, `ci
 | `res.status(204)` sem `send()` no delete (resposta não encerra) | Back-End `recipeController.js` e `userController.js` | #32 |
 | ~~API key Context7 versionada~~ — removida via [frontend#1](https://github.com/conloq/frontend/pull/1); **rotação da chave pendente de confirmação** | frontend `opencode.json` | #54 |
 | Credenciais hardcoded | mash `sequelize-config.js`, `session.js` | #39 |
-| `.env.example` inexistente em Back-End e mash; boot não valida env obrigatória | Back-End, mash | #39 (fechamento em revisão) |
+| `.env.example` inexistente em Back-End e mash; boot não valida env obrigatória | Back-End, mash | #39 (fechada em 19/09; evidência dos critérios restantes pendente) |
