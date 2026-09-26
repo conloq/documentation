@@ -123,7 +123,7 @@ Conforme issues #31, #1, #2 e #36, o schema será expandido para incluir:
 |---|---|---|---|
 | `lotes` | #31 | `/lots` | CRUD de lotes vinculados a receitas |
 | `analises` | #1 | `/analyses/:id` | Entidade de análise do teste de iodo |
-| `analysis_execucoes` | #2 | `/analyses/:id/reprocess` | Execuções de reprocessamento |
+| `analysis_executions` | #2 | `/analyses/:id/reprocess` | Execuções de reprocessamento |
 | `evaluations` | #5 | `/evaluations` (não `/avaliacoes`) | Avaliação reproduzível com conjunto de referência |
 | `leituras_temperatura` | #45 | pós-depósito | Leituras de temperatura por lote (IoT) |
 | `dispositivos` | #46 | pós-depósito | Credenciais de dispositivos IoT |
