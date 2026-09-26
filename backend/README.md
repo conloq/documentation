@@ -2,7 +2,7 @@
 
 Documentação da área Backend do projeto Mash.
 
-> **Sincronizado em 20/09** com o estado real do código (commits 159c1ce→2981318) e as decisões vigentes (#30, #32, #66).
+> **Sincronizado em 26/09** com o estado real do código (`conloq/Back-End` @ `827cef7`) e as decisões vigentes (#30, #32, #66).
 
 ## Repositórios
 
@@ -18,7 +18,7 @@ Documentação da área Backend do projeto Mash.
 - **Autenticação:** express-session (cookie `connect.sid`, 7 dias) + SequelizeStore (MySQL)
 - **Identidade:** `req.session.userId`
 - **Porta:** 8080
-- **Sem migrations:** por decisão (#40 not_planned) — Models sincronizados via `.sync({force: false})` no startup
+- **Sem migrations no runtime:** #40 está fechada como not_planned; a estratégia vigente é `.sync({ force: false })` no startup.
 
 ## Arquitetura da migração (Back-End — código real)
 
@@ -28,16 +28,18 @@ Documentação da área Backend do projeto Mash.
 - **Upload:** Multer memoryStorage → Cloudinary
 - **Credenciais:** Via `.env` (dotenv) — `DB_HOST`, `DB_USERNAME`, `DB_PASSWORD`, `DB_DATABASE`, `JWT_SECRET_KEY`, `CLOUD_NAME`, `API_KEY_CLOUDINARY`, `API_SECRET_KEY_CLOUDINARY`
 - **Database:** `mash` (⚠️ diferente de `cervejaria` do mash original)
-- **Tabela usuário:** `users` (name, email, fone, password, url_image) — ⚠️ diferente de `usuarios` do mash
+- **Tabela usuário:** `Users` (name, email, fone, password, url_image) — ⚠️ diferente de `usuarios` do mash
 - **Foreign key:** `user_id` (⚠️ diferente de `usuario_id` do mash)
+- **Banco:** runtime vigente é `Connection.sync()` em `app.js`. A pasta `migrations/` existe (decisão 26/09), mas os arquivos atuais **não são executáveis** — não usar; trabalho de schema/migration tem issue própria.
+- **Naming:** JSON em camelCase (DTO na borda); colunas físicas snake_case. ⚠️ Não ativar `define: { underscored: true }` globalmente: ele renomeia também `createdAt`/`updatedAt` e FKs automáticas do schema existente.
 
 ## Padrão de resposta (decisão da equipe — base aula-05 DW3)
 
-- Sucesso: `{ "message": "..." }` (com `"data"` quando houver dados)
+- Sucesso sem entidade: `{ "message": "..." }`; com entidade: `{ "message": "...", "<singular>": { ... } }`; listagem: `{ "<plural>": [ ... ] }`; detalhe: `{ "<singular>": { ... } }`
+- **Sem wrapper genérico `data` em nenhuma rota.**
 - Erro: `{ "error": "mensagem em pt-BR" }` — string direta, **sem código interno**
-- DELETE: `204` sem corpo
+- DELETE: `204` sem corpo, com `res.sendStatus(204)`
 - **Mensagens sempre em pt-BR** — o frontend exibe o texto da API sem traduzir
-- Implementado e verificado nos commits 922e6eb ("Mensagens em pt-br") e 2981318 ("Trocando messages por error")
 
 ## Rotas HTTP (Back-End — código real)
 
@@ -52,14 +54,21 @@ Documentação da área Backend do projeto Mash.
 | GET | `/receitas` | authMiddleware | Listar receitas do usuário |
 | POST | `/receitas` | authMiddleware | Criar receita (201) |
 | PUT | `/receitas/:id` | authMiddleware | Atualizar receita |
-| DELETE | `/receitas/:id` | authMiddleware | Deletar receita (204) |
+| DELETE | `/receitas/:id` | authMiddleware | Deletar receita (⚠️ 204 sem encerrar no código atual) |
+| POST | `/receitas/temperatura/:recipe_id` | authMiddleware | Config de temperatura por receita (⚠️ fora do padrão; a temperatura por lote ficará para o pós-depósito) |
 | GET | `/api-docs` | — | Documentação Swagger |
+| GET | `/recipes/:id` | — | **Não existe no código** — pendência da #32 |
+
+> Nota de migração: o contrato vigente (#30/#32) define `/recipes` (inglês). O código ainda usa `/receitas` — a correção é breaking para o frontend (#58) e faz parte do hotfix da #32.
 
 ## Pendências da revisão da #32 (CRUD receitas — In review)
 
-1. **Rotas em inglês:** código usa `/receitas`; contrato da #30 define `/recipes` — ⚠️ breaking change para o frontend (#58)
-2. **409 ausente:** contrato prevê `409 { "error": "Receita já existe" }`; não há verificação de duplicata
-3. **Testes:** escopo da #41 (`npm test` ainda sem suíte)
+1. **Rota `GET /recipes/:id` ausente** — só existem 4 rotas; falta o detalhe da receita.
+2. **Rotas em inglês:** código usa `/receitas`; contrato define `/recipes` — breaking para o frontend (#58).
+3. **409 ausente:** contrato prevê `409 { "error": "Receita já existe" }`; não há verificação de duplicata.
+4. **204 sem encerrar na exclusão:** `res.status(204)` sem `send()` — corrigir para `res.sendStatus(204)`.
+5. **Testes:** escopo da #41 (`npm test` ainda sem suíte).
+6. **Contrato sem `description`:** a #32 não exige mais `description` (decisão 26/09).
 
 ## Models Sequelize (mash)
 
@@ -105,26 +114,27 @@ Receita (receitas)
 
 ## Issues ativas (Backend)
 
-| Issue | Título | Prioridade | Status (19/09) |
+| Issue | Título | Prioridade | Status (26/09) |
 |---|---|---|---|
 | #30 | Migrar gradualmente para a API REST | Urgent | In progress |
 | #31 | Implementar CRUD de lotes | Urgent | Ready (S4) |
-| #32 | Corrigir CRUD de receitas | Urgent | In review (S3) |
+| #32 | Corrigir CRUD de receitas | Urgent | In review (S3) — contrato atualizado em 26/09 (sem `description`) |
 | #33 | Implementar upload da imagem do teste de iodo | High | Backlog (S4) |
-| #34 | Implementar análise do teste de iodo com OpenCV | Low | Backlog (S4, Could) |
-| #36 | Definir contrato de configurações de temperatura e teste de iodo | Urgent | Backlog (S6) |
+| #34 | Implementar análise do teste de iodo com OpenCV | Low | Backlog (S4, Could) — fora do depósito |
+| #36 | Definir contrato de configurações de temperatura e teste de iodo | Urgent | Aguardando #60 (contrato é de iodo em 26/09) |
 | #38 | Corrigir autenticação e autorização | Urgent | Ready (S4) |
-| #39 | Proteger segredos | High | In review (fechamento contestado — 3 checkboxes abertos) |
+| #39 | Proteger segredos | High | Fechada; rotação Context7 com o PO |
 | #41 | Criar testes e padrão HTTP | Urgent | Ready (S4) |
-| #60 | Documentar contrato de temperatura e teste de iodo (desbloqueador) | Urgent | Ready (S3) |
+| #60 | Documentar contrato de análise de iodo (desbloqueador) | Urgent | Ready (S3) — escopo revisto em 26/09 |
 
-> **#40 (migrations) foi FECHADA como not_planned** — não haverá migrations; `Model.sync()` é a estratégia definitiva. Não listá-la como ativa.
+> **#40 (migrations) permanece FECHADA como not_planned.** Em 26/09 o time decidiu manter os arquivos existentes em `migrations/`, mas sem executá-los; o runtime vigente é `Connection.sync()` e qualquer nova migration exige issue própria.
 
 ## Pontos de atenção
 
 1. **Credenciais hardcoded** em `config/sequelize-config.js` e `config/session.js` (mash) — #39
-2. **`.env.example` inexistente** em Back-End e mash; boot não valida env obrigatória — #39 (fechamento em revisão)
+2. **`.env.example` inexistente** em Back-End e mash; boot não valida env obrigatória — #39
 3. **Sem testes** — `npm test` retorna erro — #41
-4. **Sem migrations** — por decisão (#40 not_planned), `.sync()` no startup é vigente
-5. **Middleware inconsistente** — algumas rotas POST não têm `isLogado`
+4. **Migrations presentes mas inutilizáveis** (`migrations/` do Back-End); runtime vigente é `Connection.sync()`
+5. **Middleware inconsistente** — algumas rotas POST do mash não têm `isLogado`
 6. **Geolocalização externa** — `loginController.js` chama `ip-api.com` no login
+7. **Branch protection do Back-End:** repo privado + plano free impedem proteção nativa — fluxo branch+PR manual até decisão do time
