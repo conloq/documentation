@@ -123,7 +123,7 @@ Receita (receitas)
 | #34 | Implementar análise do teste de iodo com OpenCV | Low | Backlog (S4, Could) — fora do depósito |
 | #36 | Definir contrato de configurações de temperatura e teste de iodo | Urgent | Aguardando #60 (contrato é de iodo em 26/09) |
 | #38 | Corrigir autenticação e autorização | Urgent | Ready (S4) |
-| #39 | Proteger segredos | High | Fechada; rotação Context7 com o PO |
+| #39 | Proteger segredos | High | Fechada em 19/09 com 3 checkboxes sem evidência (fechamento contestado); rotação Context7 pendente — #54 |
 | #41 | Criar testes e padrão HTTP | Urgent | Ready (S4) |
 | #60 | Documentar contrato de análise de iodo (desbloqueador) | Urgent | Ready (S3) — escopo revisto em 26/09 |
 
