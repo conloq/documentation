@@ -114,18 +114,18 @@ Receita (receitas)
 
 ## Issues ativas (Backend)
 
-| Issue | Título | Prioridade | Status (26/09) |
+| Issue | Título | Prioridade | Estado (27/09) |
 |---|---|---|---|
 | #30 | Migrar gradualmente para a API REST | Urgent | In progress |
-| #31 | Implementar CRUD de lotes | Urgent | Ready (S4) |
-| #32 | Corrigir CRUD de receitas | Urgent | In review (S3) — contrato atualizado em 26/09 (sem `description`) |
-| #33 | Implementar upload da imagem do teste de iodo | High | Backlog (S4) |
-| #34 | Implementar análise do teste de iodo com OpenCV | Low | Backlog (S4, Could) — fora do depósito |
-| #36 | Definir contrato de configurações de temperatura e teste de iodo | Urgent | Aguardando #60 (contrato é de iodo em 26/09) |
-| #38 | Corrigir autenticação e autorização | Urgent | Ready (S4) |
-| #39 | Proteger segredos | High | Fechada em 19/09 com 3 checkboxes sem evidência (fechamento contestado); rotação Context7 pendente — #54 |
-| #41 | Criar testes e padrão HTTP | Urgent | Ready (S4) |
-| #60 | Documentar contrato de análise de iodo (desbloqueador) | Urgent | Ready (S3) — escopo revisto em 26/09 |
+| #31 | Implementar CRUD de lotes | Urgent | Ready (S4, Haimon) |
+| #32 | Corrigir CRUD de receitas | Urgent | In review (S3) |
+| #33 | Implementar upload da imagem do teste de iodo | High | Backlog (S5, Haimon) |
+| #34 | Implementar análise do teste de iodo com OpenCV | Low | Backlog (S7, pós-depósito) |
+| #36 | Contrato de iodo e temperatura futura | Urgent | Aguardando #60; temperatura fica pós-depósito |
+| #38 | Corrigir autenticação e autorização | Urgent | Ready (S4, João) |
+| #39 | Proteger segredos | High | Fechada/Done; evidência de três critérios continua contestada |
+| #41 | Criar testes e padrão HTTP | Urgent | Ready (S4, João) |
+| #60 | Documentar contrato de análise de iodo | Urgent | Ready (S3, João) |
 
 > **#40 (migrations) permanece FECHADA como not_planned.** Em 26/09 o time decidiu manter os arquivos existentes em `migrations/`, mas sem executá-los; o runtime vigente é `Connection.sync()` e qualquer nova migration exige issue própria.
 
