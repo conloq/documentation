@@ -16,24 +16,30 @@ Documentação do banco de dados do projeto Mash.
 
 ## ⚠️ Divergência de schema: mash vs Back-End
 
-Os dois backends usam **databases e tabelas diferentes**:
+Os dois backends usam **databases e tabelas diferentes**. A migração (#30) unifica o schema conforme as decisões abaixo.
 
 | Aspecto | mash (original) | Back-End (migração) |
 |---|---|---|
 | Database | `cervejaria` | `mash` |
-| Tabela usuário | `usuarios` (nome, email, telefone, senha, url_imagem) | `users` (name, email, fone, password, url_image) |
+| Tabela usuário | `usuarios` (nome, email, telefone, senha, url_imagem) | `Users` (name, email, fone, password, url_image) |
 | Tabela receita | `receitas` (nome, usuario_id) | `receitas` (nome, user_id) |
 | FK receita | `usuario_id` | `user_id` |
-| Tabelas temperatura/iodo/log | ✅ Existem | ❌ Não existem ainda |
+| Temperatura no Back-End | ✅ implementação parcial (`Temperatures` + POST por receita) | ⚠️ existe, mas está fora do padrão por lote e fora do depósito |
+| Iodo e histórico de login no Back-End | ✅ Existem no app legado | ❌ não existem na API nova |
 | Credenciais | Hardcoded no código | Via `.env` (dotenv) |
 
-**Impacto:** a migração (#30) precisa unificar o schema. As issues #31 (lotes) e #40 (migrations) devem resolver qual database/tabela é a fonte da verdade.
+## Decisões vigentes (26/09)
+
+- **Colunas físicas em snake_case**; o contrato JSON da API é camelCase. A tradução é feita na borda via DTO/serialização — **não** existe `underscored: true` global (a opção renomearia também `createdAt`, `updatedAt` e FKs automáticas do schema existente e corromperia o banco).
+- **Runtime atual:** `Connection.sync()` no startup do Back-End (`app.js`), decisão #40 mantida como not_planned.
+- **A pasta `migrations/` existe, mas os arquivos atuais não são executáveis de forma segura** (migration de receita vazia; `DataTypes` sem import; `down()` da temperatura derruba a tabela errada). Nenhuma migration é executada até uma issue de banco revisá-las em branch + PR com teste de banco vazio.
+- **`collectedTemperature` na análise de iodo é dado declarado manualmente** (decisão D5=A em 26/09) até a cadeia de temperatura por dispositivo (#45–#48) voltar ao escopo.
 
 ## Arquivos
 
 | Arquivo | Descrição |
 |---|---|
-| `mash.sql` | Script SQL completo (CREATE DATABASE + todas as tabelas) |
+| `mash.sql` | Script SQL completo (CREATE DATABASE + todas as tabelas do app legado) |
 | `diagrama_mer_mash.mmd` | Diagrama MER em formato Mermaid |
 | `README.md` | Documentação detalhada do schema |
 
@@ -108,16 +114,17 @@ Todas as tabelas possuem `createdAt` e `updatedAt` (timestamps do Sequelize não
 - Credenciais não devem ser mantidas no código. Use variáveis de ambiente.
 - Configuração atual: `host: localhost, username: root, password: '', database: cervejaria`.
 - Model Sequelize `Historico_Login` gera tabela `Historico_Logins` (pluralização automática).
+- O SQL documenta o **app legado**. O schema oficial do Back-End vigente é o que `Connection.sync()` gera a partir dos models (`Users`, `receitas`, `Temperatures`).
 
 ## Entidades futuras (propostas, não implementadas)
 
 Conforme issues #31, #1, #2 e #36, o schema será expandido para incluir:
 
-| Entidade | Issue | Descrição |
-|---|---|---|
-| `lotes` | #31 | CRUD de lotes vinculados a receitas |
-| `analises` | #1 | Entidade de análise do teste de iodo |
-| `analise_execucoes` | #2 | Execuções de reprocessamento |
-| `avaliacoes` | #5 | Avaliação reproduzível com conjunto de referência |
-| `leituras_temperatura` | #45 | Leituras de temperatura por lote (IoT) |
-| `dispositivos` | #46 | Credenciais de dispositivos IoT |
+| Entidade | Issue | Rotas esperadas | Descrição |
+|---|---|---|---|
+| `lotes` | #31 | `/lots` | CRUD de lotes vinculados a receitas |
+| `analises` | #1 | `/analyses/:id` | Entidade de análise do teste de iodo |
+| `analysis_executions` | #2 | `/analyses/:id/reprocess` | Execuções de reprocessamento |
+| `evaluations` | #5 | `/evaluations` (não `/avaliacoes`) | Avaliação reproduzível com conjunto de referência |
+| `leituras_temperatura` | #45 | pós-depósito | Leituras de temperatura por lote (IoT) |
+| `dispositivos` | #46 | pós-depósito | Credenciais de dispositivos IoT |
