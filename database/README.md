@@ -24,7 +24,8 @@ Os dois backends usam **databases e tabelas diferentes**. A migração (#30) uni
 | Tabela usuário | `usuarios` (nome, email, telefone, senha, url_imagem) | `Users` (name, email, fone, password, url_image) |
 | Tabela receita | `receitas` (nome, usuario_id) | `receitas` (nome, user_id) |
 | FK receita | `usuario_id` | `user_id` |
-| Tabelas temperatura/iodo/log | ✅ Existem | ❌ Não existem ainda |
+| Temperatura no Back-End | ✅ implementação parcial (`Temperatures` + POST por receita) | ⚠️ existe, mas está fora do padrão por lote e fora do depósito |
+| Iodo e histórico de login no Back-End | ✅ Existem no app legado | ❌ não existem na API nova |
 | Credenciais | Hardcoded no código | Via `.env` (dotenv) |
 
 ## Decisões vigentes (26/09)

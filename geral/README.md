@@ -25,10 +25,10 @@ O Mash propõe uma plataforma para apoiar pequenos produtores de cerveja artesan
 
 | Integrante | Área |
 |---|---|
-| João Alexandre Pinto Camargo | Backend |
+| João Alexandre Pinto Camargo | Backend e deploy da API |
 | Jocieli Pontes Domingues da Silva | Artigo e documentação |
 | Kevin da Silva Oliveira | Design |
-| Haimon Cugler Vieira | Frontend |
+| Haimon Cugler Vieira | Frontend, Backend e gestão do projeto |
 
 ## ODS (Objetivos de Desenvolvimento Sustentável)
 
@@ -57,11 +57,11 @@ Este é o documento de referência para saber **a ordem de execução das issues
 |---|---|---|---|
 | Sprint 1 | 10/08 – 01/09 | Base do projeto + artigo (fundamentação inicial) | 11 |
 | Sprint 2 | 01/09 – 16/09 | Artigo (Estado da Arte, lacuna científica) | 15 |
-| **Sprint 3** | **16/09 – 01/10** | **CRUD receitas + contrato de iodo + segredos + branch protection** | **10** |
-| Sprint 4 | 01/10 – 16/10 | CRUD lotes + testes HTTP + infra (CORS) + auth/IDOR + trabalho de banco (nova issue) | ~17 |
-| Sprint 5 | 16/10 – 31/10 | Análises de iodo (#1, #2, #3) + upload (#33) + frontend resultado + deploy | ~13 |
-| Sprint 6 | 31/10 – 15/11 | Histórico (#3) + pacote de depósito (#63) + **depósito PI 03/11** | ~17+ |
-| Sprint 7 | 15/11 – 30/11 | Relatório consolidado (#59/#64) + OpenCV + avaliação (#65) + pitch + **bancas 16–27/11** | 13 |
+| **Sprint 3** | **16/09 – 01/10** | **CRUD receitas + contrato de iodo + branch protection** | **14** |
+| Sprint 4 | 01/10 – 16/10 | Testes HTTP e IDOR (João) + lotes e wizard (Haimon) | 21+ |
+| Sprint 5 | 16/10 – 31/10 | Consulta/upload de iodo, telas e deploy #68/#69 | 19+ |
+| Sprint 6 | 31/10 – 15/11 | Histórico básico + integração + **depósito PI 03/11** | janela útil de 3 dias |
+| Sprint 7 | 15/11 – 30/11 | Reprocessamento, relatório, OpenCV, temperatura, avaliação, pitch e banca | pós-depósito |
 
 ### Ordem de execução por épico
 
@@ -69,13 +69,13 @@ Cada épico tem um comentário fixo no topo com a ordem de execução das suas s
 
 | Épico | Sprint | Link da ordem |
 |---|---|---|
-| [#30 — API REST do Mash](https://github.com/conloq/mash/issues/30) | S3–S5 | [Ordem](https://github.com/conloq/mash/issues/30#issuecomment-5720845904) |
-| [#36 — Contrato de iodo](https://github.com/conloq/mash/issues/36) | S6 | [Ordem](https://github.com/conloq/mash/issues/36#issuecomment-5720852657) |
-| [#12 — Frontend ↔ Backend](https://github.com/conloq/mash/issues/12) | S6 (filhas S4–S6) | [Ordem](https://github.com/conloq/mash/issues/12#issuecomment-5720858568) |
-| [#34 — Análise OpenCV](https://github.com/conloq/mash/issues/34) | S7 (Could — pós-depósito) | [Ordem](https://github.com/conloq/mash/issues/34) |
+| [#30 — API REST do Mash](https://github.com/conloq/mash/issues/30) | S3–S7 | [Ordem](https://github.com/conloq/mash/issues/30#issuecomment-5720845904) |
+| [#36 — Contrato de iodo](https://github.com/conloq/mash/issues/36) | S3/S7 | [Ordem](https://github.com/conloq/mash/issues/36#issuecomment-5720852657) |
+| [#12 — Frontend ↔ Backend](https://github.com/conloq/mash/issues/12) | S4–S6 | [Ordem](https://github.com/conloq/mash/issues/12#issuecomment-5720858568) |
+| [#34 — Análise OpenCV](https://github.com/conloq/mash/issues/34) | S7 | [Ordem](https://github.com/conloq/mash/issues/34) |
 | [#37 — Artefatos do PI](https://github.com/conloq/mash/issues/37) | S4–S6 | [Ordem](https://github.com/conloq/mash/issues/37#issuecomment-5720861684) |
-| [#56 — Artigo Científico](https://github.com/conloq/mash/issues/56) | S5 (In progress) | [Ordem](https://github.com/conloq/mash/issues/56#issuecomment-5720849209) |
-| [#57 — Pitch do Mash](https://github.com/conloq/mash/issues/57) | S6 (filhas S6–S7) | [Ordem](https://github.com/conloq/mash/issues/57#issuecomment-5720868314) |
+| [#56 — Artigo Científico](https://github.com/conloq/mash/issues/56) | S5 | [Ordem](https://github.com/conloq/mash/issues/56#issuecomment-5720849209) |
+| [#57 — Pitch do Mash](https://github.com/conloq/mash/issues/57) | S6–S7, pós-depósito | [Ordem](https://github.com/conloq/mash/issues/57#issuecomment-5720868314) |
 
 ### Regras de ouro antes de puxar uma issue
 
@@ -169,9 +169,9 @@ Tipos: `feat`, `fix`, `refactor`, `test`, `docs`, `style`, `chore`, `build`, `ci
 | Tabela `usuarios` vs `users` | Resolvido — tabela `Users` (padrão do Back-End) | #30 |
 | JSON vs colunas físicas | JSON camelCase na borda; colunas físicas snake_case. Não usar `underscored: true` global (26/09) | #30, #66 |
 | `collectedTemperature` | Dado declarado manualmente pelo operador no upload — leitura automática por dispositivo fica pós-depósito (26/09) | #33, #36 |
-| Scope do depósito (03/11) | 14 rotas em 6 grupos (receitas, lotes, upload, consulta, reprocessamento condicional, histórico); temperatura/alertas, OpenCV, relatório consolidado e avaliações fora (26/09) | #66 |
-| #4 relatório consolidado | Resolvido — #4 fechada como duplicata de #64 (19/09); a #64 está fora do depósito (D7 — pendente PO) | #64 |
-| #2 reprocessamento | Reaberta intencionalmente (19/08); reescopo sem OpenCV pendente de confirmação (26/09) — #2 | #2 |
+| Escopo do depósito (03/11) | 13 rotas em 5 grupos: receitas, lotes, upload, consulta e histórico básico; temperatura/alertas, OpenCV, reprocessamento, relatório e avaliações ficam pós-depósito | #66 |
+| #4 relatório consolidado | #4 fechada como duplicata de #64; #59/#64 estão fora do depósito e na S7 | #64, #66 |
+| #2 reprocessamento | Reaberta intencionalmente, mas movida para S7; não bloqueia o histórico básico da #3 | #2, #3, #66 |
 
 ## Bugs conhecidos (código real)
 
