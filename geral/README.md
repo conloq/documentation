@@ -159,7 +159,7 @@ Tipos: `feat`, `fix`, `refactor`, `test`, `docs`, `style`, `chore`, `build`, `ci
 | Migrations vs sync() | Runtime vigente: `Connection.sync()` no startup. Pasta `migrations/` existe (26/09) mas os arquivos não são executáveis; nova migration só com issue própria | #40 (fechada), #66 |
 | Padrão de resposta | Sucesso `{ "message": "..." }` (+ entidade no singular/plural quando aplicável), erro `{ "error": "..." }` — string direta, **mensagens sempre em pt-BR** (base aula-05 DW3); `204` sem corpo no DELETE. **Sem wrapper `data`** (26/09) | #30, #41, #66 |
 | Portas | Frontend **4000** / API **8080** — nunca a mesma (decisão 19/09) | #6, #66 |
-| Nomenclatura da API | EN + camelCase; coleção plural (`/recipes`, `/lots`, `/analyses`), recurso único singular (`/user`), `login` à parte | #30, #66 |
+| Nomenclatura da API | EN snake_case em rotas, tabelas, colunas e payload; coleção plural (`/recipes`, `/lots`, `/analyses`), recurso único singular (`/user`), `login` à parte; parâmetro `:id`; FK `<entidade>_id` | #30, #66 |
 | Resultado da análise (enum) | `PASSED` / `FAILED` / `null` | #34 |
 | Espaço de cor (HSV vs CIELab) | Ambos (a definir na bancada) | #42 |
 | Tempo real (polling/SSE/WS) | **Resolvido: re-render server-side** — sem `fetch()` no browser nem WebSocket, salvo exceção aprovada | #36, #8 |
@@ -167,7 +167,7 @@ Tipos: `feat`, `fix`, `refactor`, `test`, `docs`, `style`, `chore`, `build`, `ci
 | IA generativa no classificador | NÃO decide o resultado | #34 |
 | Database `cervejaria` vs `mash` | ⚠️ Divergente — unificar na migração, trabalho de banco com issue própria | #30 |
 | Tabela `usuarios` vs `users` | Resolvido — tabela `Users` (padrão do Back-End) | #30 |
-| JSON vs colunas físicas | JSON camelCase na borda; colunas físicas snake_case. Não usar `underscored: true` global (26/09) | #30, #66 |
+| Payload vs colunas | Mesma nomenclatura: o payload usa o nome da coluna, sem camada de tradução. Colunas em português viram inglês (`nome`→`name`, `fone`→`phone`); `receitas`→`recipes`. Não usar `underscored: true` global (28/09) | #30, #66 |
 | `collectedTemperature` | Dado declarado manualmente pelo operador no upload — leitura automática por dispositivo fica pós-depósito (26/09) | #33, #36 |
 | Escopo do depósito (03/11) | 13 rotas em 5 grupos: receitas, lotes, upload, consulta e histórico básico; temperatura/alertas, OpenCV, reprocessamento, relatório e avaliações ficam pós-depósito | #66 |
 | #4 relatório consolidado | #4 fechada como duplicata de #64; #59/#64 estão fora do depósito e na S7 | #64, #66 |
