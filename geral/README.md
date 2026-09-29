@@ -74,7 +74,7 @@ Issues registradas no backlog como histórico, **não serão implementadas**: #2
 ### Apresentação na banca (16–27/11)
 
 - **Pitch apresentado na banca** — roteirização e ensaio na #62; atualizações de pitch (#25–#28) limitadas ao que demonstra o PI entregue.
-- **Banner (#29):** opcional, decisão do PM.
+- **Banner (#29):** entra — será produzido para a banca (decisão do PM, 29/09).
 - Demo ao vivo do fluxo entregue (`login → receita → lote → upload → consulta`) com vídeo gravado como plano B.
 
 ### Ordem de execução por épico
