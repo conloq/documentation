@@ -79,13 +79,13 @@ Ausência de soluções integradas que unifiquem: (i) amostragem padronizada, (i
 | #16 | Fundamentar Visão Computacional aplicada ao teste de iodo | In review |
 | #17 | Documentar OpenCV, espaço de cor e parâmetros | In review |
 | #19 | Ampliar e registrar o Estado da Arte | Backlog |
-| #20 | Criar fluxograma rastreável do método | Ready |
+| #20 | Criar fluxograma rastreável do método | In review |
 | #21 | Planejar protocolo de validação experimental | In review |
 | #37 | Consolidar e manter os artefatos do Projeto de Software | Backlog |
 | #50 | Atualizar UML e MER | Backlog |
 | #51 | Atualizar documentação de infraestrutura | Backlog |
 | #52 | Completar Canvas e criar SWOT | Backlog |
-| #53 | Criar índice de artefatos e Diário de Bordo | Backlog |
+| #53 | Criar índice de artefatos e Diário de Bordo | Ready |
 
 ## Referências do artigo
 
