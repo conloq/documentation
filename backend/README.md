@@ -2,7 +2,7 @@
 
 Documentação da área Backend do projeto Mash.
 
-> **Sincronizado em 26/09** com o estado real do código (`conloq/Back-End` @ `827cef7`) e as decisões vigentes (#30, #32, #66).
+> **Sincronizado em 07/10** com o código (`conloq/Back-End` @ `32a6dab`; o último commit de código é de 24/09) e com as decisões vigentes (#30, #66). O contrato de cada rota está na issue correspondente.
 
 ## Repositórios
 
@@ -61,14 +61,16 @@ Documentação da área Backend do projeto Mash.
 
 > Nota de migração: o contrato vigente (#30/#32) define `/recipes` (inglês). O código ainda usa `/receitas` — a correção é breaking para o frontend (#58) e faz parte do hotfix da #32.
 
-## Pendências da revisão da #32 (CRUD receitas — In review)
+## Pendências da #32 (CRUD de receitas — Sprint 4, depois da #71)
 
 1. **Rota `GET /recipes/:id` ausente** — só existem 4 rotas; falta o detalhe da receita.
 2. **Rotas em inglês:** código usa `/receitas`; contrato define `/recipes` — breaking para o frontend (#58).
 3. **409 ausente:** contrato prevê `409 { "error": "Receita já existe" }`; não há verificação de duplicata.
 4. **204 sem encerrar na exclusão:** `res.status(204)` sem `send()` — corrigir para `res.sendStatus(204)`.
-5. **Testes:** escopo da #41 (`npm test` ainda sem suíte).
-6. **Contrato sem `description`:** a #32 não exige mais `description` (decisão 26/09).
+5. **404 único:** receita inexistente ou de outro usuário devolve o mesmo 404; hoje o código responde 400 e 403.
+6. **Validação:** manual, registrada em comentário na #41. Testes automatizados estão fora do escopo.
+7. **Contrato sem `description`:** a #32 não exige mais `description` (decisão 26/09).
+8. **Duplicidade:** o mesmo usuário não pode ter duas receitas com o mesmo nome, sem diferenciar maiúsculas (decisão 07/10).
 
 ## Models Sequelize (mash)
 
@@ -114,18 +116,23 @@ Receita (receitas)
 
 ## Issues ativas (Backend)
 
-| Issue | Título | Prioridade | Estado (27/09) |
+| Issue | Título | Prioridade | Estado (07/10) |
 |---|---|---|---|
 | #30 | Migrar gradualmente para a API REST | Urgent | In progress |
-| #31 | Implementar CRUD de lotes | Urgent | Ready (S4, Haimon) |
-| #32 | Corrigir CRUD de receitas | Urgent | In review (S3) |
-| #33 | Implementar upload da imagem do teste de iodo | High | Backlog (S5, Haimon) |
-| #34 | Implementar análise do teste de iodo com OpenCV | Low | Backlog (S7, pós-depósito) |
-| #36 | Contrato de iodo e temperatura futura | Urgent | Aguardando #60; temperatura fica pós-depósito |
-| #38 | Corrigir autenticação e autorização | Urgent | Ready (S4, João) |
-| #39 | Proteger segredos | High | Fechada/Done; evidência de três critérios continua contestada |
-| #41 | Criar testes e padrão HTTP | Urgent | Ready (S4, João) |
-| #60 | Documentar contrato de análise de iodo | Urgent | Ready (S3, João) |
+| #71 | Normalizar nomes de tabela e reconciliar o schema | High | Ready (S4, João) |
+| #31 | Implementar CRUD de lotes | High | Backlog (S5, João); aguarda #71 e #32 |
+| #32 | Corrigir CRUD de receitas | High | Backlog (S4, João); aguarda #71 |
+| #1 | Criar entidade e consulta de análise de iodo | High | Backlog (S5, Haimon); aguarda #31 |
+| #33 | Implementar upload da imagem do teste de iodo | Medium | Backlog (S5, Haimon); aguarda #1 e #31 |
+| #3 | Histórico de análises por lote | Medium | Backlog (S5, João); primeira a sair se o prazo apertar |
+| #34 | Implementar análise do teste de iodo com OpenCV | Low | Backlog, fora do depósito |
+| #36 | Contrato de iodo e temperatura futura | High | Backlog; temperatura fica pós-depósito |
+| #38 | Corrigir autenticação e autorização | High | Ready (S5, João); traz o contrato do login |
+| #39 | Proteger segredos | High | Ready (S5, João); entrega o `.env.example` usado no deploy |
+| #41 | Validar contrato HTTP e registrar evidências | High | Ready (S5, Haimon); validação manual |
+| #60 | Aprovar contrato de análise de iodo pelo frontend | High | Backlog (S5, Haimon); não bloqueia o backend |
+| #70 | Publicar contrato do CRUD de usuário | High | Ready (S5, João) |
+| #68 | Publicar API e MySQL | Medium | Backlog (S5, João); Railway |
 
 > **#40 (migrations) permanece FECHADA como not_planned.** Em 26/09 o time decidiu manter os arquivos existentes em `migrations/`, mas sem executá-los; o runtime vigente é `Connection.sync()` e qualquer nova migration exige issue própria.
 
@@ -133,7 +140,7 @@ Receita (receitas)
 
 1. **Credenciais hardcoded** em `config/sequelize-config.js` e `config/session.js` (mash) — #39
 2. **`.env.example` inexistente** em Back-End e mash; boot não valida env obrigatória — #39
-3. **Sem testes** — `npm test` retorna erro — #41
+3. **Sem testes automatizados, por decisão:** a validação é manual e fica registrada na #41
 4. **Migrations presentes mas inutilizáveis** (`migrations/` do Back-End); runtime vigente é `Connection.sync()`
 5. **Middleware inconsistente** — algumas rotas POST do mash não têm `isLogado`
 6. **Geolocalização externa** — `loginController.js` chama `ip-api.com` no login

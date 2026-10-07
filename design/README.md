@@ -69,8 +69,9 @@ As telas do sistema foram prototipadas no Figma. O frontend tem exportações em
 |---|---|---|---|
 | #23 | Adicionar ícones à seção de propósitos | High | Test |
 | #24 | Revisar o fluxo de criação de lote no Figma | Urgent | In progress |
-| #25 | Atualizar o pitch com demonstração do fluxo real | Medium | Ready |
-| #26 | Adicionar legendas em português ao pitch | Medium | Ready |
-| #27 | Adicionar trilha sonora ao pitch | Medium | Ready |
-| #28 | Demonstrar captura e envio da imagem no pitch | Medium | Ready |
-| #29 | Atualizar o banner do Mash | High | Ready |
+| #75 | Desenhar as telas de upload e de resultado do teste de iodo | High | Ready (Sprint 4); libera #60, #9 e #10 |
+| #25 | Atualizar o pitch com demonstração do fluxo real | Low | Backlog |
+| #26 | Adicionar legendas em português ao pitch | Low | Ready |
+| #27 | Adicionar trilha sonora ao pitch | Low | Ready |
+| #28 | Demonstrar captura e envio da imagem no pitch | Low | Backlog |
+| #29 | Atualizar o banner do Mash | Low | Ready |

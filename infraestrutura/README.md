@@ -48,7 +48,7 @@ A infraestrutura prevê execução de uma **aplicação Flask** (Python) no serv
 | Aspecto | Estado |
 |---|---|
 | CI/CD | `conloq/.github` tem workflow `mash-project-notifications.yml` (notificações de sprint) |
-| Testes automatizados | Não implementados (#41) |
-| Migrations | Não implementadas (#40) |
-| Deploy | Manual (sem pipeline de deploy) |
+| Testes automatizados | Fora do escopo; a validação é manual e fica registrada na #41 |
+| Migrations | Não usadas; o schema é criado por `Connection.sync()` (#40, #71) |
+| Deploy | Manual, no Railway: API e MySQL na #68, frontend na #69 |
 | Monitoramento | mash_project_notifier (Python, em .github) |
