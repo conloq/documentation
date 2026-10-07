@@ -49,19 +49,19 @@ A definir na issue #52 (sub-issue de #37).
 
 > **Issue central (fonte de verdade):** [conloq/mash#66](https://github.com/conloq/mash/issues/66) — 🗺️ Roteiro de Execução
 
-Este é o documento de referência para saber **a ordem de execução das issues, as metas de cada sprint e o que fazer a qualquer momento**. Atualizado pelo PO a cada sprint. **Os resumos abaixo são espelho — em caso de divergência, vale a #66.** Adições de 29/09: #70 (contrato CRUD de usuário, João, S4) e #71 (migrations como fonte de verdade, João, S4).
+Este é o documento de referência para saber **a ordem de execução das issues, as metas de cada sprint e o que fazer a qualquer momento**. Atualizado pelo PO a cada sprint. **Os resumos abaixo são espelho — em caso de divergência, vale a #66.** Atualização de 07/10: a #71 passou a tratar só dos nomes de tabela, com `Connection.sync()` mantido; a #70 foi para a Sprint 5; entraram a #74 (custos e orçamento, Kevin) e a #75 (design das telas de upload e resultado, Kevin); a #73 (navegação do frontend) ficou para depois do depósito.
 
 ### Sprints do semestre
 
-> ⚠️ Pontos de S4–S7 são provisórios: recalibrados na Sprint Review de 01/10 com a velocity real (histórica: 13 pts/sprint).
+> ⚠️ Sprints replanejadas em 07/10. A Sprint 5 concentra a maior carga, e o código congela em 30/10 para a Sprint 6 ficar só com a estabilização.
 
 | Sprint | Período | Foco | Pontos |
 |---|---|---|---|
 | Sprint 1 | 10/08 – 01/09 | Base do projeto + artigo (fundamentação inicial) | 11 |
 | Sprint 2 | 01/09 – 16/09 | Artigo (Estado da Arte, lacuna científica) | 15 |
 | **Sprint 3** | **16/09 – 01/10** | **CRUD receitas + contrato de iodo + branch protection** | **14** |
-| Sprint 4 | 01/10 – 16/10 | Testes HTTP e IDOR (João) + lotes e wizard (Haimon) | 21+ |
-| Sprint 5 | 16/10 – 31/10 | Consulta/upload de iodo, telas e deploy #68/#69 | 19+ |
+| Sprint 4 | 01/10 – 15/10 | Nomes de tabela e CRUD de receitas (João), login do frontend (Haimon), design das telas de iodo (Kevin) | 22 |
+| Sprint 5 | 16/10 – 30/10 | Lotes, autorização, consulta e upload de iodo, telas do fluxo e deploy #68/#69 | 50 no recorte do depósito |
 | Sprint 6 | 31/10 – 03/11 | Estabilização + **depósito do PI em 03/11** (Encerramento do PI — DSM) | janela de 3 dias |
 | **Pós-depósito** | 04/11 – 27/11 | **Sem desenvolvimento.** 04–16/11: período de correção do PI · 16–27/11: bancas (pitch apresentado na banca) | — |
 
@@ -170,24 +170,29 @@ Tipos: `feat`, `fix`, `refactor`, `test`, `docs`, `style`, `chore`, `build`, `ci
 | Migração para API REST | Em andamento | #30 |
 | JWT vs session | JWT (implementado no Back-End) | #38 |
 | Argon2id vs bcrypt | Argon2id (implementado no Back-End) | #38 |
-| Migrations vs sync() | **(a) Migrations como fonte de verdade (decisão 29/09)** — adicionar script + `.sequelizerc`, corrigir 5a–5e e remover o `sync()` do boot (`app.js:22`) | #71, #66 |
+| Migrations vs sync() | **`Connection.sync()` é o runtime** e as migrations existentes não são executadas. A decisão de 29/09 (migrations como fonte de verdade) foi revista em 07/10: os arquivos atuais estão incompletos e corrigi-los não entrega nenhuma rota do depósito | #71, #66 |
 | Padrão de resposta | Sucesso `{ "message": "..." }` (+ entidade no singular/plural quando aplicável), erro `{ "error": "..." }` — string direta, **mensagens sempre em pt-BR** (base aula-05 DW3); `204` sem corpo no DELETE. **Sem wrapper `data`** (26/09) | #30, #41, #66 |
 | Portas | Frontend **4000** / API **8080** — nunca a mesma (decisão 19/09) | #6, #66 |
 | Nomenclatura da API | EN snake_case em rotas, tabelas, colunas e payload; coleção plural (`/recipes`, `/lots`, `/analyses`), recurso único singular (`/user`), `login` à parte; parâmetro `:id`; FK `<entidade>_id` | #30, #66 |
-| Resultado da análise (enum) | `PASSED` / `FAILED` / `null` | #34 |
+| Resultado da análise (enum) | `STARCH_PRESENT` / `PARTIAL_CONVERSION` / `NO_DETECTABLE_STARCH` / `null`. No depósito o valor fica `null`, porque a classificação por OpenCV está fora do recorte | #1, #60 |
 | Espaço de cor (HSV vs CIELab) | Ambos (a definir na bancada) | #42 |
 | Tempo real (polling/SSE/WS) | **Resolvido: re-render server-side** — sem `fetch()` no browser nem WebSocket, salvo exceção aprovada | #36, #8 |
 | Credencial de dispositivo IoT | Revogável, própria | #36 |
 | IA generativa no classificador | NÃO decide o resultado | #34 |
 | Database `cervejaria` vs `mash` | ⚠️ Divergente — unificar na migração, trabalho de banco com issue própria | #30 |
-| Caixa dos nomes de tabela | Divergente (`Users`/`Temperatures` maiúsculo, `receitas` minúsculo) e FK `users` ≠ `Users` — normalizar na #71 (5a–5e) | #71 |
+| Caixa dos nomes de tabela | Divergente (`Users`/`Temperatures` maiúsculo, `receitas` minúsculo) e FK `users` ≠ `Users` — normalizar na #71 para `users`, `recipes` e `temperatures` | #71 |
 | Payload vs colunas | Mesma nomenclatura: o payload usa o nome da coluna, sem camada de tradução. Colunas em português viram inglês (`nome`→`name`, `fone`→`phone`); `receitas`→`recipes`. Não usar `underscored: true` global (28/09) | #30, #66 |
-| `collectedTemperature` | Dado declarado manualmente pelo operador no upload — leitura automática por dispositivo fica pós-depósito (26/09) | #33, #36 |
-| Contrato do CRUD de usuário | Publicado na #70 (6 rotas; `GET /user` sem `password` via `attributes:{exclude}`) — João, S4 | #70 |
-| Fonte do schema | **Migrations** (decisão 29/09, escolha (a)); `sync()` sai do boot; nomes de tabela minúsculos, FK casando com o nome real | #71 |
+| `collected_temperature` | Dado declarado manualmente pelo operador no upload — leitura automática por dispositivo fica pós-depósito (26/09) | #33, #36 |
+| Contrato do CRUD de usuário | Publicado na #70 (6 rotas; `GET /user` sem `password`). Decisões de 07/10: o cadastro aceita qualquer e-mail válido, senha com espaços continua rejeitada e `fone` passa a `phone`. João, Sprint 5 | #70 |
+| Fonte do schema | Models do Sequelize com `Connection.sync()` (07/10); nomes de tabela minúsculos, FK casando com o nome real | #71 |
 | Escopo do depósito (03/11) | 13 rotas em 5 grupos: receitas, lotes, upload, consulta e histórico básico; temperatura/alertas, OpenCV, reprocessamento, relatório e avaliações ficam pós-depósito | #66 |
-| #4 relatório consolidado | #4 fechada como duplicata de #64; #59/#64 estão fora do depósito e na S7 | #64, #66 |
-| #2 reprocessamento | Reaberta intencionalmente, mas movida para S7; não bloqueia o histórico básico da #3 | #2, #3, #66 |
+| Timestamps | `createdAt` e `updatedAt` ficam como o Sequelize gera; todo o resto do JSON, das rotas e do banco é snake_case. camelCase só dentro do código JavaScript (07/10) | #60, #30 |
+| Imagem do teste de iodo | JPEG ou PNG até 10 MB. Erros do upload: 400, 401, 404, 413, 415 e 500; o 422 saiu do contrato (07/10) | #33 |
+| Aprovação do contrato de iodo | A #60 não bloqueia o backend: #1 e #33 seguem com os contratos publicados, e o que o design (#75) pedir entra como campo novo (07/10) | #60, #75 |
+| Hospedagem | Railway para a API, o MySQL e o frontend (07/10) | #61, #68, #69 |
+| Testes automatizados | Fora do escopo: a equipe ainda não estudou o assunto. A validação é manual e fica registrada em comentários na #41 (07/10) | #41 |
+| #4 relatório consolidado | #4 fechada como duplicata de #64; #59/#64 estão fora do depósito, sem Sprint | #64, #66 |
+| #2 reprocessamento | Reaberta intencionalmente, mas fora do depósito e sem Sprint; não bloqueia o histórico básico da #3 | #2, #3, #66 |
 
 ## Bugs conhecidos (código real)
 
@@ -199,6 +204,6 @@ Tipos: `feat`, `fix`, `refactor`, `test`, `docs`, `style`, `chore`, `build`, `ci
 | Rotas ainda em `/receitas` — migrar para `/recipes` (breaking para o frontend #58) | Back-End `recipeRoutes.js` | #32 |
 | 409 "Receita já existe" ausente no createRecipe | Back-End `recipeService.js` | #32 |
 | `res.status(204)` sem `send()` no delete (resposta não encerra) | Back-End `recipeController.js` e `userController.js` (validação da #70 em 29/09 confirmou no user) | #32, #41, #70 |
-| ~~API key Context7 versionada~~ — removida via [frontend#1](https://github.com/conloq/frontend/pull/1); **rotação da chave pendente de confirmação** | frontend `opencode.json` | #54 |
+| ~~API key Context7 versionada~~ — removida via [frontend#1](https://github.com/conloq/frontend/pull/1); a #54 foi concluída em 07/10, com auditoria do repositório registrada na issue | frontend `opencode.json` | #54 |
 | Credenciais hardcoded | mash `sequelize-config.js`, `session.js` | #39 |
-| `.env.example` inexistente em Back-End e mash; boot não valida env obrigatória | Back-End, mash | #39 (fechada em 19/09; evidência dos critérios restantes pendente) |
+| `.env.example` inexistente em Back-End e mash; boot não valida env obrigatória | Back-End, mash | #39 (aberta, Ready na Sprint 5) |

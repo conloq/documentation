@@ -2,7 +2,7 @@
 
 Documentação da área Frontend do projeto Mash.
 
-> **Sincronizado em 20/09** — decisão vigente: Frontend na porta **4000**; API na 8080 (nunca a mesma). Ver #6/#66.
+> **Sincronizado em 07/10.** Decisão vigente: frontend na porta **4000** e API na 8080, nunca a mesma (#6, #66). O `preview-server.js` ainda sobe na 8080 quando a variável `PORT` não está definida; rode com `PORT=4000` até a #6 ajustar o padrão.
 
 ## Repositórios
 
@@ -76,18 +76,21 @@ npm start
 # Preview em http://localhost:4000
 ```
 
-## Issues ativas (Frontend) — estado 19/09
+## Issues ativas (Frontend) — estado 07/10
 
 | Issue | Título | Prioridade | Status |
 |---|---|---|---|
-| #6 | Corrigir navegação, ações e estados de autorização | Medium | Ready (S3) |
-| #7 | Simplificar o fluxo de criação de lote (wizard mock, 7a) | Medium | Ready (S4) — bloqueada por #24 |
-| #58 | Integrar o wizard à API real (7b) | Medium | Backlog (S4) |
-| #8 | Implementar controles de temperatura acessíveis e integrados | High | Ready (S6) |
-| #9 | Criar upload de imagem do teste de iodo | Medium | Ready (S4) |
-| #10 | Criar tela de resultado da análise do teste de iodo | Medium | Ready (S5) |
-| #11 | Criar histórico de análises por lote | Medium | Ready (S5) |
-| #12 | Integrar os fluxos do frontend aos contratos reais do backend (épico) | High | Ready (S6) — 7 sub-issues nativas |
+| #75 | Desenhar as telas de upload e de resultado do teste de iodo (Kevin) | High | Ready (S4); libera #60, #9 e #10 |
+| #6 | Implementar login com cookie seguro e token nas chamadas à API | High | Ready (S4) |
+| #7 | Simplificar o fluxo de criação de lote (wizard mock) | Low | Fora do depósito; o wizard entra direto pela #58 |
+| #58 | Integrar o wizard à API real | High | Backlog (S5); aguarda #6, #31 e #32 |
+| #8 | Implementar controles de temperatura acessíveis e integrados | Low | Fora do depósito |
+| #9 | Criar upload de imagem do teste de iodo | High | Backlog (S5); aguarda #33 e #75 |
+| #10 | Criar tela de resultado da análise do teste de iodo | High | Backlog (S5); aguarda #1, #9 e #75 |
+| #11 | Criar histórico de análises por lote | Low | Fora do depósito |
+| #73 | Corrigir navegação, ações e estados das telas | Low | Fora do depósito; separada da #6 em 07/10 |
+| #69 | Publicar frontend e configurar integração com a API | High | Backlog (S5); Railway, depois da #68 |
+| #12 | Integrar os fluxos do frontend aos contratos reais do backend (épico) | High | Ready (S6) |
 
 ## Diferenças mash vs frontend
 

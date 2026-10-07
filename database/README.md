@@ -28,12 +28,12 @@ Os dois backends usam **databases e tabelas diferentes**. A migração (#30) uni
 | Iodo e histórico de login no Back-End | ✅ Existem no app legado | ❌ não existem na API nova |
 | Credenciais | Hardcoded no código | Via `.env` (dotenv) |
 
-## Decisões vigentes (26/09)
+## Decisões vigentes (07/10)
 
-- **Colunas físicas em snake_case**; o contrato JSON da API é camelCase. A tradução é feita na borda via DTO/serialização — **não** existe `underscored: true` global (a opção renomearia também `createdAt`, `updatedAt` e FKs automáticas do schema existente e corromperia o banco).
+- **Colunas, tabelas e payload em inglês snake_case**, com o mesmo nome dos dois lados e sem camada de tradução (decisão de 28/09). As exceções são `createdAt` e `updatedAt`, que ficam como o Sequelize gera. **Não** existe `underscored: true` global (a opção renomearia também `createdAt`, `updatedAt` e FKs automáticas do schema existente e corromperia o banco).
 - **Runtime atual:** `Connection.sync()` no startup do Back-End (`app.js`), decisão #40 mantida como not_planned.
 - **A pasta `migrations/` existe, mas os arquivos atuais não são executáveis de forma segura** (migration de receita vazia; `DataTypes` sem import; `down()` da temperatura derruba a tabela errada). Nenhuma migration é executada até uma issue de banco revisá-las em branch + PR com teste de banco vazio.
-- **`collectedTemperature` na análise de iodo é dado declarado manualmente** (decisão D5=A em 26/09) até a cadeia de temperatura por dispositivo (#45–#48) voltar ao escopo.
+- **`collected_temperature` na análise de iodo é dado declarado manualmente** (decisão D5=A em 26/09) até a cadeia de temperatura por dispositivo (#45–#48) voltar ao escopo.
 
 ## Arquivos
 
@@ -114,7 +114,7 @@ Todas as tabelas possuem `createdAt` e `updatedAt` (timestamps do Sequelize não
 - Credenciais não devem ser mantidas no código. Use variáveis de ambiente.
 - Configuração atual: `host: localhost, username: root, password: '', database: cervejaria`.
 - Model Sequelize `Historico_Login` gera tabela `Historico_Logins` (pluralização automática).
-- O SQL documenta o **app legado**. O schema oficial do Back-End vigente é o que `Connection.sync()` gera a partir dos models (`Users`, `receitas`, `Temperatures`).
+- O SQL documenta o **app legado**. O schema oficial do Back-End vigente é o que `Connection.sync()` gera a partir dos models (`Users`, `receitas`, `Temperatures`); a #71 padroniza esses nomes para `users`, `recipes` e `temperatures`.
 
 ## Entidades futuras (propostas, não implementadas)
 
@@ -122,9 +122,9 @@ Conforme issues #31, #1, #2 e #36, o schema será expandido para incluir:
 
 | Entidade | Issue | Rotas esperadas | Descrição |
 |---|---|---|---|
-| `lotes` | #31 | `/lots` | CRUD de lotes vinculados a receitas |
-| `analises` | #1 | `/analyses/:id` | Entidade de análise do teste de iodo |
+| `lots` | #31 | `/lots` | CRUD de lotes vinculados a receitas (Sprint 5) |
+| `analyses` | #1 | `/analyses/:id` | Entidade de análise do teste de iodo (Sprint 5) |
 | `analysis_executions` | #2 | `/analyses/:id/reprocess` | Execuções de reprocessamento |
-| `evaluations` | #5 | `/evaluations` (não `/avaliacoes`) | Avaliação reproduzível com conjunto de referência |
+| `evaluations` | #65 | `/evaluations` | Avaliação reproduzível com conjunto de referência (fora do depósito; a #5 foi fechada como duplicata) |
 | `leituras_temperatura` | #45 | pós-depósito | Leituras de temperatura por lote (IoT) |
 | `dispositivos` | #46 | pós-depósito | Credenciais de dispositivos IoT |
