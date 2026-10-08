@@ -31,7 +31,7 @@ Documentação da área Backend do projeto Mash.
 - **Tabela usuário:** `Users` (name, email, fone, password, url_image) — ⚠️ diferente de `usuarios` do mash
 - **Foreign key:** `user_id` (⚠️ diferente de `usuario_id` do mash)
 - **Banco:** runtime vigente é `Connection.sync()` em `app.js`. A pasta `migrations/` existe (decisão 26/09), mas os arquivos atuais **não são executáveis** — não usar; trabalho de schema/migration tem issue própria.
-- **Naming (28/09/2026, #30):** rotas, tabelas, colunas e payload em inglês snake_case, com o mesmo nome nos dois lados. O payload usa o nome da coluna, sem camada de tradução. Colunas em português mudam para inglês (`nome`→`name`, `fone`→`phone`) e a tabela `receitas` vira `recipes`. ⚠️ `Connection.sync()` não renomeia coluna nem tabela — a alteração recria as tabelas. Não ativar `define: { underscored: true }` globalmente: ele renomeia também `createdAt`/`updatedAt` e FKs automáticas do schema existente.
+- **Naming (08/10/2026, #30):** JSON em inglês camelCase (`userId`, `recipeId`, `collectedAt`), no corpo da requisição, nos campos de formulário e na resposta. Rotas, tabelas e colunas em inglês snake_case. Os models declaram os atributos em camelCase e a conexão do Sequelize usa `define: { underscored: true }`, que gera as colunas em snake_case sem código de tradução. Colunas em português mudam para inglês (`nome`→`name`, `fone`→`phone`) e a tabela `receitas` vira `recipes`. ⚠️ `Connection.sync()` não renomeia coluna nem tabela — a alteração recria as tabelas (#71). Substitui a regra de 28/09, que punha snake_case também no JSON.
 
 ## Padrão de resposta (decisão da equipe — base aula-05 DW3)
 
