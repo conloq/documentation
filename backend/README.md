@@ -144,4 +144,4 @@ Receita (receitas)
 4. **Migrations presentes mas inutilizáveis** (`migrations/` do Back-End); runtime vigente é `Connection.sync()`
 5. **Middleware inconsistente** — algumas rotas POST do mash não têm `isLogado`
 6. **Geolocalização externa** — `loginController.js` chama `ip-api.com` no login
-7. **Branch protection do Back-End:** repo privado + plano free impedem proteção nativa — fluxo branch+PR manual até decisão do time
+7. **Branch protection do Back-End:** o repositório é público e a `main` está protegida: Pull Request com 1 aprovação; João e Haimon fazem o merge, e o João está dispensado da aprovação (#35)

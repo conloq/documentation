@@ -18,8 +18,8 @@ O `frontend` é um **preview estático** do Mash com dados mockados em memória.
 
 ## Arquitetura (decisão vigente, 19/09)
 
-- **Server-rendered EJS:** o Express (`preview-server.js`) injeta os dados nas views.
-- **Integração real (#58):** `fetch()` **server-side** no `preview-server.js` para a API (porta 8080). **Não há `fetch()` no browser** nem WebSocket (salvo exceção aprovada).
+- **Server-rendered EJS:** o Express injeta os dados nas views. Hoje a entrada é o `preview-server.js`; a #6 o substitui pelo `index.js` na raiz, como nos projetos de DW2.
+- **Integração real (#58):** `fetch()` **server-side** no `index.js` para a API (porta 8080). **Não há `fetch()` no browser** nem WebSocket (salvo exceção aprovada).
 - **Mensagens:** o Frontend exibe o texto pt-BR devolvido pela API (`{message}`/`{error}`) — **não traduz nem gera texto de negócio**.
 - **Porta:** `4000` (a 8080 é reservada à API). Configurar `API_URL` no `.env` do frontend.
 
