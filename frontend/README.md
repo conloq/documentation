@@ -2,7 +2,7 @@
 
 Documentação da área Frontend do projeto Mash.
 
-> **Sincronizado em 07/10.** Decisão vigente: frontend na porta **4000** e API na 8080, nunca a mesma (#6, #66). O `preview-server.js` ainda sobe na 8080 quando a variável `PORT` não está definida; rode com `PORT=4000` até a #6 ajustar o padrão.
+> **Sincronizado em 08/10.** Frontend na porta **4000** e API na 8080, nunca a mesma (#6, #66). O `preview-server.js` é temporário: foi feito para ver as telas antes de a API existir e sai quando o frontend passar a consumir o Back-End. Enquanto existir, ele sobe na 8080 se a variável `PORT` não estiver definida; use `PORT=4000`.
 
 ## Repositórios
 
