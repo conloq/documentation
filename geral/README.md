@@ -185,7 +185,7 @@ Tipos: `feat`, `fix`, `refactor`, `test`, `docs`, `style`, `chore`, `build`, `ci
 | `collectedTemperature` | Dado declarado manualmente pelo operador no upload — leitura automática por dispositivo fica pós-depósito (26/09) | #33, #36 |
 | Contrato do CRUD de usuário | Publicado na #70 (6 rotas; `GET /user` sem `password`). Decisões de 07/10: o cadastro aceita qualquer e-mail válido, senha com espaços continua rejeitada e `fone` passa a `phone`. João, Sprint 5 | #70 |
 | Fonte do schema | Models do Sequelize com `Connection.sync()` (07/10); nomes de tabela minúsculos, FK casando com o nome real | #71 |
-| Escopo do depósito (03/11) | 13 rotas em 5 grupos: receitas, lotes, upload, consulta e histórico básico; temperatura/alertas, OpenCV, reprocessamento, relatório e avaliações ficam pós-depósito | #66 |
+| Escopo do depósito (03/11) | 14 rotas em 6 grupos: receitas, rampas de temperatura da receita, lotes, upload, consulta e histórico básico; temperatura por sensor e alertas, OpenCV, reprocessamento, relatório e avaliações ficam pós-depósito (09/10) | #66, #32 |
 | Timestamps | `createdAt` e `updatedAt` no JSON, em camelCase como os demais campos; no banco viram `created_at` e `updated_at` (08/10) | #60, #30 |
 | Imagem do teste de iodo | JPEG ou PNG até 10 MB. Erros do upload: 400, 401, 404, 413, 415 e 500; o 422 saiu do contrato (07/10) | #33 |
 | Aprovação do contrato de iodo | A #60 não bloqueia o backend: #1 e #33 seguem com os contratos publicados, e o que o design (#75) pedir entra como campo novo (07/10) | #60, #75 |

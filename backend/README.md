@@ -55,7 +55,7 @@ Documentação da área Backend do projeto Mash.
 | POST | `/receitas` | authMiddleware | Criar receita (201) |
 | PUT | `/receitas/:id` | authMiddleware | Atualizar receita |
 | DELETE | `/receitas/:id` | authMiddleware | Deletar receita (⚠️ 204 sem encerrar no código atual) |
-| POST | `/receitas/temperatura/:recipe_id` | authMiddleware | Config de temperatura por receita (⚠️ fora do padrão; a temperatura por lote ficará para o pós-depósito) |
+| POST | `/receitas/temperatura/:recipe_id` | authMiddleware | Rampas de temperatura da receita. Faz parte do depósito desde 09/10 e passa a `POST /recipes/:id/temperatures`, com campos em camelCase (#32). Temperatura por sensor, gráficos e alertas ficam para depois do depósito |
 | GET | `/api-docs` | — | Documentação Swagger |
 | GET | `/recipes/:id` | — | **Não existe no código** — pendência da #32 |
 
