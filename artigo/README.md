@@ -14,7 +14,7 @@ O artigo científico é gerido fora dos repositórios de código. O PDF atual es
 
 | Arquivo | Descrição |
 |---|---|
-| `artigo_main.pdf` | Artigo científico completo (8 páginas, LaTeX; texto da versão de 20/09, recompilado em 08/10) |
+| `artigo_main.pdf` | Artigo científico completo (9 páginas, LaTeX; versão de 09/10, com a Figura 1, o fluxograma da plataforma) |
 | `artefatos_projeto.pdf` | Artefatos do Projeto de Software (14 páginas: UML, MER, Canvas, Infraestrutura, UX/UI) |
 
 ## Artigo científico
@@ -77,7 +77,7 @@ Ausência de soluções integradas que unifiquem: (i) amostragem padronizada, (i
 |---|---|---|
 | #56 | Épico do artigo — Metodologia, Estado da Arte e revisão | In progress |
 | #16 | Fundamentar Visão Computacional aplicada ao teste de iodo | In review (S4); falta a conferência com o orientador |
-| #20 | Criar fluxograma rastreável do método | In progress (S4); a figura ainda não está no artigo |
+| #20 | Criar fluxograma rastreável do método | In review (S4); a Figura 1 entrou em 09/10 e precisa ficar igual às listas de entregue e planejado da #56 |
 | #21 | Planejar protocolo de validação experimental | In review (S6); faltam versão do método, falhas, sincronização e orientador |
 | #37 | Consolidar e manter os artefatos do Projeto de Software | Backlog |
 | #50 | Atualizar UML e MER | Backlog (S5) |
