@@ -162,6 +162,7 @@ Tipos: `feat`, `fix`, `refactor`, `test`, `docs`, `style`, `chore`, `build`, `ci
 - Evitar misturar frentes diferentes
 - Revisar e testar antes de commit
 - **Nunca commitar direto na `main`** — branch própria + PR + peer review
+- **Modelo de Pull Request:** todo PR novo já abre com o modelo da organização, que fica em [`conloq/.github`](https://github.com/conloq/.github#modelo-de-pull-request). São cinco seções, as da aula 08 de GAPS: tipo de alteração, issue relacionada (`Closes conloq/mash#N`), descrição, checklist de DoD e evidências de teste. Marque só o que foi feito e anexe a evidência (JSON no backend, captura de tela no frontend).
 
 ## Decisões técnicas relevantes
 
