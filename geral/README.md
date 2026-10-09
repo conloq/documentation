@@ -173,7 +173,7 @@ Tipos: `feat`, `fix`, `refactor`, `test`, `docs`, `style`, `chore`, `build`, `ci
 | Migrations vs sync() | **`Connection.sync()` é o runtime** e as migrations existentes não são executadas. A decisão de 29/09 (migrations como fonte de verdade) foi revista em 07/10: os arquivos atuais estão incompletos e corrigi-los não entrega nenhuma rota do depósito | #71, #66 |
 | Padrão de resposta | Sucesso `{ "message": "..." }` (+ entidade no singular/plural quando aplicável), erro `{ "error": "..." }` — string direta, **mensagens sempre em pt-BR** (base aula-05 DW3); `204` sem corpo no DELETE. **Sem wrapper `data`** (26/09) | #30, #41, #66 |
 | Portas | Frontend **4000** / API **8080** — nunca a mesma (decisão 19/09) | #6, #66 |
-| Nomenclatura da API | EN snake_case em rotas, tabelas, colunas e payload; coleção plural (`/recipes`, `/lots`, `/analyses`), recurso único singular (`/user`), `login` à parte; parâmetro `:id`; FK `<entidade>_id` | #30, #66 |
+| Nomenclatura da API | Rotas, tabelas e colunas em EN snake_case; JSON em EN camelCase (08/10); coleção plural (`/recipes`, `/lots`, `/analyses`), recurso único singular (`/user`), `login` à parte; parâmetro `:id`; FK `<entidade>_id` no banco e `<entidade>Id` no JSON | #30, #66 |
 | Resultado da análise (enum) | `STARCH_PRESENT` / `PARTIAL_CONVERSION` / `NO_DETECTABLE_STARCH` / `null`. No depósito o valor fica `null`, porque a classificação por OpenCV está fora do recorte | #1, #60 |
 | Espaço de cor (HSV vs CIELab) | Ambos (a definir na bancada) | #42 |
 | Tempo real (polling/SSE/WS) | **Resolvido: re-render server-side** — sem `fetch()` no browser nem WebSocket, salvo exceção aprovada | #36, #8 |
@@ -181,12 +181,12 @@ Tipos: `feat`, `fix`, `refactor`, `test`, `docs`, `style`, `chore`, `build`, `ci
 | IA generativa no classificador | NÃO decide o resultado | #34 |
 | Database `cervejaria` vs `mash` | ⚠️ Divergente — unificar na migração, trabalho de banco com issue própria | #30 |
 | Caixa dos nomes de tabela | Divergente (`Users`/`Temperatures` maiúsculo, `receitas` minúsculo) e FK `users` ≠ `Users` — normalizar na #71 para `users`, `recipes` e `temperatures` | #71 |
-| Payload vs colunas | Mesma nomenclatura: o payload usa o nome da coluna, sem camada de tradução. Colunas em português viram inglês (`nome`→`name`, `fone`→`phone`); `receitas`→`recipes`. Não usar `underscored: true` global (28/09) | #30, #66 |
-| `collected_temperature` | Dado declarado manualmente pelo operador no upload — leitura automática por dispositivo fica pós-depósito (26/09) | #33, #36 |
+| Payload vs colunas | JSON em camelCase e colunas em snake_case, ligados por `define: { underscored: true }` na conexão, com atributos em camelCase nos models; sem código de tradução. Colunas em português viram inglês (`nome`→`name`, `fone`→`phone`); `receitas`→`recipes` (08/10, substitui a regra de 28/09) | #30, #66, #71 |
+| `collectedTemperature` | Dado declarado manualmente pelo operador no upload — leitura automática por dispositivo fica pós-depósito (26/09) | #33, #36 |
 | Contrato do CRUD de usuário | Publicado na #70 (6 rotas; `GET /user` sem `password`). Decisões de 07/10: o cadastro aceita qualquer e-mail válido, senha com espaços continua rejeitada e `fone` passa a `phone`. João, Sprint 5 | #70 |
 | Fonte do schema | Models do Sequelize com `Connection.sync()` (07/10); nomes de tabela minúsculos, FK casando com o nome real | #71 |
 | Escopo do depósito (03/11) | 13 rotas em 5 grupos: receitas, lotes, upload, consulta e histórico básico; temperatura/alertas, OpenCV, reprocessamento, relatório e avaliações ficam pós-depósito | #66 |
-| Timestamps | `createdAt` e `updatedAt` ficam como o Sequelize gera; todo o resto do JSON, das rotas e do banco é snake_case. camelCase só dentro do código JavaScript (07/10) | #60, #30 |
+| Timestamps | `createdAt` e `updatedAt` no JSON, em camelCase como os demais campos; no banco viram `created_at` e `updated_at` (08/10) | #60, #30 |
 | Imagem do teste de iodo | JPEG ou PNG até 10 MB. Erros do upload: 400, 401, 404, 413, 415 e 500; o 422 saiu do contrato (07/10) | #33 |
 | Aprovação do contrato de iodo | A #60 não bloqueia o backend: #1 e #33 seguem com os contratos publicados, e o que o design (#75) pedir entra como campo novo (07/10) | #60, #75 |
 | Hospedagem | Railway para a API, o MySQL e o frontend (07/10) | #61, #68, #69 |

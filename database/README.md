@@ -30,10 +30,10 @@ Os dois backends usam **databases e tabelas diferentes**. A migração (#30) uni
 
 ## Decisões vigentes (07/10)
 
-- **Colunas, tabelas e payload em inglês snake_case**, com o mesmo nome dos dois lados e sem camada de tradução (decisão de 28/09). As exceções são `createdAt` e `updatedAt`, que ficam como o Sequelize gera. **Não** existe `underscored: true` global (a opção renomearia também `createdAt`, `updatedAt` e FKs automáticas do schema existente e corromperia o banco).
+- **Tabelas e colunas em inglês snake_case; JSON em inglês camelCase** (decisão de 08/10, substitui a de 28/09). Os models declaram os atributos em camelCase e a conexão do Sequelize usa `define: { underscored: true }`, que gera as colunas em snake_case sem código de tradução. No banco, os timestamps ficam `created_at` e `updated_at`; no JSON, `createdAt` e `updatedAt`. A opção entra com a #71, que recria as tabelas; não deve ser ligada sobre um banco com dados.
 - **Runtime atual:** `Connection.sync()` no startup do Back-End (`app.js`), decisão #40 mantida como not_planned.
 - **A pasta `migrations/` existe, mas os arquivos atuais não são executáveis de forma segura** (migration de receita vazia; `DataTypes` sem import; `down()` da temperatura derruba a tabela errada). Nenhuma migration é executada até uma issue de banco revisá-las em branch + PR com teste de banco vazio.
-- **`collected_temperature` na análise de iodo é dado declarado manualmente** (decisão D5=A em 26/09) até a cadeia de temperatura por dispositivo (#45–#48) voltar ao escopo.
+- **`collectedTemperature` (coluna `collected_temperature`) na análise de iodo é dado declarado manualmente** (decisão D5=A em 26/09) até a cadeia de temperatura por dispositivo (#45–#48) voltar ao escopo.
 
 ## Arquivos
 

@@ -14,7 +14,7 @@ O artigo científico é gerido fora dos repositórios de código. O PDF atual es
 
 | Arquivo | Descrição |
 |---|---|
-| `artigo_main.pdf` | Artigo científico completo (9 páginas, LaTeX) |
+| `artigo_main.pdf` | Artigo científico completo (8 páginas, LaTeX; texto da versão de 20/09, recompilado em 08/10) |
 | `artefatos_projeto.pdf` | Artefatos do Projeto de Software (14 páginas: UML, MER, Canvas, Infraestrutura, UX/UI) |
 
 ## Artigo científico
@@ -29,8 +29,8 @@ O artigo científico é gerido fora dos repositórios de código. O PDF atual es
 
 | Objetivo | Meta |
 |---|---|
-| Acurácia das classificações conclusivas (teste de iodo) | ≥ 50% |
-| Tempo de resposta (envio → resultado) | Média ≤ 2s, P60 ≤ 10s |
+| Acurácia das classificações conclusivas (teste de iodo) | Meta numérica a definir após o estudo piloto |
+| Tempo de resposta (envio → resultado) | Média ≤ 2 s; métrica percentílica a definir após a caracterização do protótipo |
 | Registro de leituras válidas | 100% com data/hora, temperatura, classificação, tempo |
 | Taxa de resultados inconclusivos | ≤ 10% |
 | Concordância entre capturas repetidas | ≥ 90% |
@@ -39,10 +39,10 @@ O artigo científico é gerido fora dos repositórios de código. O PDF atual es
 
 | Trabalho | Contribuição | Limitação |
 |---|---|---|
-| Parizotto [5] | Controle térmico PI (sobresignal < 2.54%) | Sem feedback bioquímico |
+| Parizotto [6] | Controle térmico PI (sobressinal máximo de 2,54%) | Sem feedback bioquímico |
 | Almeida/Ribeiro [4] | Teste de iodo visual (positivo/negativo) | Subjetivo, sem rastreabilidade |
-| Li et al. [8] | R²=0.9941 canal vermelho RGB, recuperação 95.72% | Erro ~20%, matriz vegetal |
-| Nyarko et al. [9] | Segmentação HSV para espuma de cerveja | Sensível a iluminação |
+| Li et al. [11] | R²=0,9941 no canal vermelho RGB, recuperação média de 95,72% | Erro relativo médio de 3,83% entre iluminações; matriz vegetal |
+| Nyarko et al. [12] | Segmentação HSV para espuma de cerveja | Reflexos no vidro, autofoco e aderência da espuma |
 
 ### Lacuna científica
 
@@ -58,10 +58,10 @@ Ausência de soluções integradas que unifiquem: (i) amostragem padronizada, (i
 
 **Classes de classificação:**
 1. **Presença de amido** — violeta, azul-escura, arroxeada
-2. **Conversão parcial** — marrom, acinzentada, transição
+2. **Conversão parcial** — tonalidade intermediária entre os controles positivo e negativo
 3. **Ausência de amido** — amarela, ambarina
 
-**Validação:** matriz de confusão, acurácia, sensibilidade, especificidade, taxa de inconclusivos, repetibilidade, tempo de processamento. Validar em bancada antes de ambiente real.
+**Validação:** matriz de confusão, acurácia entre classificações conclusivas, precisão, sensibilidade e F1 por classe, taxa de inconclusivos, repetibilidade e tempo de processamento. Validar em bancada antes de ambiente real.
 
 ### Decisões relevantes para as issues
 
@@ -75,27 +75,30 @@ Ausência de soluções integradas que unifiquem: (i) amostragem padronizada, (i
 
 | Issue | Título | Status |
 |---|---|---|
-| #15 | Fundamentar o processamento digital de imagens | In review |
-| #16 | Fundamentar Visão Computacional aplicada ao teste de iodo | In review |
-| #17 | Documentar OpenCV, espaço de cor e parâmetros | In review |
-| #19 | Ampliar e registrar o Estado da Arte | Backlog |
-| #20 | Criar fluxograma rastreável do método | In review |
-| #21 | Planejar protocolo de validação experimental | In review |
+| #56 | Épico do artigo — Metodologia, Estado da Arte e revisão | In progress |
+| #16 | Fundamentar Visão Computacional aplicada ao teste de iodo | In review (S4); falta a conferência com o orientador |
+| #20 | Criar fluxograma rastreável do método | In progress (S4); a figura ainda não está no artigo |
+| #21 | Planejar protocolo de validação experimental | In review (S6); faltam versão do método, falhas, sincronização e orientador |
 | #37 | Consolidar e manter os artefatos do Projeto de Software | Backlog |
-| #50 | Atualizar UML e MER | Backlog |
-| #51 | Atualizar documentação de infraestrutura | Backlog |
-| #52 | Completar Canvas e criar SWOT | Backlog |
-| #53 | Criar índice de artefatos e Diário de Bordo | Ready |
+| #50 | Atualizar UML e MER | Backlog (S5) |
+| #51 | Atualizar documentação de infraestrutura | Backlog (S5) |
+| #52 | Completar Canvas e criar SWOT | Backlog (S5) |
+| #53 | Criar índice de artefatos e Diário de Bordo | Ready (S5) |
+| #74 | Documentar custos e orçamento do projeto (Kevin) | Backlog (S5) |
 
 ## Referências do artigo
 
-1. Anuário da Cerveja 2025 (MAPA, 2025) — 1949 cervejarias no Brasil
+1. Anuário da Cerveja 2025: Ano de Referência 2024 (MAPA, 2025) — 1.949 cervejarias no Brasil
 2. EXPOBEER Vale do Ribeira (Prefeitura de Registro, 2025)
-3. Hornink, *Princípios da Produção Cervejeira e as Enzimas na Mosturação* (2024)
-4. Almeida/Ribeiro, *Revista Resciência* vol. 10 (2024)
-5. Parizotto, TCC Engenharia Elétrica UTFPR (2017)
-6. Groover, *Automação Industrial* (2014)
-7. Ogata, *Engenharia de Controle Moderno* (2010)
-8. Li et al., *Scientific Reports* vol. 15 (2025)
-9. Nyarko et al., *Fermentation* vol. 7 (2021)
-10. Bradski, *The OpenCV Library* (2000)
+3. Hornink, *Princípios da Produção Cervejeira e as Enzimas na Mosturação*, 2ª ed. (2024)
+4. Almeida e Ribeiro, *Revista Ifes Ciência*, vol. 10, n. 2 (2024)
+5. United Nations, *The 17 Goals: Sustainable Development Goals* (2015)
+6. Parizotto, TCC de Engenharia Elétrica, UTFPR (2017)
+7. Groover, *Automação Industrial e Sistemas de Manufatura*, 3ª ed. (2011)
+8. Ogata, *Engenharia de Controle Moderno*, 5ª ed. (2011)
+9. Gonzalez e Woods, *Digital Image Processing*, 4ª ed. (2018)
+10. Szeliski, *Computer Vision: Algorithms and Applications*, 2ª ed. (2022)
+11. Li et al., *Scientific Reports*, vol. 15 (2025)
+12. Nyarko et al., *Fermentation*, vol. 7, n. 2 (2021)
+13. Bradski, *The OpenCV Library* (2000)
+14. OpenCV Team, documentação de processamento de imagem e conversão de espaços de cor (2026)
