@@ -163,6 +163,7 @@ Tipos: `feat`, `fix`, `refactor`, `test`, `docs`, `style`, `chore`, `build`, `ci
 - Revisar e testar antes de commit
 - **Nunca commitar direto na `main`** — branch própria + PR + peer review
 - **Modelo de Pull Request:** todo PR novo já abre com o modelo da organização, que fica em [`conloq/.github`](https://github.com/conloq/.github#modelo-de-pull-request). São cinco seções, as da aula 08 de GAPS: tipo de alteração, issue relacionada (`Closes conloq/mash#N`), descrição, checklist de DoD e evidências de teste. Marque só o que foi feito e anexe a evidência (JSON no backend, captura de tela no frontend).
+- **Revisão automática (09/10/2026):** no `Back-End` e no `frontend`, o CodeRabbit comenta cada Pull Request em português (configuração em `.coderabbit.yaml`) e o CodeQL do GitHub analisa o código a cada Pull Request e a cada push na `main`; os alertas ficam em Security > Code scanning. No `Back-End`, o `.github/CODEOWNERS` pede a revisão do Tech Lead em todo Pull Request. Nenhum dos três aprova ou bloqueia o merge: a aprovação continua sendo de uma pessoa.
 
 ## Decisões técnicas relevantes
 
