@@ -176,7 +176,7 @@ Espelho da seção "Decisões vigentes" da [#66](https://github.com/conloq/mash/
 | Migração para API REST | Em andamento; o legado `conloq/mash` não é publicado | #30 |
 | JWT e Argon2id | Implementados no Back-End | #38 |
 | Fonte do schema | **Migrations do Sequelize** (12/10): `npm run db:migrate` antes de `npm start` e a cada deploy; o `Connection.sync()` sai do `app.js` na #71 | #71, #66 |
-| Nomes | JSON e banco no **mesmo camelCase** em inglês (`userId`, `recipeId`, `urlImage`, `createdAt`), sem `underscored` e sem tradução (13/10, substitui a de 08/10); tabelas `users`, `recipes`, `temperatures`, `lots`, `analyses`; rotas em inglês, coleção no plural, `/user` singular, `login` à parte, parâmetro `:id` | #30, #71 |
+| Nomes | JSON em camelCase (`userId`, `recipeId`, `urlImage`, `createdAt`); banco em **snake_case** nas tabelas e colunas (`user_id`, `recipe_id`, `url_image`, `created_at`), ligados por `define: { underscored: true }`, sem código de tradução (08/10/2026, reafirmada em 15/10/2026; a regra de 13/10, banco em camelCase, foi revertida); tabelas `users`, `recipes`, `temperatures`, `lots`, `analyses`; rotas em inglês, coleção no plural, `/user` singular, `login` à parte, parâmetro `:id` | #30, #71 |
 | Padrão de resposta | Sucesso `{ "message": "..." }` (+ entidade nomeada), erro `{ "error": "..." }` em pt-BR, sem wrapper `data`; `DELETE` responde 204 sem corpo | #30, #41 |
 | Recurso alheio | O mesmo 404 de recurso inexistente | #38 |
 | Portas | Frontend **4000**, API **8080** | #6 |

@@ -28,10 +28,10 @@ Documentação da área Backend do projeto Mash.
 - **Upload:** Multer memoryStorage → Cloudinary
 - **Credenciais:** Via `.env` (dotenv) — `DB_HOST`, `DB_USERNAME`, `DB_PASSWORD`, `DB_DATABASE`, `JWT_SECRET_KEY`, `CLOUD_NAME`, `API_KEY_CLOUDINARY`, `API_SECRET_KEY_CLOUDINARY`, `FRONTEND_URL` (CORS para o frontend)
 - **Database:** `mash` (⚠️ diferente de `cervejaria` do mash original)
-- **Tabela usuário:** hoje `Users` (name, email, fone, password, url_image); a #71 a normaliza para `users` (`name`, `email`, `phone`, `password`, `urlImage`) — diferente de `usuarios` do mash
-- **Foreign key:** `userId` e `recipeId` depois da #71 (hoje `user_id`; diferente de `usuario_id` do mash)
+- **Tabela usuário:** hoje `Users` (name, email, fone, password, url_image); a #71 a normaliza para `users` (`name`, `email`, `phone`, `password`, `url_image`) — diferente de `usuarios` do mash
+- **Foreign key:** coluna `user_id` e `recipe_id` (atributo `userId` e `recipeId` no model e no JSON); diferente de `usuario_id` do mash
 - **Banco (decisão de 12/10/2026):** o schema vem das **migrations do Sequelize**; `npm run db:migrate` roda antes de `npm start` e a cada deploy. A #71 tira o `Connection.sync()` do `app.js`. A #40 continua fechada.
-- **Nomes (decisão de 13/10/2026, #30):** JSON e banco no **mesmo camelCase** em inglês (`userId`, `recipeId`, `urlImage`, `collectedAt`, `createdAt`), sem `underscored` e sem código de tradução. Rotas em inglês. Colunas em português mudam para inglês (`nome`→`name`, `fone`→`phone`) e a tabela `receitas` vira `recipes`. Substitui a regra de 08/10 (snake_case com `underscored: true`) e a de 28/09.
+- **Nomes (08/10/2026, reafirmada em 15/10/2026, #30):** JSON em camelCase em inglês (`userId`, `recipeId`, `urlImage`, `collectedAt`, `createdAt`); banco em **snake_case** nas tabelas e colunas (`user_id`, `recipe_id`, `url_image`, `created_at`). Os models declaram os atributos em camelCase e a conexão usa `define: { underscored: true }`, sem código de tradução. Rotas em inglês. Colunas em português mudam para inglês (`nome`→`name`, `fone`→`phone`) e a tabela `receitas` vira `recipes`. A regra de 13/10 (banco em camelCase) foi revertida; a de 28/09 (snake_case no JSON) continua substituída.
 - **Deploy (decisão de 13/10/2026, #61):** Render gratuito com MySQL externo (Aiven); `GET /health` pela #68.
 
 ## Padrão de resposta (decisão da equipe — base aula-05 DW3)
