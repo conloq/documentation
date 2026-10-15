@@ -8,7 +8,7 @@ Detalhes extraídos dos artefatos do projeto (`artefatos_projeto.pdf`, seção 4
 
 ## Topologia da rede
 
-**Topologia em estrela** — todos os dispositivos conectados a um switch central na sala técnica. O switch está ligado ao modem/roteador (gateway para internet).
+**Topologia em estrela**: todos os dispositivos conectados a um switch central na sala técnica. O switch está ligado ao modem/roteador (gateway para internet).
 
 ## Endereçamento
 

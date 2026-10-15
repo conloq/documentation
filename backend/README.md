@@ -9,7 +9,7 @@ Documentação da área Backend do projeto Mash.
 | Repositório | Papel | Status |
 |---|---|---|
 | [`conloq/mash`](https://github.com/conloq/mash) | Aplicação original full-stack (Express + EJS + MySQL, session auth) | Funcional |
-| [`conloq/Back-End`](https://github.com/conloq/Back-End) | API REST (migração em andamento, JWT + Argon2id) | Em migração (#30) — código real mapeado |
+| [`conloq/Back-End`](https://github.com/conloq/Back-End) | API REST (migração em andamento, JWT + Argon2id) | Em migração (#30): código real mapeado |
 
 ## Arquitetura atual (mash)
 
@@ -20,34 +20,34 @@ Documentação da área Backend do projeto Mash.
 - **Porta:** 8080
 - **Sem migrations no runtime:** #40 está fechada como not_planned; a estratégia vigente é `.sync({ force: false })` no startup.
 
-## Arquitetura da migração (Back-End — código real)
+## Arquitetura da migração (Back-End: código real)
 
 - **Padrão:** Rota → Controller → Service → Model → Sequelize → MySQL
 - **Autenticação:** JWT no header Authorization (Bearer), `req.userId`, Argon2id, `JWT_SECRET_KEY`
 - **Hash:** Argon2id (memoryCost 2^16, timeCost 3, parallelism 1)
 - **Upload:** Multer memoryStorage → Cloudinary
-- **Credenciais:** Via `.env` (dotenv) — `DB_HOST`, `DB_USERNAME`, `DB_PASSWORD`, `DB_DATABASE`, `JWT_SECRET_KEY`, `CLOUD_NAME`, `API_KEY_CLOUDINARY`, `API_SECRET_KEY_CLOUDINARY`, `FRONTEND_URL` (CORS para o frontend)
+- **Credenciais:** Via `.env` (dotenv): `DB_HOST`, `DB_USERNAME`, `DB_PASSWORD`, `DB_DATABASE`, `JWT_SECRET_KEY`, `CLOUD_NAME`, `API_KEY_CLOUDINARY`, `API_SECRET_KEY_CLOUDINARY`, `FRONTEND_URL` (CORS para o frontend)
 - **Database:** `mash` (⚠️ diferente de `cervejaria` do mash original)
-- **Tabela usuário:** hoje `Users` (name, email, fone, password, url_image); a #71 a normaliza para `users` (`name`, `email`, `phone`, `password`, `url_image`) — diferente de `usuarios` do mash
+- **Tabela usuário:** hoje `Users` (name, email, fone, password, url_image); a #71 a normaliza para `users` (`name`, `email`, `phone`, `password`, `url_image`): diferente de `usuarios` do mash
 - **Foreign key:** coluna `user_id` e `recipe_id` (atributo `userId` e `recipeId` no model e no JSON); diferente de `usuario_id` do mash
 - **Banco (decisão de 12/10/2026):** o schema vem das **migrations do Sequelize**; `npm run db:migrate` roda antes de `npm start` e a cada deploy. A #71 tira o `Connection.sync()` do `app.js`. A #40 continua fechada.
 - **Nomes (08/10/2026, reafirmada em 15/10/2026, #30):** JSON em camelCase em inglês (`userId`, `recipeId`, `urlImage`, `collectedAt`, `createdAt`); banco em **snake_case** nas tabelas e colunas (`user_id`, `recipe_id`, `url_image`, `created_at`). Os models declaram os atributos em camelCase e a conexão usa `define: { underscored: true }`, sem código de tradução. Rotas em inglês. Colunas em português mudam para inglês (`nome`→`name`, `fone`→`phone`) e a tabela `receitas` vira `recipes`. A regra de 13/10 (banco em camelCase) foi revertida; a de 28/09 (snake_case no JSON) continua substituída.
 - **Deploy (decisão de 13/10/2026, #61):** Render gratuito com MySQL externo (Aiven); `GET /health` pela #68.
 
-## Padrão de resposta (decisão da equipe — base aula-05 DW3)
+## Padrão de resposta (decisão da equipe: base aula-05 DW3)
 
 - Sucesso sem entidade: `{ "message": "..." }`; com entidade: `{ "message": "...", "<singular>": { ... } }`; listagem: `{ "<plural>": [ ... ] }`; detalhe: `{ "<singular>": { ... } }`
 - **Sem wrapper genérico `data` em nenhuma rota.**
-- Erro: `{ "error": "mensagem em pt-BR" }` — string direta, **sem código interno**
+- Erro: `{ "error": "mensagem em pt-BR" }`, string direta, **sem código interno**
 - DELETE: `204` sem corpo, com `res.sendStatus(204)`
-- **Mensagens sempre em pt-BR** — o frontend exibe o texto da API sem traduzir
+- **Mensagens sempre em pt-BR**: o frontend exibe o texto da API sem traduzir
 
-## Rotas HTTP (Back-End — código real)
+## Rotas HTTP (Back-End: código real)
 
 | Método | Rota | Middleware | Descrição |
 |---|---|---|---|
-| POST | `/login` | — | Autenticar (retorna JWT token) |
-| POST | `/user` | — | Criar usuário (201) |
+| POST | `/login` | - | Autenticar (retorna JWT token) |
+| POST | `/user` | - | Criar usuário (201) |
 | GET | `/user` | authMiddleware | Ver perfil (exclui password) |
 | DELETE | `/user` | authMiddleware | Deletar usuário |
 | PUT | `/user` | authMiddleware | Atualizar perfil |
@@ -57,10 +57,10 @@ Documentação da área Backend do projeto Mash.
 | PUT | `/receitas/:id` | authMiddleware | Atualizar receita |
 | DELETE | `/receitas/:id` | authMiddleware | Deletar receita (⚠️ 204 sem encerrar no código atual) |
 | POST | `/receitas/temperatura/:recipe_id` | authMiddleware | Rampas de temperatura da receita. Faz parte do depósito desde 09/10 e passa a `POST /recipes/:id/temperatures`, com campos em camelCase (#32). Temperatura por sensor, gráficos e alertas ficam para depois do depósito |
-| GET | `/api-docs` | — | Documentação Swagger |
-| GET | `/recipes/:id` | — | **Não existe no código** — pendência da #32 |
+| GET | `/api-docs` | - | Documentação Swagger |
+| GET | `/recipes/:id` | - | **Não existe no código**: pendência da #32 |
 
-> Nota de migração: o contrato vigente (#30/#32) define `/recipes` (inglês). O código ainda usa `/receitas` — a correção é da #32 e quebra o frontend, que acompanha na #86.
+> Nota de migração: o contrato vigente (#30/#32) define `/recipes` (inglês). O código ainda usa `/receitas`: a correção é da #32 e quebra o frontend, que acompanha na #86.
 
 ## Pendências da #32 (conferidas em `7e66b98`, 13/10/2026)
 
@@ -86,25 +86,25 @@ Receita (receitas)
 | Iodo | `iodo` | tempo_primeira_coleta, intervalo_testes, qtd_max_testes, receita_id |
 | LogConexao | `Historico_Login` | endereco_ip, data_hora, localidade, status, usuario_id |
 
-## Rotas HTTP (mash — server-rendered)
+## Rotas HTTP (mash: server-rendered)
 
 | Método | Rota | Middleware | Descrição |
 |---|---|---|---|
 | GET | `/` | isGuest | Login |
-| POST | `/login` | — | Autenticar |
+| POST | `/login` | - | Autenticar |
 | GET | `/cadastro` | isGuest | Cadastro |
-| POST | `/cadastrar` | — | Criar usuário |
+| POST | `/cadastrar` | - | Criar usuário |
 | GET | `/usuario` | isLogado | Perfil |
-| GET | `/usuario/sair` | — | Logout |
-| POST | `/usuario/atualizar` | — | Atualizar perfil |
-| GET | `/usuario/deletar` | — | Deletar usuário |
+| GET | `/usuario/sair` | - | Logout |
+| POST | `/usuario/atualizar` | - | Atualizar perfil |
+| GET | `/usuario/deletar` | - | Deletar usuário |
 | POST | `/usuario/foto` | Multer | Upload foto |
 | GET | `/receita` | isLogado, infoGlobal | Listar receitas |
-| POST | `/receita/criar` | — | Criar receita |
-| POST | `/receita/temperatura/criar` | — | Criar temperatura |
-| POST | `/receita/temperatura/editar` | — | Editar temperatura |
-| POST | `/receita/temperatura/definir-temperatura` | — | Ativar/desativar temperatura |
-| POST | `/receita/deletar` | — | Deletar receita |
+| POST | `/receita/criar` | - | Criar receita |
+| POST | `/receita/temperatura/criar` | - | Criar temperatura |
+| POST | `/receita/temperatura/editar` | - | Editar temperatura |
+| POST | `/receita/temperatura/definir-temperatura` | - | Ativar/desativar temperatura |
+| POST | `/receita/deletar` | - | Deletar receita |
 | GET/POST | `/receita/iodo/criar/:id` | isLogado, infoGlobal | Criar iodo |
 | GET/POST | `/receita/iodo/editar/:id` | isLogado, infoGlobal | Editar iodo |
 
@@ -114,10 +114,10 @@ O status de cada issue fica no [Project Mash](https://github.com/orgs/conloq/pro
 
 ## Pontos de atenção
 
-1. **Credenciais hardcoded** em `config/sequelize-config.js` e `config/session.js` (mash) — #39
-2. **`.env.example` inexistente** no Back-End; boot não valida env obrigatória — #39
+1. **Credenciais hardcoded** em `config/sequelize-config.js` e `config/session.js` (mash): #39
+2. **`.env.example` inexistente** no Back-End; boot não valida env obrigatória: #39
 3. **Sem testes automatizados, por decisão:** a validação é manual e fica registrada na #41
 4. **`Connection.sync()` ainda no `app.js`** até a #71; o schema vem das migrations (12/10/2026), então rode `npm run db:migrate` antes de subir a API
-5. **Middleware inconsistente** — algumas rotas POST do mash não têm `isLogado`
-6. **Geolocalização externa** — `loginController.js` chama `ip-api.com` no login
+5. **Middleware inconsistente**: algumas rotas POST do mash não têm `isLogado`
+6. **Geolocalização externa**: `loginController.js` chama `ip-api.com` no login
 7. **Branch protection do Back-End:** o repositório é público e a `main` está protegida: Pull Request com 1 aprovação; João e Haimon fazem o merge, e o João está dispensado da aprovação (#35)
