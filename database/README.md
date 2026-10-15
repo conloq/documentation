@@ -21,19 +21,20 @@ Os dois backends usam **databases e tabelas diferentes**. A migração (#30) uni
 | Aspecto | mash (original) | Back-End (migração) |
 |---|---|---|
 | Database | `cervejaria` | `mash` |
-| Tabela usuário | `usuarios` (nome, email, telefone, senha, url_imagem) | `Users` (name, email, fone, password, url_image) |
-| Tabela receita | `receitas` (nome, usuario_id) | `receitas` (nome, user_id) |
-| FK receita | `usuario_id` | `user_id` |
+| Tabela usuário | `usuarios` (nome, email, telefone, senha, url_imagem) | `users` (name, email, phone, password, urlImage) depois da #71 |
+| Tabela receita | `receitas` (nome, usuario_id) | `recipes` (name, userId) depois da #71 |
+| FK receita | `usuario_id` | `userId` |
 | Temperatura no Back-End | ✅ implementação parcial (`Temperatures` + POST por receita) | ✅ rampas de temperatura por receita (`Temperatures`, POST), dentro do depósito desde 09/10 (#32); leitura por sensor fica para depois |
 | Iodo e histórico de login no Back-End | ✅ Existem no app legado | ❌ não existem na API nova |
 | Credenciais | Hardcoded no código | Via `.env` (dotenv) |
 
-## Decisões vigentes (07/10)
+## Decisões vigentes (15/10/2026)
 
-- **Tabelas e colunas em inglês snake_case; JSON em inglês camelCase** (decisão de 08/10, substitui a de 28/09). Os models declaram os atributos em camelCase e a conexão do Sequelize usa `define: { underscored: true }`, que gera as colunas em snake_case sem código de tradução. No banco, os timestamps ficam `created_at` e `updated_at`; no JSON, `createdAt` e `updatedAt`. A opção entra com a #71, que recria as tabelas; não deve ser ligada sobre um banco com dados.
-- **Runtime atual:** `Connection.sync()` no startup do Back-End (`app.js`), decisão #40 mantida como not_planned.
-- **A pasta `migrations/` existe, mas os arquivos atuais não são executáveis de forma segura** (migration de receita vazia; `DataTypes` sem import; `down()` da temperatura derruba a tabela errada). Nenhuma migration é executada até uma issue de banco revisá-las em branch + PR com teste de banco vazio.
-- **`collectedTemperature` (coluna `collected_temperature`) na análise de iodo é dado declarado manualmente** (decisão D5=A em 26/09) até a cadeia de temperatura por dispositivo (#45–#48) voltar ao escopo.
+- **Nomes (13/10/2026):** tabelas e colunas em inglês **camelCase**, iguais ao JSON (`userId`, `recipeId`, `urlImage`, `createdAt`, `updatedAt`), sem `underscored` e sem código de tradução. Substitui a regra de 08/10 (snake_case com `underscored: true`).
+- **Schema por migrations (12/10/2026):** toda tabela ou coluna entra por arquivo em `migrations/` do Back-End, aplicado com `npm run db:migrate` antes de `npm start` e a cada deploy. O `Connection.sync()` sai do `app.js` na #71; a #40 continua fechada.
+- **`collectedTemperature` na análise de iodo é dado declarado manualmente** pelo operador; a leitura por dispositivo (#45–#48) fica para o próximo semestre.
+- **Hospedagem:** MySQL gratuito externo (Aiven), porque o Render gratuito não oferece MySQL (#61, #68).
+- O MER do banco novo é a [#87](https://github.com/conloq/mash/issues/87), feita depois dos nomes finais da #71.
 
 ## Arquivos
 
@@ -110,11 +111,11 @@ Todas as tabelas possuem `createdAt` e `updatedAt` (timestamps do Sequelize não
 
 ## Observações
 
-- A tabela `temperaturas` não faz parte do foco acadêmico principal desta etapa (foco: teste de iodo).
+- As rampas de temperatura da receita (`temperatures`) fazem parte do depósito; a leitura por sensor fica para o próximo semestre.
 - Credenciais não devem ser mantidas no código. Use variáveis de ambiente.
 - Configuração atual: `host: localhost, username: root, password: '', database: cervejaria`.
 - Model Sequelize `Historico_Login` gera tabela `Historico_Logins` (pluralização automática).
-- O SQL documenta o **app legado**. O schema oficial do Back-End vigente é o que `Connection.sync()` gera a partir dos models (`Users`, `receitas`, `Temperatures`); a #71 padroniza esses nomes para `users`, `recipes` e `temperatures`.
+- O SQL documenta o **app legado**. O schema oficial do Back-End vem das migrations: hoje `Users`, `receitas` e `Temperatures`, que a #71 padroniza para `users`, `recipes` e `temperatures`.
 
 ## Entidades futuras (propostas, não implementadas)
 
@@ -122,9 +123,9 @@ Conforme issues #31, #1, #2 e #36, o schema será expandido para incluir:
 
 | Entidade | Issue | Rotas esperadas | Descrição |
 |---|---|---|---|
-| `lots` | #31 | `/lots` | CRUD de lotes vinculados a receitas (Sprint 5) |
+| `lots` | #31, #92 | `/lots` | Lotes vinculados a receitas (Sprint 5) |
 | `analyses` | #1 | `/analyses/:id` | Entidade de análise do teste de iodo (Sprint 5) |
-| `analysis_executions` | #2 | `/analyses/:id/reprocess` | Execuções de reprocessamento |
-| `evaluations` | #65 | `/evaluations` | Avaliação reproduzível com conjunto de referência (fora do depósito; a #5 foi fechada como duplicata) |
-| `leituras_temperatura` | #45 | pós-depósito | Leituras de temperatura por lote (IoT) |
-| `dispositivos` | #46 | pós-depósito | Credenciais de dispositivos IoT |
+| `analysisExecutions` | #2 | `/analyses/:id/reprocess` | Execuções de reprocessamento (próximo semestre) |
+| `evaluations` | #65 | `/evaluations` | Avaliação da classificação (próximo semestre, com o OpenCV) |
+| leituras de temperatura | #45 | próximo semestre | Leituras de temperatura por lote (IoT) |
+| dispositivos | #46 | próximo semestre | Credenciais de dispositivos IoT |
