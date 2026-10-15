@@ -65,4 +65,4 @@ As telas do sistema foram prototipadas no Figma. O frontend tem exportações em
 
 ## Issues da área
 
-O status de cada issue fica no [Project Mash](https://github.com/orgs/conloq/projects/2) e nos épicos, não aqui: [#12](https://github.com/conloq/mash/issues/12) (design e navegação das telas), [#82](https://github.com/conloq/mash/issues/82) (telas de upload e resultado, #75) e [#57](https://github.com/conloq/mash/issues/57) (pitch e banner). O pitch mostra uma cena simulada da visão computacional, identificada como próximo semestre; o banner é exposto na HubTec.
+O status de cada issue fica no [Project Mash](https://github.com/orgs/conloq/projects/2) e nos épicos, não aqui: [#12](https://github.com/conloq/mash/issues/12) (design e navegação das telas), [#82](https://github.com/conloq/mash/issues/82) (telas de upload e resultado, #75) e [#57](https://github.com/conloq/mash/issues/57) (pitch e banner). O pitch mostra a cena da visão computacional como prévia de como o Mash vai funcionar; o banner é exposto na HubTec.

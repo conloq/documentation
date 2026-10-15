@@ -85,7 +85,7 @@ Ficam registrados, como rascunho pronto, e não entram no depósito: [#34](https
 
 ### Pitch, banner e apresentação
 
-- **Pitch** (#25 a #28): artefato do depósito, de 1 a 2 minutos, com legendas em português e inglês. Mostra o fluxo real e uma cena **simulada** da visão computacional, identificada como próximo semestre, a pedido do orientador.
+- **Pitch** (#25 a #28): artefato do depósito, de 1 a 2 minutos, com legendas em português e inglês. Mostra o fluxo real e a cena da visão computacional como prévia de como o Mash vai funcionar, a pedido do orientador.
 - **Banner** (#29): pronto para o depósito e exposto na HubTec.
 - **Banca** (#62): 10 a 11 minutos, começando com dados já cadastrados; demonstração ao vivo com vídeo gravado como reserva.
 
@@ -187,7 +187,7 @@ Espelho da seção "Decisões vigentes" da [#66](https://github.com/conloq/mash/
 | Análise no depósito | Fica em `processing` com `result: null`; os estados `completed`, `inconclusive` e `failed` e as classes `STARCH_PRESENT`, `PARTIAL_CONVERSION` e `NO_DETECTABLE_STARCH` são da classificação, no próximo semestre | #1, #34 |
 | `collectedTemperature` | Digitada pelo operador no upload; leitura por dispositivo fica para o próximo semestre | #33, #36 |
 | Campos de temperatura | Limitados a 0–100 °C, com mínimo nunca maior que máximo: `min`/`max` no HTML e 400 na API, no lugar das barras deslizantes (14/10) | #32, #33, #86, #9 |
-| Visão computacional | Próximo semestre; o pitch mostra uma cena simulada (14/10) | #34, #25, #28 |
+| Visão computacional | Próximo semestre; o pitch mostra a cena como prévia do produto (14/10 e 15/10) | #34, #25, #28 |
 | IA generativa no classificador | Não decide o resultado | #34 |
 | Testes automatizados | Fora do escopo do depósito: validação manual registrada na #41; pipeline de CI fica para depois (15/10) | #41, #94 |
 | Legado `cervejaria` | Banco do app antigo, documentado como registro em `conloq/database`; a API usa o banco `mash` | #30 |
