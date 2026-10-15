@@ -41,14 +41,14 @@ Fluxo de interação: usuário → acessa aplicação → envia imagem do teste 
 
 ## Observação sobre o serviço Python/OpenCV
 
-A infraestrutura prevê execução de uma **aplicação Flask** (Python) no servidor para o processamento das imagens. Este serviço é interno (`POST /analyze`), chamado apenas pelo Backend Node.js, conforme issue #34 e sub-issues #42–#44.
+Previsto para o **próximo semestre** (decisão de 14/10/2026): um serviço Python interno (`POST /analyze`) para processar as imagens, chamado apenas pelo Back-End Node.js, conforme a #34 e as sub-issues #42–#44. Não faz parte do ambiente do depósito.
 
 ## DevOps
 
 | Aspecto | Estado |
 |---|---|
-| CI/CD | `conloq/.github` tem workflow `mash-project-notifications.yml` (notificações de sprint) |
+| CI/CD | `conloq/.github` tem o workflow `mash-project-notifications.yml` (notificações de sprint); pipeline de testes nos Pull Requests fica para depois do depósito (#94) |
 | Testes automatizados | Fora do escopo; a validação é manual e fica registrada na #41 |
-| Migrations | Não usadas; o schema é criado por `Connection.sync()` (#40, #71) |
-| Deploy | Manual, no Railway: API e MySQL na #68, frontend na #69 |
+| Migrations | Fonte do schema desde 12/10/2026: `npm run db:migrate` antes de subir a API e a cada deploy (#71) |
+| Deploy | Manual, no Render gratuito: API na #68 (com MySQL externo no Aiven) e frontend na #69 (decisão de 13/10/2026, substitui Railway) |
 | Monitoramento | mash_project_notifier (Python, em .github) |

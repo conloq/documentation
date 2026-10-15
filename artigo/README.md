@@ -71,20 +71,9 @@ Ausência de soluções integradas que unifiquem: (i) amostragem padronizada, (i
 - Limiares finais só após etapa piloto
 - Temperatura é contexto, não input do classificador
 
-## Issues ativas (Artigo)
+## Issues da área
 
-| Issue | Título | Status |
-|---|---|---|
-| #56 | Épico do artigo — Metodologia, Estado da Arte e revisão | In progress |
-| #16 | Fundamentar Visão Computacional aplicada ao teste de iodo | In review (S4); falta a conferência com o orientador |
-| #20 | Criar fluxograma rastreável do método | In review (S4); a Figura 1 entrou em 09/10 e precisa ficar igual às listas de entregue e planejado da #56 |
-| #21 | Planejar protocolo de validação experimental | In review (S6); faltam versão do método, falhas, sincronização e orientador |
-| #37 | Consolidar e manter os artefatos do Projeto de Software | Backlog |
-| #50 | Atualizar UML e MER | Backlog (S5) |
-| #51 | Atualizar documentação de infraestrutura | Backlog (S5) |
-| #52 | Completar Canvas e criar SWOT | Backlog (S5) |
-| #53 | Criar índice de artefatos e Diário de Bordo | Ready (S5) |
-| #74 | Documentar custos e orçamento do projeto (Kevin) | Backlog (S5) |
+O status de cada issue fica no [Project Mash](https://github.com/orgs/conloq/projects/2) e nos épicos, não aqui: [#56](https://github.com/conloq/mash/issues/56) (artigo) e [#37](https://github.com/conloq/mash/issues/37) (artefatos do PI). A #21 (protocolo de validação) foi para o próximo semestre com o OpenCV; a meta mínima de acurácia pedida pela banca está na [#90](https://github.com/conloq/mash/issues/90).
 
 ## Referências do artigo
 

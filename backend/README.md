@@ -26,12 +26,13 @@ Documentação da área Backend do projeto Mash.
 - **Autenticação:** JWT no header Authorization (Bearer), `req.userId`, Argon2id, `JWT_SECRET_KEY`
 - **Hash:** Argon2id (memoryCost 2^16, timeCost 3, parallelism 1)
 - **Upload:** Multer memoryStorage → Cloudinary
-- **Credenciais:** Via `.env` (dotenv) — `DB_HOST`, `DB_USERNAME`, `DB_PASSWORD`, `DB_DATABASE`, `JWT_SECRET_KEY`, `CLOUD_NAME`, `API_KEY_CLOUDINARY`, `API_SECRET_KEY_CLOUDINARY`
+- **Credenciais:** Via `.env` (dotenv) — `DB_HOST`, `DB_USERNAME`, `DB_PASSWORD`, `DB_DATABASE`, `JWT_SECRET_KEY`, `CLOUD_NAME`, `API_KEY_CLOUDINARY`, `API_SECRET_KEY_CLOUDINARY`, `FRONTEND_URL` (CORS para o frontend)
 - **Database:** `mash` (⚠️ diferente de `cervejaria` do mash original)
-- **Tabela usuário:** `Users` (name, email, fone, password, url_image) — ⚠️ diferente de `usuarios` do mash
-- **Foreign key:** `user_id` (⚠️ diferente de `usuario_id` do mash)
-- **Banco:** runtime vigente é `Connection.sync()` em `app.js`. A pasta `migrations/` existe (decisão 26/09), mas os arquivos atuais **não são executáveis** — não usar; trabalho de schema/migration tem issue própria.
-- **Naming (08/10/2026, #30):** JSON em inglês camelCase (`userId`, `recipeId`, `collectedAt`), no corpo da requisição, nos campos de formulário e na resposta. Rotas, tabelas e colunas em inglês snake_case. Os models declaram os atributos em camelCase e a conexão do Sequelize usa `define: { underscored: true }`, que gera as colunas em snake_case sem código de tradução. Colunas em português mudam para inglês (`nome`→`name`, `fone`→`phone`) e a tabela `receitas` vira `recipes`. ⚠️ `Connection.sync()` não renomeia coluna nem tabela — a alteração recria as tabelas (#71). Substitui a regra de 28/09, que punha snake_case também no JSON.
+- **Tabela usuário:** hoje `Users` (name, email, fone, password, url_image); a #71 a normaliza para `users` (`name`, `email`, `phone`, `password`, `urlImage`) — diferente de `usuarios` do mash
+- **Foreign key:** `userId` e `recipeId` depois da #71 (hoje `user_id`; diferente de `usuario_id` do mash)
+- **Banco (decisão de 12/10/2026):** o schema vem das **migrations do Sequelize**; `npm run db:migrate` roda antes de `npm start` e a cada deploy. A #71 tira o `Connection.sync()` do `app.js`. A #40 continua fechada.
+- **Nomes (decisão de 13/10/2026, #30):** JSON e banco no **mesmo camelCase** em inglês (`userId`, `recipeId`, `urlImage`, `collectedAt`, `createdAt`), sem `underscored` e sem código de tradução. Rotas em inglês. Colunas em português mudam para inglês (`nome`→`name`, `fone`→`phone`) e a tabela `receitas` vira `recipes`. Substitui a regra de 08/10 (snake_case com `underscored: true`) e a de 28/09.
+- **Deploy (decisão de 13/10/2026, #61):** Render gratuito com MySQL externo (Aiven); `GET /health` pela #68.
 
 ## Padrão de resposta (decisão da equipe — base aula-05 DW3)
 
@@ -59,18 +60,11 @@ Documentação da área Backend do projeto Mash.
 | GET | `/api-docs` | — | Documentação Swagger |
 | GET | `/recipes/:id` | — | **Não existe no código** — pendência da #32 |
 
-> Nota de migração: o contrato vigente (#30/#32) define `/recipes` (inglês). O código ainda usa `/receitas` — a correção é breaking para o frontend (#58) e faz parte do hotfix da #32.
+> Nota de migração: o contrato vigente (#30/#32) define `/recipes` (inglês). O código ainda usa `/receitas` — a correção é da #32 e quebra o frontend, que acompanha na #86.
 
-## Pendências da #32 (CRUD de receitas — Sprint 4, depois da #71)
+## Pendências da #32 (conferidas em `7e66b98`, 13/10/2026)
 
-1. **Rota `GET /recipes/:id` ausente** — só existem 4 rotas; falta o detalhe da receita.
-2. **Rotas em inglês:** código usa `/receitas`; contrato define `/recipes` — breaking para o frontend (#58).
-3. **409 ausente:** contrato prevê `409 { "error": "Receita já existe" }`; não há verificação de duplicata.
-4. **204 sem encerrar na exclusão:** `res.status(204)` sem `send()` — corrigir para `res.sendStatus(204)`.
-5. **404 único:** receita inexistente ou de outro usuário devolve o mesmo 404; hoje o código responde 400 e 403.
-6. **Validação:** manual, registrada em comentário na #41. Testes automatizados estão fora do escopo.
-7. **Contrato sem `description`:** a #32 não exige mais `description` (decisão 26/09).
-8. **Duplicidade:** o mesmo usuário não pode ter duas receitas com o mesmo nome, sem diferenciar maiúsculas (decisão 07/10).
+O contrato e a lista completa do que falta estão na [#32](https://github.com/conloq/mash/issues/32); alterar e excluir receita foram para a [#93](https://github.com/conloq/mash/issues/93). Já estão no código: o 409 de duplicidade no cadastro e o `res.sendStatus(204)` na exclusão. Faltam, entre outros: a rota de detalhe, as rotas em `/recipes`, o 404 único para receita alheia ou inexistente e a rampa em `/recipes/:id/temperatures`.
 
 ## Models Sequelize (mash)
 
@@ -114,34 +108,16 @@ Receita (receitas)
 | GET/POST | `/receita/iodo/criar/:id` | isLogado, infoGlobal | Criar iodo |
 | GET/POST | `/receita/iodo/editar/:id` | isLogado, infoGlobal | Editar iodo |
 
-## Issues ativas (Backend)
+## Issues da área
 
-| Issue | Título | Prioridade | Estado (07/10) |
-|---|---|---|---|
-| #30 | Migrar gradualmente para a API REST | Urgent | In progress |
-| #71 | Normalizar nomes de tabela e reconciliar o schema | High | Ready (S4, João) |
-| #31 | Implementar CRUD de lotes | High | Backlog (S5, João); aguarda #71 e #32 |
-| #32 | Corrigir CRUD de receitas | High | Backlog (S4, João); aguarda #71 |
-| #1 | Criar entidade e consulta de análise de iodo | High | Backlog (S5, Haimon); aguarda #31 |
-| #33 | Implementar upload da imagem do teste de iodo | Medium | Backlog (S5, Haimon); aguarda #1 e #31 |
-| #3 | Histórico de análises por lote | Medium | Backlog (S5, João); primeira a sair se o prazo apertar |
-| #34 | Implementar análise do teste de iodo com OpenCV | Low | Backlog, fora do depósito |
-| #36 | Contrato de iodo e temperatura futura | High | Backlog; temperatura fica pós-depósito |
-| #38 | Corrigir autenticação e autorização | High | Ready (S5, João); traz o contrato do login |
-| #39 | Proteger segredos | High | Ready (S5, João); entrega o `.env.example` usado no deploy |
-| #41 | Validar contrato HTTP e registrar evidências | High | Ready (S5, Haimon); validação manual |
-| #60 | Aprovar contrato de análise de iodo pelo frontend | High | Backlog (S5, Haimon); não bloqueia o backend |
-| #70 | Publicar contrato do CRUD de usuário | High | Ready (S5, João) |
-| #68 | Publicar API e MySQL | Medium | Backlog (S5, João); Railway |
-
-> **#40 (migrations) permanece FECHADA como not_planned.** Em 26/09 o time decidiu manter os arquivos existentes em `migrations/`, mas sem executá-los; o runtime vigente é `Connection.sync()` e qualquer nova migration exige issue própria.
+O status de cada issue fica no [Project Mash](https://github.com/orgs/conloq/projects/2) e nos épicos, não aqui: [#30](https://github.com/conloq/mash/issues/30) (base da API: padrões, schema e evidências), [#83](https://github.com/conloq/mash/issues/83) (conta e segurança), [#80](https://github.com/conloq/mash/issues/80) (receitas e rampas), [#81](https://github.com/conloq/mash/issues/81) (lotes), [#82](https://github.com/conloq/mash/issues/82) (teste de iodo) e [#61](https://github.com/conloq/mash/issues/61) (deploy). OpenCV ([#34](https://github.com/conloq/mash/issues/34)) e temperatura por dispositivo ([#36](https://github.com/conloq/mash/issues/36)) ficam para o próximo semestre.
 
 ## Pontos de atenção
 
 1. **Credenciais hardcoded** em `config/sequelize-config.js` e `config/session.js` (mash) — #39
-2. **`.env.example` inexistente** em Back-End e mash; boot não valida env obrigatória — #39
+2. **`.env.example` inexistente** no Back-End; boot não valida env obrigatória — #39
 3. **Sem testes automatizados, por decisão:** a validação é manual e fica registrada na #41
-4. **Migrations presentes mas inutilizáveis** (`migrations/` do Back-End); runtime vigente é `Connection.sync()`
+4. **`Connection.sync()` ainda no `app.js`** até a #71; o schema vem das migrations (12/10/2026), então rode `npm run db:migrate` antes de subir a API
 5. **Middleware inconsistente** — algumas rotas POST do mash não têm `isLogado`
 6. **Geolocalização externa** — `loginController.js` chama `ip-api.com` no login
 7. **Branch protection do Back-End:** o repositório é público e a `main` está protegida: Pull Request com 1 aprovação; João e Haimon fazem o merge, e o João está dispensado da aprovação (#35)

@@ -63,15 +63,6 @@ As telas do sistema foram prototipadas no Figma. O frontend tem exportações em
 | `receita-authenticated.png` | Tela de receitas com usuário autenticado |
 | `tokens.md` | Design tokens (cores, espaçamento, tipografia) |
 
-## Issues ativas (Design)
+## Issues da área
 
-| Issue | Título | Prioridade | Status |
-|---|---|---|---|
-| #23 | Adicionar ícones à seção de propósitos | High | Test |
-| #24 | Revisar o fluxo de criação de lote no Figma | Urgent | In progress |
-| #75 | Desenhar as telas de upload e de resultado do teste de iodo | High | Ready (Sprint 4); libera #60, #9 e #10 |
-| #25 | Atualizar o pitch com demonstração do fluxo real | Low | Backlog |
-| #26 | Adicionar legendas em português ao pitch | Low | Ready |
-| #27 | Adicionar trilha sonora ao pitch | Low | Ready |
-| #28 | Demonstrar captura e envio da imagem no pitch | Low | Backlog |
-| #29 | Atualizar o banner do Mash | Low | Ready |
+O status de cada issue fica no [Project Mash](https://github.com/orgs/conloq/projects/2) e nos épicos, não aqui: [#12](https://github.com/conloq/mash/issues/12) (design e navegação das telas), [#82](https://github.com/conloq/mash/issues/82) (telas de upload e resultado, #75) e [#57](https://github.com/conloq/mash/issues/57) (pitch e banner). O pitch mostra uma cena simulada da visão computacional, identificada como próximo semestre; o banner é exposto na HubTec.
