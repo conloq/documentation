@@ -21,16 +21,16 @@ Os dois backends usam **databases e tabelas diferentes**. A migração (#30) uni
 | Aspecto | mash (original) | Back-End (migração) |
 |---|---|---|
 | Database | `cervejaria` | `mash` |
-| Tabela usuário | `usuarios` (nome, email, telefone, senha, url_imagem) | `users` (name, email, phone, password, urlImage) depois da #71 |
-| Tabela receita | `receitas` (nome, usuario_id) | `recipes` (name, userId) depois da #71 |
-| FK receita | `usuario_id` | `userId` |
+| Tabela usuário | `usuarios` (nome, email, telefone, senha, url_imagem) | `users` (name, email, phone, password, url_image) depois da #71 |
+| Tabela receita | `receitas` (nome, usuario_id) | `recipes` (name, user_id) depois da #71 |
+| FK receita | `usuario_id` | `user_id` |
 | Temperatura no Back-End | ✅ implementação parcial (`Temperatures` + POST por receita) | ✅ rampas de temperatura por receita (`Temperatures`, POST), dentro do depósito desde 09/10 (#32); leitura por sensor fica para depois |
 | Iodo e histórico de login no Back-End | ✅ Existem no app legado | ❌ não existem na API nova |
 | Credenciais | Hardcoded no código | Via `.env` (dotenv) |
 
 ## Decisões vigentes (15/10/2026)
 
-- **Nomes (13/10/2026):** tabelas e colunas em inglês **camelCase**, iguais ao JSON (`userId`, `recipeId`, `urlImage`, `createdAt`, `updatedAt`), sem `underscored` e sem código de tradução. Substitui a regra de 08/10 (snake_case com `underscored: true`).
+- **Nomes (08/10/2026, reafirmada em 15/10/2026):** tabelas e colunas em inglês **snake_case** (`user_id`, `recipe_id`, `url_image`, `created_at`, `updated_at`); o JSON da API usa camelCase. Os models declaram os atributos em camelCase e a conexão usa `define: { underscored: true }`, sem código de tradução. A regra de 13/10 (banco em camelCase) foi revertida.
 - **Schema por migrations (12/10/2026):** toda tabela ou coluna entra por arquivo em `migrations/` do Back-End, aplicado com `npm run db:migrate` antes de `npm start` e a cada deploy. O `Connection.sync()` sai do `app.js` na #71; a #40 continua fechada.
 - **`collectedTemperature` na análise de iodo é dado declarado manualmente** pelo operador; a leitura por dispositivo (#45–#48) fica para o próximo semestre.
 - **Hospedagem:** MySQL gratuito externo (Aiven), porque o Render gratuito não oferece MySQL (#61, #68).
@@ -125,7 +125,7 @@ Conforme issues #31, #1, #2 e #36, o schema será expandido para incluir:
 |---|---|---|---|
 | `lots` | #31, #92 | `/lots` | Lotes vinculados a receitas (Sprint 5) |
 | `analyses` | #1 | `/analyses/:id` | Entidade de análise do teste de iodo (Sprint 5) |
-| `analysisExecutions` | #2 | `/analyses/:id/reprocess` | Execuções de reprocessamento (próximo semestre) |
+| `analysis_executions` | #2 | `/analyses/:id/reprocess` | Execuções de reprocessamento (próximo semestre) |
 | `evaluations` | #65 | `/evaluations` | Avaliação da classificação (próximo semestre, com o OpenCV) |
 | leituras de temperatura | #45 | próximo semestre | Leituras de temperatura por lote (IoT) |
 | dispositivos | #46 | próximo semestre | Credenciais de dispositivos IoT |
