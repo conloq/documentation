@@ -22,7 +22,7 @@ Kevin da Silva Oliveira
 | Branco/off-white | 60% | `#FAFAFA` | Fundos principais, áreas de respiro |
 | Marrom escuro | 30% | `#4E342E` | Header, menus, fundos secundários |
 | Laranja | 10% | `#F57C00` | Botões, links, chamadas de ação |
-| Preto | — | `#000000` | Textos principais |
+| Preto | - | `#000000` | Textos principais |
 
 ### Tipografia
 
@@ -35,12 +35,12 @@ Kevin da Silva Oliveira
 
 ### Seções
 
-1. **Hero** — apresentação inicial da Conloq e acesso ao projeto
-2. **Sobre Nós** — objetivos e proposta da equipe
-3. **Equipe** — integrantes com nome, função e tecnologias
-4. **Cerveja artesanal** — contexto da mosturação e teste de iodo
-5. **Mash** — apresentação visual do sistema e proposta de visão computacional
-6. **Contatos** — redes sociais, GitHub, LinkedIn, e-mail
+1. **Hero**: apresentação inicial da Conloq e acesso ao projeto
+2. **Sobre Nós**: objetivos e proposta da equipe
+3. **Equipe**: integrantes com nome, função e tecnologias
+4. **Cerveja artesanal**: contexto da mosturação e teste de iodo
+5. **Mash**: apresentação visual do sistema e proposta de visão computacional
+6. **Contatos**: redes sociais, GitHub, LinkedIn, e-mail
 
 ### Stack
 
@@ -52,7 +52,7 @@ Kevin da Silva Oliveira
 | Hospedagem | GitHub Pages |
 | Versionamento | Git e GitHub |
 
-Sem `package.json` ou etapa de build — página estática.
+Sem `package.json` ou etapa de build: página estática.
 
 ## Figma
 

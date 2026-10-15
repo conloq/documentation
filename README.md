@@ -1,8 +1,8 @@
 # Documentação do Projeto Mash
 
-**Conloq** — Plataforma de Monitoramento da Etapa de Mosturação na Fabricação de Cerveja Artesanal
+**Conloq**: Plataforma de Monitoramento da Etapa de Mosturação na Fabricação de Cerveja Artesanal
 
-Projeto Integrador III — Back-End II — DSM3 — FATEC Registro
+Projeto Integrador III, Back-End II, DSM3, FATEC Registro
 
 ---
 
@@ -10,7 +10,7 @@ Projeto Integrador III — Back-End II — DSM3 — FATEC Registro
 
 Este repositório centraliza **toda a documentação** do projeto Mash, organizada por área de atuação da equipe. Cada pasta contém os documentos técnicos, acadêmicos e visuais da respectiva frente.
 
-Não é um repositório de código — use os repositórios de código para implementação:
+Não é um repositório de código: use os repositórios de código para implementação:
 
 | Repositório | Código |
 |---|---|

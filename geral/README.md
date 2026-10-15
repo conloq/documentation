@@ -1,22 +1,22 @@
 # Geral
 
-Documentação geral do projeto Mash — decisões, requisitos e artefatos transversais.
+Documentação geral do projeto Mash: decisões, requisitos e artefatos transversais.
 
 ## Sobre o projeto
 
 **Plataforma de Monitoramento da Etapa de Mosturação na Fabricação de Cerveja Artesanal**
 
-Projeto Integrador — Desenvolvimento de Software Multiplataforma — FATEC Registro (2026).
+Projeto Integrador: Desenvolvimento de Software Multiplataforma, FATEC Registro (2026).
 
 O Mash propõe uma plataforma para apoiar pequenos produtores de cerveja artesanal no acompanhamento da mosturação, no teste de iodo e na rastreabilidade das análises. A visão computacional com Python/OpenCV, para identificar o amido residual pela cor, fica para o próximo semestre (conloq/mash#34); no depósito, a imagem do teste de iodo é enviada e registrada no lote, sem classificação automática.
 
-> **Status (15/10/2026):** Sprint 5 em andamento (16 a 30/10), com o código congelando em 30/10. Depósito do PI em 03/11 (Encerramento do PI — DSM), com o pitch e o banner. Bancas em 16–27/11. O banner é exposto na HubTec (data no calendário acadêmico, a confirmar); a FTX de 2026 foi em maio.
+> **Status (15/10/2026):** Sprint 5 em andamento (16 a 30/10), com o código congelando em 30/10. Depósito do PI em 03/11 (Encerramento do PI: DSM), com o pitch e o banner. Bancas em 16–27/11. O banner é exposto na HubTec (data no calendário acadêmico, a confirmar); a FTX de 2026 foi em maio.
 
 ## Papéis ágeis (GAPS)
 
 | Papel | Responsável | Atribuições |
 |---|---|---|
-| **Product Owner (PO)** | IA — Team Lead (agente de IA do projeto) | Gestão e refinamento do backlog, priorização das issues (MoSCoW), validação dos critérios de aceite e atualização do Project |
+| **Product Owner (PO)** | IA: Team Lead (agente de IA do projeto) | Gestão e refinamento do backlog, priorização das issues (MoSCoW), validação dos critérios de aceite e atualização do Project |
 | **Product Manager (PM)** | Haimon Cugler Vieira | Visão de produto, decisões de escopo, aprovação de prioridades e responsabilidade final das entregas |
 | **Scrum Master (SM)** | Haimon Cugler Vieira (rotativo) | Facilitação do processo ágil, cerimônias (planning, review, retrospectiva), remoção de impedimentos e organização do quadro |
 | **Desenvolvedores** | Todos os integrantes (incluindo PO e SM) | Implementação, testes, revisão por pares e documentação |
@@ -34,8 +34,8 @@ O Mash propõe uma plataforma para apoiar pequenos produtores de cerveja artesan
 
 ## ODS (Objetivos de Desenvolvimento Sustentável)
 
-- **ODS 9** (Indústria, Inovação e Infraestrutura) — alternativa de automação acessível para pequenos produtores
-- **ODS 12** (Consumo e Produção Responsáveis) — potencial redução de desperdício e melhoria de rendimento (a validar)
+- **ODS 9** (Indústria, Inovação e Infraestrutura): alternativa de automação acessível para pequenos produtores
+- **ODS 12** (Consumo e Produção Responsáveis): potencial redução de desperdício e melhoria de rendimento (a validar)
 
 ## Canvas (Modelo de Negócio)
 
@@ -47,7 +47,7 @@ Na issue conloq/mash#52 (Canvas completo e SWOT), filha do épico #37, na Sprint
 
 ## Roteiro de Execução
 
-> **Issue central (fonte de verdade):** [conloq/mash#66](https://github.com/conloq/mash/issues/66) — 🗺️ Roteiro de Execução
+> **Issue central (fonte de verdade):** [conloq/mash#66](https://github.com/conloq/mash/issues/66): 🗺️ Roteiro de Execução
 
 Este resumo é espelho da #66 em 15/10/2026; **em caso de divergência, vale a #66**. Ordem, responsáveis e pontos de cada issue estão lá e no Project Mash.
 
@@ -58,7 +58,7 @@ Este resumo é espelho da #66 em 15/10/2026; **em caso de divergência, vale a #
 | Sprint 1 a 3 | 10/08 – 01/10 | Encerradas; pontos concluídos: 11, 9 e 2 |
 | Sprint 4 | 01/10 – 15/10 | Encerrada na Review de 15/10 com 4 pontos concluídos; o que ficou aberto passou para a Sprint 5 |
 | **Sprint 5** | **16/10 – 30/10** | Fluxo `login → receita → lote → upload → consulta` na API e no frontend, em ambiente publicado; código congela em 30/10 |
-| Sprint 6 | 31/10 – 03/11 | Estabilização e **depósito do PI em 03/11** (Encerramento do PI — DSM), com pitch, banner e documento de artefatos |
+| Sprint 6 | 31/10 – 03/11 | Estabilização e **depósito do PI em 03/11** (Encerramento do PI: DSM), com pitch, banner e documento de artefatos |
 | Depois do depósito | 04/11 – 27/11 | 04–16/11: período de correção · 16–27/11: bancas |
 
 ### Épicos do depósito (fatias verticais, desde 14/10/2026)
@@ -67,17 +67,17 @@ Cada épico entrega uma funcionalidade inteira, da API à tela (aula 09 de GAPS)
 
 | Épico | O que entrega |
 |---|---|
-| [#83 — Conta e segurança](https://github.com/conloq/mash/issues/83) | Cadastro, login e autorização por dono do recurso |
-| [#80 — Receitas e rampas](https://github.com/conloq/mash/issues/80) | Receitas e rampas de temperatura, na API e na tela |
-| [#81 — Lotes](https://github.com/conloq/mash/issues/81) | Lotes vinculados à receita, na API e no wizard |
-| [#82 — Teste de iodo](https://github.com/conloq/mash/issues/82) | Envio da imagem, consulta e histórico do lote |
-| [#30 — Base da API](https://github.com/conloq/mash/issues/30) | Padrões, schema por migrations e evidências (#41) |
-| [#12 — Interface](https://github.com/conloq/mash/issues/12) | Design das telas e navegação sem botões quebrados |
-| [#61 — Deploy](https://github.com/conloq/mash/issues/61) | API, MySQL e frontend publicados |
-| [#37 — Artefatos do PI](https://github.com/conloq/mash/issues/37) | UML, MER, infraestrutura, Canvas, SWOT, Diário de Bordo e documento em docx |
-| [#56 — Artigo](https://github.com/conloq/mash/issues/56) | Metodologia com o que é entregue e o que é planejado |
-| [#57 — Pitch e banner](https://github.com/conloq/mash/issues/57) | Pitch de 1 a 2 minutos com legendas e banner da HubTec |
-| [#84 — Entrega e apresentação](https://github.com/conloq/mash/issues/84) | Depósito pelo Teams, pesquisa de usuário de IHC e ensaios |
+| [#83: Conta e segurança](https://github.com/conloq/mash/issues/83) | Cadastro, login e autorização por dono do recurso |
+| [#80: Receitas e rampas](https://github.com/conloq/mash/issues/80) | Receitas e rampas de temperatura, na API e na tela |
+| [#81: Lotes](https://github.com/conloq/mash/issues/81) | Lotes vinculados à receita, na API e no wizard |
+| [#82: Teste de iodo](https://github.com/conloq/mash/issues/82) | Envio da imagem, consulta e histórico do lote |
+| [#30: Base da API](https://github.com/conloq/mash/issues/30) | Padrões, schema por migrations e evidências (#41) |
+| [#12: Interface](https://github.com/conloq/mash/issues/12) | Design das telas e navegação sem botões quebrados |
+| [#61: Deploy](https://github.com/conloq/mash/issues/61) | API, MySQL e frontend publicados |
+| [#37: Artefatos do PI](https://github.com/conloq/mash/issues/37) | UML, MER, infraestrutura, Canvas, SWOT, Diário de Bordo e documento em docx |
+| [#56: Artigo](https://github.com/conloq/mash/issues/56) | Metodologia com o que é entregue e o que é planejado |
+| [#57: Pitch e banner](https://github.com/conloq/mash/issues/57) | Pitch de 1 a 2 minutos com legendas e banner da HubTec |
+| [#84: Entrega e apresentação](https://github.com/conloq/mash/issues/84) | Depósito pelo Teams, pesquisa de usuário de IHC e ensaios |
 
 ### Próximo semestre (Won't nesta entrega)
 
@@ -163,7 +163,7 @@ Tipos: `feat`, `fix`, `refactor`, `test`, `docs`, `style`, `chore`, `build`, `ci
 - Relacionar à issue quando aplicável
 - Evitar misturar frentes diferentes
 - Revisar e testar antes de commit
-- **Nunca commitar direto na `main`** — branch `<tipo>/<número da issue>-<descrição-curta>` + PR + peer review
+- **Nunca commitar direto na `main`**: branch `<tipo>/<número da issue>-<descrição-curta>` + PR + peer review
 - **Modelo de Pull Request:** todo PR novo já abre com o modelo da organização, que fica em [`conloq/.github`](https://github.com/conloq/.github#modelo-de-pull-request). São cinco seções, as da aula 08 de GAPS: tipo de alteração, issue relacionada (`Closes conloq/mash#N`), descrição, checklist de DoD e evidências de teste. Marque só o que foi feito e anexe a evidência (JSON no backend, captura de tela no frontend).
 - **Revisão automática (09/10/2026):** no `Back-End` e no `frontend`, o CodeRabbit comenta cada Pull Request em português (configuração em `.coderabbit.yaml`) e o CodeQL do GitHub analisa o código a cada Pull Request e a cada push na `main`; os alertas ficam em Security > Code scanning. No `Back-End`, o `.github/CODEOWNERS` pede a revisão do Tech Lead em todo Pull Request. Nenhum dos três aprova ou bloqueia o merge: a aprovação continua sendo de uma pessoa.
 
@@ -196,12 +196,12 @@ Espelho da seção "Decisões vigentes" da [#66](https://github.com/conloq/mash/
 
 | Bug | Local | Issue |
 |---|---|---|
-| ~~ReferenceError (`id` usado antes de declarar)~~ — corrigido no código | Back-End `recipeController.js` | #32 |
-| ~~`createRecipe()` vazio~~ — implementado em 18/09 (commit 159c1ce) | Back-End `recipeService.js` | #32 |
+| ~~ReferenceError (`id` usado antes de declarar)~~: corrigido no código | Back-End `recipeController.js` | #32 |
+| ~~`createRecipe()` vazio~~: implementado em 18/09 (commit 159c1ce) | Back-End `recipeService.js` | #32 |
 | `GET /recipes/:id` inexistente; apenas 4 rotas em `/receitas` no código (conferido em `7e66b98`) | Back-End `recipeRoutes.js` | #32 |
-| Rotas ainda em `/receitas` — migrar para `/recipes` (o frontend acompanha na #86) | Back-End `recipeRoutes.js` | #32, #86 |
-| ~~409 "Receita já existe" ausente no createRecipe~~ — corrigido (conferido em `7e66b98`); falta a duplicidade no `PUT` | Back-End `recipeController.js` | #32, #93 |
-| ~~`res.status(204)` sem `send()` no delete~~ — corrigido com `res.sendStatus(204)` (conferido em `7e66b98`) | Back-End `recipeController.js` e `userController.js` | #32 |
-| ~~API key Context7 versionada~~ — removida via [frontend#1](https://github.com/conloq/frontend/pull/1); a #54 foi concluída em 07/10, com auditoria do repositório registrada na issue | frontend `opencode.json` | #54 |
+| Rotas ainda em `/receitas`: migrar para `/recipes` (o frontend acompanha na #86) | Back-End `recipeRoutes.js` | #32, #86 |
+| ~~409 "Receita já existe" ausente no createRecipe~~, corrigido (conferido em `7e66b98`); falta a duplicidade no `PUT` | Back-End `recipeController.js` | #32, #93 |
+| ~~`res.status(204)` sem `send()` no delete~~: corrigido com `res.sendStatus(204)` (conferido em `7e66b98`) | Back-End `recipeController.js` e `userController.js` | #32 |
+| ~~API key Context7 versionada~~: removida via [frontend#1](https://github.com/conloq/frontend/pull/1); a #54 foi concluída em 07/10, com auditoria do repositório registrada na issue | frontend `opencode.json` | #54 |
 | Credenciais hardcoded | mash `sequelize-config.js`, `session.js` | #39 |
 | `.env.example` inexistente no Back-End; boot não valida env obrigatória | Back-End | #39 (Ready na Sprint 5) |

@@ -4,13 +4,13 @@ Documentação do banco de dados do projeto Mash.
 
 ## Repositório
 
-[`conloq/database`](https://github.com/conloq/database) — schema MySQL, MER, SQL
+[`conloq/database`](https://github.com/conloq/database): schema MySQL, MER, SQL
 
 ## Stack
 
 - **SGBD:** MySQL
 - **ORM:** Sequelize 6
-- **Database:** `cervejaria` (mash) / `mash` (Back-End — ⚠️ divergente)
+- **Database:** `cervejaria` (mash) / `mash` (Back-End: ⚠️ divergente)
 - **Timezone:** -03:00
 - **Charset:** utf8mb4_unicode_ci
 

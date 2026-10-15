@@ -35,7 +35,7 @@ O artigo científico é gerido fora dos repositórios de código. O PDF atual es
 | Taxa de resultados inconclusivos | ≤ 10% |
 | Concordância entre capturas repetidas | ≥ 90% |
 
-### Estado da Arte — Trabalhos relacionados
+### Estado da Arte: Trabalhos relacionados
 
 | Trabalho | Contribuição | Limitação |
 |---|---|---|
@@ -57,9 +57,9 @@ Ausência de soluções integradas que unifiquem: (i) amostragem padronizada, (i
 **Espaços de cor:** HSV e CIELab (a*, b*).
 
 **Classes de classificação:**
-1. **Presença de amido** — violeta, azul-escura, arroxeada
-2. **Conversão parcial** — tonalidade intermediária entre os controles positivo e negativo
-3. **Ausência de amido** — amarela, ambarina
+1. **Presença de amido**: violeta, azul-escura, arroxeada
+2. **Conversão parcial**: tonalidade intermediária entre os controles positivo e negativo
+3. **Ausência de amido**: amarela, ambarina
 
 **Validação:** matriz de confusão, acurácia entre classificações conclusivas, precisão, sensibilidade e F1 por classe, taxa de inconclusivos, repetibilidade e tempo de processamento. Validar em bancada antes de ambiente real.
 
@@ -77,7 +77,7 @@ O status de cada issue fica no [Project Mash](https://github.com/orgs/conloq/pro
 
 ## Referências do artigo
 
-1. Anuário da Cerveja 2025: Ano de Referência 2024 (MAPA, 2025) — 1.949 cervejarias no Brasil
+1. Anuário da Cerveja 2025: Ano de Referência 2024 (MAPA, 2025): 1.949 cervejarias no Brasil
 2. EXPOBEER Vale do Ribeira (Prefeitura de Registro, 2025)
 3. Hornink, *Princípios da Produção Cervejeira e as Enzimas na Mosturação*, 2ª ed. (2024)
 4. Almeida e Ribeiro, *Revista Ifes Ciência*, vol. 10, n. 2 (2024)
