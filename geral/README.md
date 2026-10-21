@@ -57,7 +57,7 @@ Este resumo incorpora o recorte da #66 de 21/10/2026; **em caso de divergência,
 |---|---|---|
 | Sprint 1 a 3 | 10/08 – 01/10 | Encerradas; pontos concluídos: 11, 9 e 2 |
 | Sprint 4 | 01/10 – 15/10 | Encerrada; resultados e replanejamento no roteiro #66 |
-| **Sprint 5** | **16/10 – 30/10** | Fluxo real de conta, receitas, rampas e lotes; teste de iodo somente como simulação no frontend, em ambiente publicado; código congela em 30/10 |
+| **Sprint 5** | **16/10 – 30/10** | Escopo planejado: conta, receitas, rampas, lotes e simulação do teste de iodo no frontend. Código observado: conta, receitas e criação/listagem de rampas; lotes ainda planejados. Validação do deploy separada (#68 e #69); código congela em 30/10 |
 | Sprint 6 | 31/10 – 03/11 | Estabilização e **depósito do PI em 03/11** (Encerramento do PI: DSM), com pitch, banner e documento de artefatos |
 | Depois do depósito | 04/11 – 27/11 | 04–16/11: período de correção · 16–27/11: bancas |
 

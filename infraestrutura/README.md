@@ -37,7 +37,7 @@ A topologia e os endereços abaixo são a proposta dos artefatos do projeto (`ar
 
 ## Diagrama de usabilidade
 
-Fluxo real do recorte: conta → receitas/rampas → lotes, conforme entregas e deploy verificados. OpenCV e todo o fluxo real do teste de iodo ficam no backlog para outro semestre. Neste semestre permanece somente a simulação no frontend, com cena obrigatória no pitch, sem etiqueta de simulação na cena ([decisão de 21/10/2026, #66](https://github.com/conloq/mash/issues/66)).
+Fluxo planejado do recorte: conta → receitas/rampas → lotes. O código observado contempla conta, receitas e criação/listagem de rampas; lotes ainda são planejados. A validação do deploy é separada (#68 e #69). OpenCV e todo o fluxo real do teste de iodo ficam no backlog para outro semestre. Neste semestre permanece somente a simulação no frontend, com cena obrigatória no pitch, sem etiqueta de simulação na cena ([decisão de 21/10/2026, #66](https://github.com/conloq/mash/issues/66)).
 
 ## Observação sobre o serviço Python/OpenCV
 
