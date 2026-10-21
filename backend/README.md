@@ -2,7 +2,7 @@
 
 Documentação da área Backend do projeto Mash.
 
-> **Sincronizado em 07/10** com o código (`conloq/Back-End` @ `32a6dab`; o último commit de código é de 24/09) e com as decisões vigentes (#30, #66). O contrato de cada rota está na issue correspondente.
+> Conferido em 21/10/2026 contra Back-End `7f33203d06bd796c7840f13f1a445d082dbd7457` e os metadados do banco local. [Evidências do schema](../database/evidencias/README.md). O contrato vigente está nas issues e na #66.
 
 ## Repositórios
 
@@ -18,7 +18,7 @@ Documentação da área Backend do projeto Mash.
 - **Autenticação:** express-session (cookie `connect.sid`, 7 dias) + SequelizeStore (MySQL)
 - **Identidade:** `req.session.userId`
 - **Porta:** 8080
-- **Sem migrations no runtime:** #40 está fechada como not_planned; a estratégia vigente é `.sync({ force: false })` no startup.
+- **Legado:** o monólito tem seu próprio schema e uso de sync. Isso não define a estratégia da API; no Back-End a fonte são migrations.
 
 ## Arquitetura da migração (Back-End: código real)
 
@@ -28,10 +28,10 @@ Documentação da área Backend do projeto Mash.
 - **Upload:** Multer memoryStorage → Cloudinary
 - **Credenciais:** Via `.env` (dotenv): `DB_HOST`, `DB_USERNAME`, `DB_PASSWORD`, `DB_DATABASE`, `JWT_SECRET_KEY`, `CLOUD_NAME`, `API_KEY_CLOUDINARY`, `API_SECRET_KEY_CLOUDINARY`, `FRONTEND_URL` (CORS para o frontend)
 - **Database:** `mash` (⚠️ diferente de `cervejaria` do mash original)
-- **Tabela usuário:** hoje `Users` (name, email, fone, password, url_image); a #71 a normaliza para `users` (`name`, `email`, `phone`, `password`, `url_image`): diferente de `usuarios` do mash
+- **Tabelas da API:** `users`, `recipes`, `temperatures`; atributos camelCase e colunas snake_case. `SequelizeMeta` registra as três migrations aplicadas.
 - **Foreign key:** coluna `user_id` e `recipe_id` (atributo `userId` e `recipeId` no model e no JSON); diferente de `usuario_id` do mash
-- **Banco (decisão de 12/10/2026):** o schema vem das **migrations do Sequelize**; `npm run db:migrate` roda antes de `npm start` e a cada deploy. A #71 tira o `Connection.sync()` do `app.js`. A #40 continua fechada.
-- **Nomes (08/10/2026, reafirmada em 15/10/2026, #30):** JSON em camelCase em inglês (`userId`, `recipeId`, `urlImage`, `collectedAt`, `createdAt`); banco em **snake_case** nas tabelas e colunas (`user_id`, `recipe_id`, `url_image`, `created_at`). Os models declaram os atributos em camelCase e a conexão usa `define: { underscored: true }`, sem código de tradução. Rotas em inglês. Colunas em português mudam para inglês (`nome`→`name`, `fone`→`phone`) e a tabela `receitas` vira `recipes`. A regra de 13/10 (banco em camelCase) foi revertida; a de 28/09 (snake_case no JSON) continua substituída.
+- **Banco (decisão de 12/10/2026):** o schema vem das **migrations do Sequelize**; `npm run db:migrate` roda antes de `npm start` e a cada deploy. O bootstrap atual não chama `Connection.sync()`; `prestart` executa as migrations. A #40 continua fechada.
+- **Nomes (08/10/2026, reafirmada em 15/10/2026, #30):** JSON em camelCase em inglês (`userId`, `recipeId`, `urlImage`, `collectedAt`, `createdAt`); banco em **snake_case** nas tabelas e colunas (`user_id`, `recipe_id`, `url_image`, `created_at`). Os models declaram os atributos em camelCase e a conexão usa `define: { underscored: true }`, sem código de tradução. Rotas em inglês. Os nomes atuais já usam `name`, `phone` e a tabela `recipes`; os nomes em português pertencem ao legado. A regra de 13/10 (banco em camelCase) foi revertida; a de 28/09 (snake_case no JSON) continua substituída.
 - **Deploy (decisão de 13/10/2026, #61):** Render gratuito com MySQL externo (Aiven); `GET /health` pela #68.
 
 ## Padrão de resposta (decisão da equipe: base aula-05 DW3)
@@ -42,29 +42,13 @@ Documentação da área Backend do projeto Mash.
 - DELETE: `204` sem corpo, com `res.sendStatus(204)`
 - **Mensagens sempre em pt-BR**: o frontend exibe o texto da API sem traduzir
 
-## Rotas HTTP (Back-End: código real)
+## Rotas e schema da API
 
-| Método | Rota | Middleware | Descrição |
-|---|---|---|---|
-| POST | `/login` | - | Autenticar (retorna JWT token) |
-| POST | `/user` | - | Criar usuário (201) |
-| GET | `/user` | authMiddleware | Ver perfil (exclui password) |
-| DELETE | `/user` | authMiddleware | Deletar usuário |
-| PUT | `/user` | authMiddleware | Atualizar perfil |
-| PUT | `/user/upload` | authMiddleware, Multer | Upload imagem → Cloudinary |
-| GET | `/receitas` | authMiddleware | Listar receitas do usuário |
-| POST | `/receitas` | authMiddleware | Criar receita (201) |
-| PUT | `/receitas/:id` | authMiddleware | Atualizar receita |
-| DELETE | `/receitas/:id` | authMiddleware | Deletar receita (⚠️ 204 sem encerrar no código atual) |
-| POST | `/receitas/temperatura/:recipe_id` | authMiddleware | Rampas de temperatura da receita. Faz parte do depósito desde 09/10 e passa a `POST /recipes/:id/temperatures`, com campos em camelCase (#32). Temperatura por sensor, gráficos e alertas ficam para depois do depósito |
-| GET | `/api-docs` | - | Documentação Swagger |
-| GET | `/recipes/:id` | - | **Não existe no código**: pendência da #32 |
+Na main `7f33203`, receitas usam `/recipes` e `/recipes/:id`; o detalhe está conectado. Criar e listar rampas usa `/recipes/:id/temperatures`. Usuário/login continuam em `/user` e `/login`, com foto de perfil em `/user/upload`. Essas rotas têm documentação no Swagger versionado.
 
-> Nota de migração: o contrato vigente (#30/#32) define `/recipes` (inglês). O código ainda usa `/receitas`: a correção é da #32 e quebra o frontend, que acompanha na #86.
+Lotes (#31/#92) e edição/exclusão de rampas (#97) são planejamento, não tabelas ou rotas observadas na main auditada. As regras de exclusão de receita com lotes pertencem à #93. A comprovação do banco local está em [database/evidencias](../database/evidencias/README.md).
 
-## Pendências da #32 (conferidas em `7e66b98`, 13/10/2026)
-
-O contrato e a lista completa do que falta estão na [#32](https://github.com/conloq/mash/issues/32); alterar e excluir receita foram para a [#93](https://github.com/conloq/mash/issues/93). Já estão no código: o 409 de duplicidade no cadastro e o `res.sendStatus(204)` na exclusão. Faltam, entre outros: a rota de detalhe, as rotas em `/recipes`, o 404 único para receita alheia ou inexistente e a rampa em `/recipes/:id/temperatures`.
+OpenCV e todo o fluxo real do teste de iodo ficam no backlog para outro semestre. Neste semestre permanece somente a simulação no frontend, com cena obrigatória no pitch, sem etiqueta de simulação na cena ([decisão de 21/10/2026, #66](https://github.com/conloq/mash/issues/66)).
 
 ## Models Sequelize (mash)
 
@@ -114,10 +98,9 @@ O status de cada issue fica no [Project Mash](https://github.com/orgs/conloq/pro
 
 ## Pontos de atenção
 
-1. **Credenciais hardcoded** em `config/sequelize-config.js` e `config/session.js` (mash): #39
-2. **`.env.example` inexistente** no Back-End; boot não valida env obrigatória: #39
-3. **Sem testes automatizados, por decisão:** a validação é manual e fica registrada na #41
-4. **`Connection.sync()` ainda no `app.js`** até a #71; o schema vem das migrations (12/10/2026), então rode `npm run db:migrate` antes de subir a API
-5. **Middleware inconsistente**: algumas rotas POST do mash não têm `isLogado`
-6. **Geolocalização externa**: `loginController.js` chama `ip-api.com` no login
-7. **Branch protection do Back-End:** o repositório é público e a `main` está protegida: Pull Request com 1 aprovação; João e Haimon fazem o merge, e o João está dispensado da aprovação (#35)
+- O schema de trabalho foi conferido por metadados, sem alterar dados. O ambiente publicado deve ser conferido separadamente.
+- `package.json` executa migrations no `prestart`; `app.js` valida variáveis obrigatórias e não cria o schema por sync.
+- O Back-End tem scripts de verificação em `scripts/`; o `npm test` continua sendo placeholder. Não declarar ausência total de verificações nem aprovação automática de todos os cenários.
+- Cloudinary real e regras ainda pendentes de perfil ficam nas evidências e na #70; não foram exercitados nesta conferência de banco.
+- O legado mantém suas próprias limitações; não usar seus modelos, SQL ou instruções de sync para inicializar a API.
+- Fluxo de integração e permissões seguem a decisão vigente da [#66](https://github.com/conloq/mash/issues/66), sem copiar configurações antigas de proteção de branch.

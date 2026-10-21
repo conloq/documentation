@@ -4,7 +4,7 @@ Documentação de infraestrutura e DevOps do projeto Mash.
 
 ## Fonte
 
-Detalhes extraídos dos artefatos do projeto (`artefatos_projeto.pdf`, seção 4).
+A topologia e os endereços abaixo são a proposta dos artefatos do projeto (`artefatos_projeto.pdf`, seção 4), não uma rede comprovada nesta conferência. O ambiente local observado é descrito em [database/evidencias](../database/evidencias/README.md): MariaDB 10.4.32, banco mash. O deploy é conferido separadamente.
 
 ## Topologia da rede
 
@@ -37,7 +37,7 @@ Detalhes extraídos dos artefatos do projeto (`artefatos_projeto.pdf`, seção 4
 
 ## Diagrama de usabilidade
 
-Fluxo de interação: usuário → acessa aplicação → envia imagem do teste de iodo → recebe resultado da análise → consulta histórico armazenado.
+Fluxo real do recorte: conta → receitas/rampas → lotes, conforme entregas e deploy verificados. OpenCV e todo o fluxo real do teste de iodo ficam no backlog para outro semestre. Neste semestre permanece somente a simulação no frontend, com cena obrigatória no pitch, sem etiqueta de simulação na cena ([decisão de 21/10/2026, #66](https://github.com/conloq/mash/issues/66)).
 
 ## Observação sobre o serviço Python/OpenCV
 
@@ -48,7 +48,8 @@ Previsto para o **próximo semestre** (decisão de 14/10/2026): um serviço Pyth
 | Aspecto | Estado |
 |---|---|
 | CI/CD | `conloq/.github` tem o workflow `mash-project-notifications.yml` (notificações de sprint); pipeline de testes nos Pull Requests fica para depois do depósito (#94) |
-| Testes automatizados | Fora do escopo; a validação é manual e fica registrada na #41 |
+| Verificações | Evidências na #41; o Back-End tem scripts de verificação, sem inferir validação de todo ambiente publicado |
 | Migrations | Fonte do schema desde 12/10/2026: `npm run db:migrate` antes de subir a API e a cada deploy (#71) |
 | Deploy | Manual, no Render gratuito: API na #68 (com MySQL externo no Aiven) e frontend na #69 (decisão de 13/10/2026, substitui Railway) |
 | Monitoramento | mash_project_notifier (Python, em .github) |
+
