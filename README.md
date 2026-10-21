@@ -16,7 +16,7 @@ Não é um repositório de código: use os repositórios de código para impleme
 |---|---|
 | [`conloq/mash`](https://github.com/conloq/mash) | Aplicação original (Express + EJS + MySQL) |
 | [`conloq/Back-End`](https://github.com/conloq/Back-End) | API REST (JWT + Argon2id, migração em andamento, código mapeado) |
-| [`conloq/frontend`](https://github.com/conloq/frontend) | Preview frontend com Tailwind |
+| [`conloq/frontend`](https://github.com/conloq/frontend) | Frontend EJS/Tailwind com integração à API |
 
 ---
 
@@ -28,15 +28,15 @@ Documentação da área Backend: arquitetura da aplicação original (mash) e da
 
 ### 🎨 [Frontend](./frontend/README.md)
 
-Preview EJS com Tailwind para validação de UX antes da integração com a API. Inclui rotas, diferenças entre o preview e a aplicação original, stack e issues ativas da área.
+Frontend EJS com Tailwind, integrado à API nas telas entregues. O teste de iodo permanece somente como simulação para a demonstração e o pitch, conforme a #66.
 
 ### 🗄️ [Database](./database/README.md)
 
-Schema MySQL completo (`cervejaria`), modelo Entidade-Relacionamento (MER), script SQL, diagrama Mermaid e entidades futuras previstas nas issues (#31 lotes, #1 análises, #45 leituras IoT).
+Schema atual `mash` conferido no banco local (MariaDB 10.4.32): `users`, `recipes`, `temperatures` e `SequelizeMeta`, com MER, DDL de referência e evidências de metadados. O legado `cervejaria` fica preservado e identificado separadamente; lotes ainda são planejados e análises reais ficam para outro semestre.
 
 ### 📝 [Artigo](./artigo/README.md)
 
-Artigo científico completo, templates LaTeX/Beamer e metas de validação experimental (acurácia ≥ 50%, tempo ≤ 2s, inconclusivos ≤ 10%, concordância ≥ 90%). Inclui estado da arte, lacuna científica e metodologia.
+Artigo científico e templates LaTeX/Beamer, com estado da arte, lacuna científica e metodologia. As metas de classificação e a validação experimental pertencem ao trabalho futuro; não são resultados medidos do depósito.
 
 ### 🎭 [Design](./design/README.md)
 
@@ -59,10 +59,10 @@ Consulte [`geral/entregas/mind-map-entregas-pi.mm`](./geral/entregas/mind-map-en
 | Entrega | Status |
 |---|---|
 | Artigo Científico (LaTeX) | ✅ 1ª versão pronta |
-| Artefatos do Projeto (DOCX) | 🔄 Em atualização (#37, #50–#53) |
+| Artefatos do Projeto (LaTeX) | 🔄 Em atualização (#37, #50–#53) |
 | Projeto de Software (GitHub) | 🔄 Em desenvolvimento (#30–#36; Back-End com JWT/Argon2id, bugs em recipeController) |
 | Pesquisa de Usuário (IHC) | [TODO] |
-| Banco de Dados (BDNR) | ✅ Documentado |
+| Banco de Dados (BDNR) | Schema local conferido; evidências em [database/evidencias](database/evidencias/README.md) |
 | Documentação (GAPS/SWOT) | 🔄 Em andamento (#52) |
 | Apresentação (10-11 min) | 🔄 Pitch em produção (#25–#27) |
 | Escola de Inovadores | [TODO] |
@@ -93,3 +93,4 @@ Os documentos acadêmicos seguem os templates da FATEC:
 ## Licença
 
 Este projeto é destinado a fins educacionais e acadêmicos.
+

@@ -17,6 +17,10 @@ O artigo científico é gerido fora dos repositórios de código. O PDF atual es
 | `artigo_main.pdf` | Artigo científico completo (9 páginas, LaTeX; versão de 09/10, com a Figura 1, o fluxograma da plataforma) |
 | `artefatos_projeto.pdf` | Artefatos do Projeto de Software (14 páginas: UML, MER, Canvas, Infraestrutura, UX/UI) |
 
+## Recorte vigente
+
+OpenCV e todo o fluxo real do teste de iodo ficam no backlog para outro semestre. Neste semestre permanece somente a simulação no frontend, com cena obrigatória no pitch, sem etiqueta de simulação na cena ([decisão de 21/10/2026, #66](https://github.com/conloq/mash/issues/66)). As metas, o protocolo e as referências abaixo descrevem a proposta científica existente; não são resultados experimentais comprovados. O PDF e os arquivos acadêmicos não foram reescritos nesta atualização documental.
+
 ## Artigo científico
 
 **Título:** Plataforma de Monitoramento da Etapa de Mosturação na Fabricação de Cerveja Artesanal
@@ -25,7 +29,7 @@ O artigo científico é gerido fora dos repositórios de código. O PDF atual es
 
 **Instituição:** Faculdade de Tecnologia do Estado de São Paulo (FATEC Registro)
 
-### Objetivos específicos (metas)
+### Objetivos específicos (metas propostas para trabalho futuro)
 
 | Objetivo | Meta |
 |---|---|
@@ -91,3 +95,4 @@ O status de cada issue fica no [Project Mash](https://github.com/orgs/conloq/pro
 12. Nyarko et al., *Fermentation*, vol. 7, n. 2 (2021)
 13. Bradski, *The OpenCV Library* (2000)
 14. OpenCV Team, documentação de processamento de imagem e conversão de espaços de cor (2026)
+
