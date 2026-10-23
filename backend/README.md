@@ -11,7 +11,7 @@ Documentação da área Backend do projeto Mash.
 | [`conloq/mash`](https://github.com/conloq/mash) | Aplicação original full-stack (Express + EJS + MySQL, session auth) | Funcional |
 | [`conloq/Back-End`](https://github.com/conloq/Back-End) | API REST (migração em andamento, JWT + Argon2id) | Em migração (#30): código real mapeado |
 
-## Arquitetura atual (mash)
+## Aplicação legada (conloq/mash, não é a API)
 
 - **Padrão:** Server-rendered MVC (sem API REST)
 - **Fluxo:** Rota → Middleware (isLogado) → Controller → Model (Sequelize) → MySQL → Render EJS
@@ -44,13 +44,13 @@ Documentação da área Backend do projeto Mash.
 
 ## Rotas e schema da API
 
-Na main `7f33203`, receitas usam `/recipes` e `/recipes/:id`; o detalhe está conectado. Criar e listar rampas usa `/recipes/:id/temperatures`. Usuário/login continuam em `/user` e `/login`, com foto de perfil em `/user/upload`. Essas rotas têm documentação no Swagger versionado.
+Na main `b65ca02`, receitas usam `/recipes` e `/recipes/:id` (`GET`, `PUT` e `DELETE`; edição e exclusão pela #93, conloq/Back-End#25). Criar e listar rampas usa `/recipes/:id/temperatures`. Usuário/login continuam em `/user` e `/login`, com foto de perfil em `/user/upload`. Essas rotas têm documentação no Swagger versionado.
 
-Lotes (#31/#92) e edição/exclusão de rampas (#97) são planejamento, não tabelas ou rotas observadas na main auditada. As regras de exclusão de receita com lotes pertencem à #93. A comprovação do banco local está em [database/evidencias](../database/evidencias/README.md).
+Lotes (#31/#92) e edição/exclusão de rampas (#97) são planejamento, não tabelas ou rotas observadas na main auditada. O 409 ao excluir receita com lotes entra com a #31. A comprovação do banco local está em [database/evidencias](../database/evidencias/README.md).
 
 OpenCV e todo o fluxo real do teste de iodo ficam no backlog para outro semestre. Neste semestre permanece somente a simulação no frontend, com cena obrigatória no pitch, sem etiqueta de simulação na cena ([decisão de 21/10/2026, #66](https://github.com/conloq/mash/issues/66)).
 
-## Models Sequelize (mash)
+## Models Sequelize do legado (conloq/mash)
 
 ```
 Usuario (usuario)
@@ -70,7 +70,7 @@ Receita (receitas)
 | Iodo | `iodo` | tempo_primeira_coleta, intervalo_testes, qtd_max_testes, receita_id |
 | LogConexao | `Historico_Login` | endereco_ip, data_hora, localidade, status, usuario_id |
 
-## Rotas HTTP (mash: server-rendered)
+## Rotas HTTP do legado (conloq/mash, server-rendered)
 
 | Método | Rota | Middleware | Descrição |
 |---|---|---|---|
