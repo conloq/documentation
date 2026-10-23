@@ -18,6 +18,12 @@ Não é um repositório de código: use os repositórios de código para impleme
 | [`conloq/Back-End`](https://github.com/conloq/Back-End) | API REST (JWT + Argon2id, migração em andamento, código mapeado) |
 | [`conloq/frontend`](https://github.com/conloq/frontend) | Frontend EJS/Tailwind com integração à API |
 
+
+## Contexto e arquitetura canônicos
+
+- [`geral/architecture.md`](./geral/architecture.md): fronteiras técnicas e dependências cross-repo comprovadas.
+- [`geral/context-lifecycle.md`](./geral/context-lifecycle.md): processo conceitual portátil de descoberta e sincronização de contexto.
+- [Índice global Conloq/Mash](https://github.com/conloq/.github/blob/main/PROJECT_CONTEXT.md): registry, hierarquia de fontes e links canônicos.
 ---
 
 ## Navegação por área
