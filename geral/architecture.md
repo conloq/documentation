@@ -44,8 +44,8 @@ flowchart LR
 | Real image upload and storage for iodine | `PLANNED` | `conloq/mash#33` and #66; not established by product-presentation copy |
 | OpenCV/image analysis | `PLANNED` | `conloq/mash#34` and #66 |
 | Real iodine analysis query/history | `PLANNED` | `conloq/mash#1`, #3, #11, #33, #66 |
-| Lots and related real API workflow | `PLANNED` / verify per target SHA | `conloq/mash#31`, #66; Issue intent is not proof of implementation |
-| Temperature ramps | `IMPLEMENTED` in the current frontend/API scope; verify route and screen at the target SHA | Back-End routes/controllers and frontend `public/js/app.js`; consult #66 for scope |
+| Lots API/workflow | `NOT_IMPLEMENTED` in the inspected API SHA; `PLANNED` in roadmap | `Back-End/app.js` mounts user, recipe, Swagger, and temperature routers, not a lots router; `conloq/mash#31`, #66 record intent |
+| Temperature ramps | `IMPLEMENTED` in the current API/frontend scope; verify exact behavior at the task SHA | `Back-End/app.js`, `Back-End/routes/temperatureRoutes.js`, `frontend/public/js/app.js`; see `conloq/mash#66` for scope |
 
 “Planned” records durable project intent, not a promise that the feature is implemented. For a task-specific classification, inspect both the code and live issue/PR state. If they disagree, report `DIVERGENT` and stop before relying on either.
 
