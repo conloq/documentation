@@ -41,6 +41,10 @@ O Mash propõe uma plataforma para apoiar pequenos produtores de cerveja artesan
 
 Disponível em `artefatos_projeto.pdf`, seção 3 (Figura 5). Detalha os nove blocos: parceiros, atividades, recursos, proposta de valor, relacionamento, canais, segmentos, custos e receitas.
 
+## Pesquisa de usuário (IHC)
+
+O [Mapa de Empatia hipotético e o template da disciplina](../ihc/README.md) estão publicados. As entrevistas, evidências e personas derivadas da pesquisa continuam pendentes na [#77](https://github.com/conloq/mash/issues/77).
+
 ## SWOT
 
 Na issue conloq/mash#52 (Canvas completo e SWOT), filha do épico #37, na Sprint 5.
