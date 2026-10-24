@@ -14,12 +14,12 @@ O artigo científico é gerido fora dos repositórios de código. O PDF atual es
 
 | Arquivo | Descrição |
 |---|---|
-| `artigo_main.pdf` | Artigo científico completo (9 páginas, LaTeX; versão de 09/10, com a Figura 1, o fluxograma da plataforma) |
+| `artigo_main.pdf` | Artigo científico completo (9 páginas, PDF de 23/10, com a Figura 1) |
 | `artefatos_projeto.pdf` | Artefatos do Projeto de Software (14 páginas: UML, MER, Canvas, Infraestrutura, UX/UI) |
 
 ## Recorte vigente
 
-OpenCV e todo o fluxo real do teste de iodo ficam no backlog para outro semestre. Neste semestre permanece somente a simulação no frontend, com cena obrigatória no pitch, sem etiqueta de simulação na cena ([decisão de 21/10/2026, #66](https://github.com/conloq/mash/issues/66)). As metas, o protocolo e as referências abaixo descrevem a proposta científica existente; não são resultados experimentais comprovados. O PDF e os arquivos acadêmicos não foram reescritos nesta atualização documental.
+OpenCV e todo o fluxo real do teste de iodo ficam no backlog para outro semestre. Neste semestre permanece somente a simulação no frontend, com cena obrigatória no pitch, sem etiqueta de simulação na cena ([decisão de 21/10/2026, #66](https://github.com/conloq/mash/issues/66)). As metas, o protocolo e as referências abaixo descrevem a proposta científica existente; não são resultados experimentais comprovados. A [#56](https://github.com/conloq/mash/issues/56) foi encerrada por decisão do Haimon com as pendências registradas no comentário de fechamento; o PDF de 23/10 substitui o de 09/10.
 
 ## Artigo científico
 
