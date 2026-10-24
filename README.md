@@ -64,7 +64,7 @@ Consulte [`geral/entregas/mind-map-entregas-pi.mm`](./geral/entregas/mind-map-en
 
 | Entrega | Status |
 |---|---|
-| Artigo Científico (LaTeX) | ✅ 1ª versão pronta |
+| Artigo Científico (PDF) | ✅ Versão de 23/10 publicada; #56 encerrada com pendências aceitas |
 | Artefatos do Projeto (LaTeX) | 🔄 Em atualização (#37, #50–#53) |
 | Projeto de Software (GitHub) | 🔄 Em desenvolvimento (#30–#36; Back-End com JWT/Argon2id, bugs em recipeController) |
 | Pesquisa de Usuário (IHC) | [TODO] |
