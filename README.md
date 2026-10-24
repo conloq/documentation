@@ -28,6 +28,10 @@ Não é um repositório de código: use os repositórios de código para impleme
 
 ## Navegação por área
 
+### 📁 [Índice de artefatos](./artefatos/indice-artefatos.md)
+
+Índice das entregas obrigatórias do PI, com links para as fontes e issues. Os arquivos originais permanecem nas áreas e repositórios de origem.
+
 ### 🖥️ [Backend](./backend/README.md)
 
 Documentação da área Backend: arquitetura da aplicação original (mash) e da migração para API REST (Back-End). Inclui models Sequelize, rotas HTTP, padrão de autenticação (JWT/Argon2id), issues ativas e pontos de atenção técnicos.
