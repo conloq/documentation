@@ -8,7 +8,7 @@ Documentação geral do projeto Mash: decisões, requisitos e artefatos transver
 
 Projeto Integrador: Desenvolvimento de Software Multiplataforma, FATEC Registro (2026).
 
-O Mash propõe uma plataforma para apoiar pequenos produtores de cerveja artesanal no acompanhamento da mosturação, no teste de iodo e na rastreabilidade das análises. A visão computacional com Python/OpenCV, para identificar o amido residual pela cor, fica para o próximo semestre (conloq/mash#34); no depósito, o teste de iodo é somente simulação no frontend, com cena obrigatória no pitch; upload, registro, consulta e histórico reais ficam para outro semestre.
+O Mash propõe uma plataforma para apoiar pequenos produtores de cerveja artesanal no acompanhamento da mosturação, no teste de iodo e na rastreabilidade das análises. O que entra em cada semestre é decidido na [decisão de recorte](#decisões-técnicas-relevantes) e na [#66](https://github.com/conloq/mash/issues/66).
 
 > **Status (15/10/2026):** Sprint 5 em andamento (16 a 30/10), com o código congelando em 30/10. Depósito do PI em 03/11 (Encerramento do PI: DSM), com o pitch e o banner. Bancas em 16–27/11. O banner é exposto na HubTec (data no calendário acadêmico, a confirmar); a FTX de 2026 foi em maio.
 
@@ -53,7 +53,7 @@ Na issue conloq/mash#52 (Canvas completo e SWOT), filha do épico #37, na Sprint
 
 > **Issue central (fonte de verdade):** [conloq/mash#66](https://github.com/conloq/mash/issues/66): 🗺️ Roteiro de Execução
 
-Este resumo incorpora o recorte da #66 de 21/10/2026; **em caso de divergência, vale a #66**. Ordem, responsáveis e pontos de cada issue estão lá e no Project Mash.
+Este resumo incorpora as decisões vigentes da #66; **em caso de divergência, vale a #66**. Ordem, responsáveis e pontos de cada issue estão lá e no Project Mash.
 
 ### Sprints do semestre
 
@@ -74,7 +74,7 @@ Cada épico entrega uma funcionalidade inteira, da API à tela (aula 09 de GAPS)
 | [#83: Conta e segurança](https://github.com/conloq/mash/issues/83) | Cadastro, login e autorização por dono do recurso |
 | [#80: Receitas e rampas](https://github.com/conloq/mash/issues/80) | Receitas e rampas de temperatura, na API e na tela |
 | [#81: Lotes](https://github.com/conloq/mash/issues/81) | Lotes vinculados à receita, na API e no wizard |
-| [#82: Teste de iodo](https://github.com/conloq/mash/issues/82) | Simulação do teste de iodo no frontend para a demonstração e a cena obrigatória do pitch |
+| [#82: Teste de iodo](https://github.com/conloq/mash/issues/82) | Simulação do teste de iodo no frontend |
 | [#30: Base da API](https://github.com/conloq/mash/issues/30) | Padrões, schema por migrations e evidências (#41) |
 | [#12: Interface](https://github.com/conloq/mash/issues/12) | Design das telas e navegação sem botões quebrados |
 | [#61: Deploy](https://github.com/conloq/mash/issues/61) | API, MySQL e frontend publicados |
@@ -89,7 +89,7 @@ Também ficam fora do depósito o upload, o armazenamento, a consulta e o histó
 
 ### Pitch, banner e apresentação
 
-- **Pitch** (#25 a #28): artefato do depósito, de 1 a 2 minutos, com legendas em português e inglês. Mostra o fluxo real e, obrigatoriamente, a cena do teste de iodo usando a simulação no frontend, sem etiqueta de simulação na cena, a pedido do orientador.
+- **Pitch** (#25 a #28): artefato do depósito, de 1 a 2 minutos, com legendas em português e inglês. Mostra o fluxo real e a cena do teste de iodo na simulação do frontend.
 - **Banner** (#29): pronto para o depósito e exposto na HubTec.
 - **Banca** (#62): 10 a 11 minutos, começando com dados já cadastrados; demonstração ao vivo com vídeo gravado como reserva.
 
@@ -173,31 +173,28 @@ Tipos: `feat`, `fix`, `refactor`, `test`, `docs`, `style`, `chore`, `build`, `ci
 
 ## Decisões técnicas relevantes
 
-Espelho da seção "Decisões vigentes" da [#66](https://github.com/conloq/mash/issues/66) com o recorte de 21/10/2026; em caso de divergência, vale a #66.
+Espelho da seção "Decisões vigentes" da [#66](https://github.com/conloq/mash/issues/66), atualizada em 21/10/2026; em caso de divergência, vale a #66.
 
 | Decisão | Situação | Issue |
 |---|---|---|
 | Migração para API REST | Em andamento; o legado `conloq/mash` não é publicado | #30 |
 | JWT e Argon2id | Implementados no Back-End | #38 |
 | Fonte do schema | **Migrations do Sequelize** (12/10): `npm run db:migrate` antes de `npm start` e a cada deploy; o bootstrap atual já não usa `Connection.sync()` | #71, #66 |
-| Nomes | JSON em camelCase (`userId`, `recipeId`, `urlImage`, `createdAt`); banco em **snake_case** nas tabelas e colunas (`user_id`, `recipe_id`, `url_image`, `created_at`), ligados por `define: { underscored: true }`, sem código de tradução (08/10/2026, reafirmada em 15/10/2026; a regra de 13/10, banco em camelCase, foi revertida); tabelas atuais `users`, `recipes`, `temperatures`; `lots` planejada e `analyses` no próximo semestre; rotas em inglês, coleção no plural, `/user` singular, `login` à parte, parâmetro `:id` | #30, #71 |
+| Nomes | JSON em camelCase (`userId`, `recipeId`, `urlImage`, `createdAt`); banco em **snake_case** nas tabelas e colunas (`user_id`, `recipe_id`, `url_image`, `created_at`), ligados por `define: { underscored: true }`, sem código de tradução (08/10/2026, reafirmada em 15/10/2026; a regra de 13/10, banco em camelCase, foi revertida); tabelas atuais `users`, `recipes`, `temperatures` e `sessions` (tabela técnica do armazenamento de sessão); `lots` planejada e `analyses` sem migration na `main`; rotas em inglês, coleção no plural, `/user` singular, `login` à parte, parâmetro `:id` | #30, #71 |
 | Padrão de resposta | Sucesso `{ "message": "..." }` (+ entidade nomeada), erro `{ "error": "..." }` em pt-BR, sem wrapper `data`; `DELETE` responde 204 sem corpo | #30, #41 |
 | Recurso alheio | O mesmo 404 de recurso inexistente | #38 |
 | Portas | Frontend **4000**, API **8080** | #6 |
-| Frontend chama a API | Pelo navegador, com o token no `localStorage` (`mash-token`) e `Authorization: Bearer`; a API libera CORS para `FRONTEND_URL`. Risco de XSS aceito (12/10) | #6 |
-| Hospedagem | Render gratuito para API e frontend; MySQL gratuito externo (Aiven); imagens no Cloudinary (13/10, substitui Railway) | #61, #68, #69 |
-| Escopo do depósito | 14 rotas planejadas em 3 grupos reais: receitas, rampas e lotes; iodo somente simulado no frontend | #66 |
-| Imagem do teste de iodo | Upload e armazenamento reais no próximo semestre | #33, #66 |
-| Teste de iodo no depósito | Somente simulação no frontend, com cena obrigatória no pitch; sem registro real em processing | #9, #10, #25, #28, #66 |
-| Coleta de iodo | Dado do fluxo futuro; não exigir captura ou persistência reais no depósito | #33, #66 |
+| Frontend chama a API | Pelo servidor Express do frontend (`controllers/pageController.js`), que chama a API com `Authorization: Bearer` e guarda o JWT na sessão persistida na tabela `sessions` do MySQL; o navegador só recebe o cookie `HttpOnly` (24/10/2026, substitui o token no `localStorage` de 12/10) | #6, #66 |
+| Hospedagem | Render gratuito para API e frontend; MySQL gratuito externo no TiDB Cloud (`#68`); imagens no Cloudinary (13/10, substitui Railway; banco revisto em 24/10) | #61, #68, #69 |
+| Escopo do depósito | 14 rotas planejadas em 3 grupos reais: receitas, rampas e lotes | #66 |
+| Recorte de 21/10/2026 | Teste de iodo somente como simulação no frontend neste semestre, com cena obrigatória no pitch e sem etiqueta de simulação na cena; não exigir captura, persistência, consulta, histórico ou análise reais no depósito. Upload e armazenamento de imagem, análise com OpenCV, protocolo de validação (#21) e temperatura por dispositivo ficam no backlog do próximo semestre | #9, #10, #21, #25, #28, #33, #34, #36, #66 |
 | Campos de temperatura | Limitados a 0–100 °C, com mínimo nunca maior que máximo, nas rotas e telas reais de rampas; a simulação de iodo não exige API | #32, #86, #97 |
-| Visão computacional | Próximo semestre; o pitch mostra a cena como prévia do produto (14/10 e 15/10) | #34, #25, #28 |
 | IA generativa no classificador | Não decide o resultado | #34 |
 | Testes automatizados | Fora do escopo do depósito: validação manual registrada na #41; pipeline de CI fica para depois (15/10) | #41, #94 |
 | Legado `cervejaria` | Banco do app antigo, documentado como registro em `conloq/database`; a API usa o banco `mash` | #30 |
 
 ## Evidências atuais de código e banco
 
-A conferência de 21/10 compara o banco local com Back-End `7f33203`: três tabelas de negócio, 25 colunas, duas FKs e três migrations, sem divergências estruturais nos atributos conferidos. [Metadados, comparação e limites](../database/evidencias/README.md).
+A conferência de 21/10 compara o banco local com as migrations da `main` do Back-End: três tabelas de negócio, 25 colunas, duas FKs e três migrations naquele momento, sem divergências estruturais nos atributos conferidos. A `main` atual tem quatro migrations, com `users`, `recipes`, `temperatures` e `sessions`. [Metadados, comparação e limites](../database/evidencias/README.md).
 
 Detalhe de receita, rotas em inglês e nomes físicos snake_case já existem na main auditada. Estado das pendências de lotes, rampas, perfil e deploy deve ser consultado nas issues; tabelas históricas de bugs não substituem a evidência do código atual.

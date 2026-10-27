@@ -37,11 +37,7 @@ A topologia e os endereços abaixo são a proposta dos artefatos do projeto (`ar
 
 ## Diagrama de usabilidade
 
-Fluxo planejado do recorte: conta → receitas/rampas → lotes. O código observado contempla conta, receitas e criação/listagem de rampas; lotes ainda são planejados. A validação do deploy é separada (#68 e #69). OpenCV e todo o fluxo real do teste de iodo ficam no backlog para outro semestre. Neste semestre permanece somente a simulação no frontend, com cena obrigatória no pitch, sem etiqueta de simulação na cena ([decisão de 21/10/2026, #66](https://github.com/conloq/mash/issues/66)).
-
-## Observação sobre o serviço Python/OpenCV
-
-Previsto para o **próximo semestre** (decisão de 14/10/2026): um serviço Python interno (`POST /analyze`) para processar as imagens, chamado apenas pelo Back-End Node.js, conforme a #34 e as sub-issues #42–#44. Não faz parte do ambiente do depósito.
+Fluxo planejado do recorte: conta → receitas/rampas → lotes. O código observado contempla conta, receitas e criação/listagem de rampas; lotes ainda são planejados. A validação do deploy é separada (#68 e #69). O recorte do semestre está centralizado em [geral/README.md](../geral/README.md) e na [#66](https://github.com/conloq/mash/issues/66).
 
 ## DevOps
 
@@ -50,6 +46,6 @@ Previsto para o **próximo semestre** (decisão de 14/10/2026): um serviço Pyth
 | CI/CD | `conloq/.github` tem o workflow `mash-project-notifications.yml` (notificações de sprint); pipeline de testes nos Pull Requests fica para depois do depósito (#94) |
 | Verificações | Evidências na #41; o Back-End tem scripts de verificação, sem inferir validação de todo ambiente publicado |
 | Migrations | Fonte do schema desde 12/10/2026: `npm run db:migrate` antes de subir a API e a cada deploy (#71) |
-| Deploy | Manual, no Render gratuito: API na #68 (com MySQL externo no Aiven) e frontend na #69 (decisão de 13/10/2026, substitui Railway) |
+| Deploy | Manual, no Render gratuito: API na #68 (com MySQL externo no TiDB Cloud desde 24/10/2026) e frontend na #69 (decisão de 13/10/2026, substitui Railway) |
 | Monitoramento | mash_project_notifier (Python, em .github) |
 

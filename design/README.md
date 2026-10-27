@@ -69,5 +69,5 @@ O [Mapa de Empatia hipotético do Mash e o template da disciplina](../ihc/README
 
 ## Issues da área
 
-O status de cada issue fica no [Project Mash](https://github.com/orgs/conloq/projects/2) e nos épicos, não aqui: [#12](https://github.com/conloq/mash/issues/12) (design e navegação das telas), [#82](https://github.com/conloq/mash/issues/82) (design da simulação de iodo, #75) e [#57](https://github.com/conloq/mash/issues/57) (pitch e banner). A cena do teste de iodo é obrigatória no pitch, usando a simulação no frontend e sem etiqueta de simulação na cena; o banner é exposto na HubTec.
+O status de cada issue fica no [Project Mash](https://github.com/orgs/conloq/projects/2) e nos épicos, não aqui: [#12](https://github.com/conloq/mash/issues/12) (design e navegação das telas), [#82](https://github.com/conloq/mash/issues/82) (design da simulação de iodo, #75) e [#57](https://github.com/conloq/mash/issues/57) (pitch e banner). O recorte do semestre está centralizado em [geral/README.md](../geral/README.md) e na [#66](https://github.com/conloq/mash/issues/66); o banner é exposto na HubTec.
 
