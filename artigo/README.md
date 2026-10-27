@@ -17,9 +17,7 @@ O artigo científico é gerido fora dos repositórios de código. O PDF atual es
 | `artigo_main.pdf` | Artigo científico completo (9 páginas, PDF de 23/10, com a Figura 1) |
 | `artefatos_projeto.pdf` | Artefatos do Projeto de Software (14 páginas: UML, MER, Canvas, Infraestrutura, UX/UI) |
 
-## Recorte vigente
-
-OpenCV e todo o fluxo real do teste de iodo ficam no backlog para outro semestre. Neste semestre permanece somente a simulação no frontend, com cena obrigatória no pitch, sem etiqueta de simulação na cena ([decisão de 21/10/2026, #66](https://github.com/conloq/mash/issues/66)). As metas, o protocolo e as referências abaixo descrevem a proposta científica existente; não são resultados experimentais comprovados. A [#56](https://github.com/conloq/mash/issues/56) foi encerrada por decisão do Haimon com as pendências registradas no comentário de fechamento; o PDF de 23/10 substitui o de 09/10.
+O recorte do semestre está centralizado em [geral/README.md](../geral/README.md) e na [#66](https://github.com/conloq/mash/issues/66). A [#56](https://github.com/conloq/mash/issues/56) foi encerrada com o PDF de 23/10.
 
 ## Artigo científico
 
@@ -77,7 +75,7 @@ Ausência de soluções integradas que unifiquem: (i) amostragem padronizada, (i
 
 ## Issues da área
 
-O status de cada issue fica no [Project Mash](https://github.com/orgs/conloq/projects/2) e nos épicos, não aqui: [#56](https://github.com/conloq/mash/issues/56) (artigo) e [#37](https://github.com/conloq/mash/issues/37) (artefatos do PI). A #21 (protocolo de validação) foi para o próximo semestre com o OpenCV; a meta mínima de acurácia pedida pela banca está na [#90](https://github.com/conloq/mash/issues/90).
+O status de cada issue fica no [Project Mash](https://github.com/orgs/conloq/projects/2) e nos épicos, não aqui: [#56](https://github.com/conloq/mash/issues/56) (artigo) e [#37](https://github.com/conloq/mash/issues/37) (artefatos do PI). A meta mínima de acurácia pedida pela banca está na [#90](https://github.com/conloq/mash/issues/90).
 
 ## Referências do artigo
 

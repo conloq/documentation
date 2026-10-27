@@ -2,7 +2,7 @@
 
 Documentação da área Backend do projeto Mash.
 
-> Conferido em 21/10/2026 contra Back-End `7f33203d06bd796c7840f13f1a445d082dbd7457` e os metadados do banco local. [Evidências do schema](../database/evidencias/README.md). O contrato vigente está nas issues e na #66.
+> Conferido em 21/10/2026 contra a `main` do [`conloq/Back-End`](https://github.com/conloq/Back-End/tree/main) e os metadados do banco local. [Evidências do schema](../database/evidencias/README.md). O contrato vigente está nas issues e na #66.
 
 ## Repositórios
 
@@ -28,11 +28,11 @@ Documentação da área Backend do projeto Mash.
 - **Upload:** Multer memoryStorage → Cloudinary
 - **Credenciais:** Via `.env` (dotenv): `DB_HOST`, `DB_USERNAME`, `DB_PASSWORD`, `DB_DATABASE`, `JWT_SECRET_KEY`, `CLOUD_NAME`, `API_KEY_CLOUDINARY`, `API_SECRET_KEY_CLOUDINARY`, `FRONTEND_URL` (CORS para o frontend)
 - **Database:** `mash` (⚠️ diferente de `cervejaria` do mash original)
-- **Tabelas da API:** `users`, `recipes`, `temperatures`; atributos camelCase e colunas snake_case. `SequelizeMeta` registra as três migrations aplicadas.
+- **Tabelas da API:** `users`, `recipes`, `temperatures` e `sessions`; atributos camelCase e colunas snake_case. `SequelizeMeta` registra as quatro migrations aplicadas.
 - **Foreign key:** coluna `user_id` e `recipe_id` (atributo `userId` e `recipeId` no model e no JSON); diferente de `usuario_id` do mash
 - **Banco (decisão de 12/10/2026):** o schema vem das **migrations do Sequelize**; `npm run db:migrate` roda antes de `npm start` e a cada deploy. O bootstrap atual não chama `Connection.sync()`; `prestart` executa as migrations. A #40 continua fechada.
 - **Nomes (08/10/2026, reafirmada em 15/10/2026, #30):** JSON em camelCase em inglês (`userId`, `recipeId`, `urlImage`, `collectedAt`, `createdAt`); banco em **snake_case** nas tabelas e colunas (`user_id`, `recipe_id`, `url_image`, `created_at`). Os models declaram os atributos em camelCase e a conexão usa `define: { underscored: true }`, sem código de tradução. Rotas em inglês. Os nomes atuais já usam `name`, `phone` e a tabela `recipes`; os nomes em português pertencem ao legado. A regra de 13/10 (banco em camelCase) foi revertida; a de 28/09 (snake_case no JSON) continua substituída.
-- **Deploy (decisão de 13/10/2026, #61):** Render gratuito com MySQL externo (Aiven); `GET /health` pela #68.
+- **Deploy (decisão de 13/10/2026, banco revisto em 24/10/2026, #61):** Render gratuito com MySQL externo no TiDB Cloud; `GET /health` pela #68.
 
 ## Padrão de resposta (decisão da equipe: base aula-05 DW3)
 
@@ -44,11 +44,9 @@ Documentação da área Backend do projeto Mash.
 
 ## Rotas e schema da API
 
-Na main `b65ca02`, receitas usam `/recipes` e `/recipes/:id` (`GET`, `PUT` e `DELETE`; edição e exclusão pela #93, conloq/Back-End#25). Criar e listar rampas usa `/recipes/:id/temperatures`. Usuário/login continuam em `/user` e `/login`, com foto de perfil em `/user/upload`. Essas rotas têm documentação no Swagger versionado.
+Na `main` do Back-End, receitas usam `/recipes` e `/recipes/:id` (`GET`, `PUT` e `DELETE`; edição e exclusão pela #93, conloq/Back-End#25). Criar e listar rampas usa `/recipes/:id/temperatures`. Usuário/login continuam em `/user` e `/login`, com foto de perfil em `/user/upload`. Essas rotas têm documentação no Swagger versionado.
 
 Lotes (#31/#92) e edição/exclusão de rampas (#97) são planejamento, não tabelas ou rotas observadas na main auditada. O 409 ao excluir receita com lotes entra com a #31. A comprovação do banco local está em [database/evidencias](../database/evidencias/README.md).
-
-OpenCV e todo o fluxo real do teste de iodo ficam no backlog para outro semestre. Neste semestre permanece somente a simulação no frontend, com cena obrigatória no pitch, sem etiqueta de simulação na cena ([decisão de 21/10/2026, #66](https://github.com/conloq/mash/issues/66)).
 
 ## Models Sequelize do legado (conloq/mash)
 
@@ -94,7 +92,7 @@ Receita (receitas)
 
 ## Issues da área
 
-O status de cada issue fica no [Project Mash](https://github.com/orgs/conloq/projects/2) e nos épicos, não aqui: [#30](https://github.com/conloq/mash/issues/30) (base da API: padrões, schema e evidências), [#83](https://github.com/conloq/mash/issues/83) (conta e segurança), [#80](https://github.com/conloq/mash/issues/80) (receitas e rampas), [#81](https://github.com/conloq/mash/issues/81) (lotes), [#82](https://github.com/conloq/mash/issues/82) (teste de iodo) e [#61](https://github.com/conloq/mash/issues/61) (deploy). OpenCV ([#34](https://github.com/conloq/mash/issues/34)) e temperatura por dispositivo ([#36](https://github.com/conloq/mash/issues/36)) ficam para o próximo semestre.
+O status de cada issue fica no [Project Mash](https://github.com/orgs/conloq/projects/2) e nos épicos, não aqui: [#30](https://github.com/conloq/mash/issues/30) (base da API: padrões, schema e evidências), [#83](https://github.com/conloq/mash/issues/83) (conta e segurança), [#80](https://github.com/conloq/mash/issues/80) (receitas e rampas), [#81](https://github.com/conloq/mash/issues/81) (lotes), [#82](https://github.com/conloq/mash/issues/82) (teste de iodo) e [#61](https://github.com/conloq/mash/issues/61) (deploy).
 
 ## Pontos de atenção
 

@@ -1,6 +1,6 @@
 # Banco de Dados: Mash
 
-A fonte do schema da API são as [migrations do Back-End](https://github.com/conloq/Back-End/tree/7f33203d06bd796c7840f13f1a445d082dbd7457/migrations). Em 21/10/2026, uma consulta somente de leitura confirmou que o banco local `mash` corresponde a essas migrations nos itens descritos abaixo. [Evidências e reprodução](evidencias/README.md).
+A fonte do schema da API são as [migrations do Back-End na revisão atual](https://github.com/conloq/Back-End/tree/main/migrations). Em 21/10/2026, uma consulta somente de leitura confirmou que o banco local `mash` corresponde às migrations da revisão então examinada nos itens descritos abaixo. [Evidências e reprodução](evidencias/README.md).
 
 ## Banco atual e ambiente conferido
 
@@ -9,35 +9,38 @@ A fonte do schema da API são as [migrations do Back-End](https://github.com/con
 | Servidor local | MariaDB 10.4.32, acessado pelo dialeto MySQL do Sequelize |
 | Banco | `mash` |
 | Tabelas de negócio | `users`, `recipes`, `temperatures` |
-| Controle de migrations | `SequelizeMeta`, com três migrations registradas |
+| Tabela de infraestrutura | `sessions`, armazenamento de sessão da aplicação |
+| Controle de migrations | `SequelizeMeta`, com quatro migrations registradas |
 | Engine | InnoDB |
 | Collation das tabelas de negócio | `utf8mb4_general_ci` |
 | Collation de `SequelizeMeta` | `utf8_unicode_ci` |
 | Sensibilidade a caixa | `lower_case_table_names=0` |
-| Código comparado | Back-End `7f33203d06bd796c7840f13f1a445d082dbd7457` |
+| Fonte das migrations | [`conloq/Back-End/migrations`](https://github.com/conloq/Back-End/tree/main/migrations) (conferência de 21/10/2026) |
 
 MariaDB é a versão observada no ambiente local. A configuração da aplicação usa o dialeto `mysql`; a implantação planejada com MySQL externo deve ser conferida separadamente. Esta evidência não comprova o banco publicado.
 
-## Entidades e relacionamentos do modelo atualizado
+### Atualização da fonte em 25/10/2026
 
-O modelo de referência reúne `users`, `recipes`, `temperatures`, `lots`, `iodine_configs` e `login_history`, além de `SequelizeMeta`. As três últimas tabelas de negócio e `temperatures.active_temperature` são as adições do `schema-complementar.sql`, ainda não aplicadas à API. A tabela de ambiente acima e as evidências descrevem somente o banco observado antes dessas adições.
+Na `main` atual do Back-End, em relação à conferência de 21/10, entrou a quarta migration (`sessions`, criada em 24/10 para o armazenamento de sessão da aplicação). As quatro migrations criam `users`, `recipes`, `temperatures` e `sessions`; `lots` ainda não está nas migrations da `main` e permanece dependente da [#31 do conloq/mash](https://github.com/conloq/mash/issues/31). O MER implementado e o modelo planejado estão em diagramas separados.
+
+O despejo `schema-api.sql` e os arquivos de `evidencias/` são observações de 21/10 e precedem a migration de `sessions`; por isso continuam descrevendo o banco com três tabelas de negócio. As colunas de `sessions` aqui vêm da definição da migration, não de uma consulta ao banco.
+
+## Entidades implementadas nas migrations atuais
+
+O arquivo [`diagrama_mer_mash.mmd`](diagrama_mer_mash.mmd) contém as três tabelas de negócio da API e a tabela de infraestrutura `sessions`. `SequelizeMeta` foi omitida por ser tabela administrativa do Sequelize, não parte do MER de negócio.
 
 ```mermaid
 erDiagram
     users ||--o{ recipes : possui
     recipes ||--o{ temperatures : possui
-    users ||--o{ lots : possui
-    recipes ||--o{ lots : origina
-    recipes ||--o{ iodine_configs : configura
-    users ||--o{ login_history : registra
 
     users {
         INT id PK
         VARCHAR name
         VARCHAR email UK
-        VARCHAR phone
+        VARCHAR phone "nullable"
         VARCHAR password
-        VARCHAR url_image
+        VARCHAR url_image "nullable"
         DATETIME created_at
         DATETIME updated_at
     }
@@ -57,51 +60,23 @@ erDiagram
         TIME timer
         TIME initialization
         TIME ideal_time
-        INT order_ramp
-        BOOLEAN active_temperature "adição ainda não aplicada à API"
+        INT order_ramp "nullable"
         INT recipe_id FK
         DATETIME created_at
         DATETIME updated_at
     }
-    SequelizeMeta {
-        VARCHAR name PK
-    }
-    lots {
-        INT id PK
-        VARCHAR name
-        INT user_id FK
-        INT recipe_id FK
-        DATETIME mash_start
-        ENUM status "active ou completed; default active"
-        DATETIME created_at
-        DATETIME updated_at
-    }
-    iodine_configs {
-        INT id PK
-        TIME first_collection_time
-        TIME test_interval
-        INT max_tests
-        INT recipe_id FK
-        DATETIME created_at
-        DATETIME updated_at
-    }
-    login_history {
-        INT id PK
-        VARCHAR ip_address
-        DATETIME logged_at
-        VARCHAR location
-        BOOLEAN status "aceita NULL"
-        INT user_id FK
-        DATETIME created_at
-        DATETIME updated_at
+    sessions {
+        VARCHAR session_id PK
+        INT expires
+        TEXT data "nullable"
     }
 ```
 
-- Cada receita pertence a um usuário, por `recipes.user_id`, obrigatório.
-- Cada rampa pertence a uma receita, por `temperatures.recipe_id`, obrigatório.
-- As duas FKs têm `ON DELETE CASCADE` e `ON UPDATE CASCADE` no banco observado.
-- No complemento, cada lote pertence a um usuário e a uma receita; configurações de iodo pertencem a receitas e registros de login pertencem a usuários.
-- `SequelizeMeta` é administrativa e não tem FK com as entidades de negócio.
+Cada receita pertence a um usuário e cada rampa pertence a uma receita. As duas chaves estrangeiras são obrigatórias e usam `ON DELETE CASCADE` e `ON UPDATE CASCADE`. A tabela `sessions` não tem chave estrangeira: ela guarda o estado da sessão do navegador e é lida e apagada pelo armazenamento de sessão da aplicação.
+
+## Entidades planejadas, ainda sem migrations na `main`
+
+O arquivo [`diagrama_mer_planejado.mmd`](diagrama_mer_planejado.mmd) separa as entidades previstas e a adição `temperatures.active_temperature`. `lots` depende da #31; `analyses` não possui migration na `main` (escopo vigente na [#66](https://github.com/conloq/mash/issues/66)). `iodine_configs` e `login_history` vêm do schema complementar, ainda sem migrations da API. Os nomes `Telemetria_IOT` e `Registro`, citados na #87, não têm definição canônica de colunas e por isso não foram desenhados. Nenhum desses elementos representa o schema atualmente aplicado à API.
 
 ## Colunas físicas do modelo atualizado
 
@@ -151,6 +126,16 @@ JSON e atributos dos models usam camelCase; tabelas e colunas físicas usam snak
 | `updated_at` | `datetime` | Não | default current_timestamp() |
 
 `users.email` possui índice único. O banco não tem UNIQUE composto em `recipes(user_id, name)`; a regra de nome de receita por usuário pertence à aplicação. `updated_at` é mantido pelo Sequelize nas operações da aplicação, sem cláusula `ON UPDATE` no DDL observado.
+
+### `sessions`
+
+| Coluna | Tipo na migration | Aceita NULL | Chave / default |
+|---|---|---|---|
+| `session_id` | `varchar(128)` | Não | PK |
+| `expires` | `int unsigned` | Não | Epoch em segundos, para expiração pelo armazenamento de sessão |
+| `data` | `mediumtext` | Sim | Estado serializado da sessão |
+
+A tabela é criada pela migration `20261024120000-criar-tabela-sessions.js` do Back-End, com engine InnoDB, charset `utf8mb4` e collation `utf8mb4_bin`. As colunas vêm da definição da migration: a observação de banco disponível é de 21/10 e antecede essa tabela.
 
 ### `lots` (complemento, ainda não aplicado)
 
@@ -207,7 +192,7 @@ Os testes de schema que criam dados ou fazem rollback devem usar banco descartá
 
 - Implementado e observado: `users`, `recipes`, `temperatures` e `SequelizeMeta`.
 - Planejado neste semestre: `lots`, conforme [#31](https://github.com/conloq/mash/issues/31); não existe no schema nem na main comparados nesta conferência.
-- Teste de iodo: somente simulação no frontend neste semestre, com cena obrigatória no pitch. Não há tabela de análise, upload real, histórico real ou OpenCV exigidos para o depósito; ficam no backlog do próximo semestre, conforme [#66](https://github.com/conloq/mash/issues/66).
+- Escopo por semestre e funcionalidades fora do banco atual: consultar a [#66](https://github.com/conloq/mash/issues/66) e a documentação geral em [`conloq/documentation`](https://github.com/conloq/documentation/blob/main/geral/README.md).
 - Sensores, leituras IoT, reprocessamento e avaliações são futuros; não aparecem no MER como implementados.
 
 ## Complemento de schema solicitado em 21/10/2026
@@ -224,8 +209,6 @@ Por solicitação do Haimon, somente neste repositório, o [SQL complementar](sc
 As colunas novas seguem inglês e snake_case. As tabelas novas usam InnoDB e `utf8mb4_general_ci`. O SQL preserva a exclusão em cascata dos vínculos legados de configuração e histórico; para lotes, usa RESTRICT na exclusão de usuário/receita para preservar os registros. O vínculo entre lote e receita do mesmo usuário precisa de validação na futura API. Os timestamps seguem o padrão atual: default de cadastro; atualização de `updated_at` pela aplicação, sem `ON UPDATE` automático.
 
 Para validar o DDL, usar banco vazio descartável: primeiro `schema-api.sql`, depois `schema-complementar.sql`, uma única vez. O complemento não tem DROP, não copia dados legados e não deve ser aplicado manualmente ao banco da API. A adoção pela aplicação exige novas migrations e alinhamento dos models, em trabalho separado.
-
-Adicionar a referência de `iodine_configs` não antecipa o fluxo real de iodo: neste semestre continua somente a simulação frontend e sua cena obrigatória no pitch. Imagens, resultados de análise, OpenCV e demais funcionalidades futuras não foram acrescentados a este complemento.
 
 ## Arquivos
 

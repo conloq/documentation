@@ -38,11 +38,11 @@ Documentação da área Backend: arquitetura da aplicação original (mash) e da
 
 ### 🎨 [Frontend](./frontend/README.md)
 
-Frontend EJS com Tailwind, integrado à API nas telas entregues. O teste de iodo permanece somente como simulação para a demonstração e o pitch, conforme a #66.
+Frontend EJS com Tailwind e sessão no servidor, integrado à API REST nas telas entregues.
 
 ### 🗄️ [Database](./database/README.md)
 
-Schema atual `mash` conferido no banco local (MariaDB 10.4.32): `users`, `recipes`, `temperatures` e `SequelizeMeta`, com MER, DDL de referência e evidências de metadados. O legado `cervejaria` fica preservado e identificado separadamente; lotes ainda são planejados e análises reais ficam para outro semestre.
+Schema atual `mash` conferido no banco local (MariaDB 10.4.32): `users`, `recipes`, `temperatures`, `sessions` e `SequelizeMeta`, com MER, DDL de referência e evidências de metadados. O legado `cervejaria` fica preservado separadamente.
 
 ### 📝 [Artigo](./artigo/README.md)
 

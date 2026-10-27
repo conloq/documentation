@@ -8,7 +8,7 @@ Este documento descreve as fronteiras técnicas comprovadas, não a arquitetura 
 |---|---|---:|---|
 | `conloq/.github` | Perfil da organização, templates, workflows e automação GitHub | Não | Workflows/configuração e código de automação |
 | `conloq/Back-End` | API REST, regras de negócio, persistência e migrations executáveis | Sim | Código e configuração no SHA; migrations para criação/evolução de schema |
-| `conloq/frontend` | Aplicação web; telas e chamadas HTTP feitas no navegador | Sim | `index.js`, `public/js/app.js`, views e manifest |
+| `conloq/frontend` | Aplicação web; telas EJS com sessão no servidor, que chamam a API REST | Sim | `index.js`, `controllers/pageController.js`, views e manifest |
 | `conloq/landing-page-conloq` | Apresentação institucional/comercial da visão completa do produto | Não | Conteúdo e assets da própria página; não comprova implementação Mash |
 | `conloq/conloq` | Repositório institucional da organização | Não | Conteúdo institucional; package Python existente é stub observado, não runtime Mash |
 | `conloq/database` | Documentação e referência de banco/schema | Não | Artefatos documentais; não substituem migrations |
@@ -19,8 +19,10 @@ Este documento descreve as fronteiras técnicas comprovadas, não a arquitetura 
 
 ```mermaid
 flowchart LR
-  BROWSER[Browser: frontend] -->|HTTP fetch; Bearer token; CORS| API[Back-End Express API]
-  API -->|Sequelize| MYSQL[(MySQL)]
+  BROWSER[Browser] -->|HttpOnly session cookie| FE[Frontend Express: views EJS]
+  FE -->|HTTP fetch; Bearer token| API[Back-End Express API]
+  FE -->|session store| MYSQL[(MySQL)]
+  API -->|Sequelize| MYSQL
   MIG[Back-End migrations] -->|create/evolve schema| MYSQL
   API -->|profile image upload| CLOUD[Cloudinary]
   GH[.github automation] -->|GitHub API| OPS[Issues / Project #2 / PRs]
@@ -29,7 +31,7 @@ flowchart LR
   LP[landing page] -. product presentation, not runtime evidence .-> MASH[Mash product]
 ```
 
-- `frontend` renders pages and its browser code calls the Back-End API directly; the frontend repository does not own API business rules or database persistence.
+- `frontend` renders EJS pages and calls the Back-End API from its Express server (`controllers/pageController.js`) with a Bearer token; the JWT stays in the server-side session persisted in the MySQL `sessions` table, and the browser holds only the `HttpOnly` session cookie. The frontend repository does not own API business rules.
 - Back-End is the runtime API and uses Sequelize/MySQL. **Back-End migrations are the canonical schema creation/evolution mechanism.** SQL and diagrams in `database` are reference material.
 - Back-End uploads user profile images through Cloudinary (`config/cloudinary.js`, `controllers/userController.js`); that integration does not prove iodine image upload or analysis.
 - `.github` automation operates on GitHub work items; it is not in the HTTP request path of the product.
@@ -40,12 +42,12 @@ flowchart LR
 
 | Surface | Technical state | Evidence boundary |
 |---|---|---|
-| Iodine-test UI/demo | `SIMULATED` in frontend | Frontend `public/js/app.js` / iodine demo view and `conloq/mash#9`; inspect target SHA |
+| Iodine-test UI/demo | `SIMULATED` in frontend | Frontend `controllers/pageController.js` / iodine demo view and `conloq/mash#9`; inspect the current `main` |
 | Real image upload and storage for iodine | `PLANNED` | `conloq/mash#33` and #66; not established by product-presentation copy |
 | OpenCV/image analysis | `PLANNED` | `conloq/mash#34` and #66 |
 | Real iodine analysis query/history | `PLANNED` | `conloq/mash#1`, #3, #11, #33, #66 |
 | Lots API/workflow | `NOT_IMPLEMENTED` in the inspected API SHA; `PLANNED` in roadmap | `Back-End/app.js` mounts user, recipe, Swagger, and temperature routers, not a lots router; `conloq/mash#31`, #66 record intent |
-| Temperature ramps | `IMPLEMENTED` in the current API/frontend scope; verify exact behavior at the task SHA | `Back-End/app.js`, `Back-End/routes/temperatureRoutes.js`, `frontend/public/js/app.js`; see `conloq/mash#66` for scope |
+| Temperature ramps | `IMPLEMENTED` in the current API/frontend scope; verify exact behavior on the current `main` | `Back-End/app.js`, `Back-End/routes/temperatureRoutes.js`, `frontend/controllers/pageController.js`; see `conloq/mash#66` for scope |
 
 “Planned” records durable project intent, not a promise that the feature is implemented. For a task-specific classification, inspect both the code and live issue/PR state. If they disagree, report `DIVERGENT` and stop before relying on either.
 
@@ -62,7 +64,7 @@ flowchart LR
 
 | Source | Destination | Type | Evidence to verify at target SHA |
 |---|---|---|---|
-| `frontend` | `Back-End` | Browser HTTP API consumer | `frontend/public/js/app.js`; `Back-End/app.js`, `Back-End/routes/`, CORS config |
+| `frontend` | `Back-End` | Server-side HTTP API consumer | `frontend/controllers/pageController.js`; `Back-End/app.js`, `Back-End/routes/` |
 | `Back-End` | MySQL | Runtime persistence | `Back-End/config/data-base.js`, `Back-End/config/sequelize-config.js`, models |
 | Back-End migrations | MySQL schema | Executable schema creation/evolution | `Back-End/migrations/`, migration scripts in `Back-End/package.json` |
 | `Back-End` | Cloudinary | External profile-image storage | `Back-End/config/cloudinary.js`, `Back-End/controllers/userController.js` |
@@ -74,7 +76,7 @@ No package import, Docker image dependency, or direct runtime edge is asserted b
 
 ### Document freshness note
 
-`database/README.md` describes a local schema observation and links to Back-End migrations at historical SHA `7f33203d06bd796c7840f13f1a445d082dbd7457`. The current Back-End `main` checked for this document is `5c8551df3cbf4d25edf5962502a5c6859c166157`. The database repository remains reference material; use migrations at the target Back-End SHA as schema authority and re-verify before database work. Updating `database/README.md` is outside this Fase 1 file list.
+`database/README.md` describes a local schema observation and links to the Back-End migrations on `main`; code-boundary claims in this document were checked against the `main` branch of each repository. The database repository remains reference material; use migrations at the current Back-End `main` as schema authority and re-verify before database work.
 
 ## Integration policy boundary
 
@@ -82,15 +84,6 @@ Team policy: work on a branch and use a Pull Request; required human approvals a
 
 ## Verification evidence
 
-Stable code-boundary claims were checked against these `main` snapshots while preparing this document:
+Stable code-boundary claims in this document were checked against the `main` branch of each repository: `conloq/.github`, `conloq/documentation`, `conloq/frontend`, `conloq/landing-page-conloq`, `conloq/conloq` and `conloq/Back-End`. Re-verify a claim when `main` has moved since the read; do not record commit SHAs or volatile board state here.
 
-| Repository | Ref checked | SHA |
-|---|---|---|
-| `conloq/.github` | `main` | `57369143cf0f2a5ef2d988d3464b6063642f499e` |
-| `conloq/documentation` | `main` | `5861ac835d76ab2f80d4e0dc633fa5d5651d47bc` |
-| `conloq/frontend` | `main` | `58ec542067e7b313c593aa8c090c114d1e188a04` |
-| `conloq/landing-page-conloq` | `main` | `9c0abcd9335f98df4cd5293a636701dd61608d4a` |
-| `conloq/conloq` | `main` | `388fad53eab425dc543f2c21acb2d6eb76d45294` |
-| `conloq/Back-End` | `main` | `5c8551df3cbf4d25edf5962502a5c6859c166157` |
-
-The `database/README.md` reference is on `database/main` at `e0f05492f720850c507800973c03cda42765b2c8`; it cites the historical Back-End SHA shown above and is not the current schema authority. Issue/Project statements are live references, not SHA snapshots. Re-verify code claims when the target SHA differs; do not update this table with volatile board state.
+Issue/Project statements are live references, not snapshots. Re-verify code claims at the current `main` of the target repository.

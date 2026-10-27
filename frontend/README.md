@@ -2,21 +2,20 @@
 
 Documentação da área Frontend do projeto Mash.
 
-> **Atualizado em 21/10/2026.** O detalhe de telas, rotas e chamadas à API fica no README do [`conloq/frontend`](https://github.com/conloq/frontend#readme), que acompanha o código; aqui ficam só as decisões e o mapa da área.
+> **Atualizado em 27/10/2026.** O detalhe de telas, rotas e chamadas à API fica no README do [`conloq/frontend`](https://github.com/conloq/frontend#readme), que acompanha o código; aqui ficam só as decisões e o mapa da área.
 
 ## Repositório
 
 | Repositório | Papel | Status |
 |---|---|---|
-| [`conloq/frontend`](https://github.com/conloq/frontend) | Telas EJS com Tailwind que consomem a API do Back-End | Login, cadastro, perfil, receitas e rampas ligados à API desde 13/10 (`7a6fc89`); lotes planejados; iodo somente como simulação no frontend |
+| [`conloq/frontend`](https://github.com/conloq/frontend) | Telas EJS com Tailwind que consomem a API do Back-End | Login, cadastro, perfil, receitas e rampas ligados à API desde 13/10, com sessão no servidor desde 24/10; lotes planejados |
 
-## Arquitetura (decisão de 12/10/2026, conloq/mash#6)
+## Arquitetura (sessão no servidor, 24/10/2026, conloq/mash#66)
 
-- O `index.js` só entrega as telas (EJS) e injeta `window.API_URL`; não tem sessão, banco nem regra de negócio.
-- **O navegador chama a API direto**, em `public/js/app.js`, com o token no `localStorage` (`mash-token`) enviado como `Authorization: Bearer`. O Back-End libera CORS para `FRONTEND_URL`. Risco de XSS aceito pelo time; substitui a decisão de 09/10 (API só pelo servidor, cookie `HttpOnly`).
+- O `index.js` entrega as telas (EJS) e monta a sessão do navegador; o `controllers/pageController.js` chama a API do Back-End com `Authorization: Bearer` e guarda o JWT na sessão persistida na tabela `sessions` do MySQL.
+- **O navegador não chama a API direto** e não recebe o JWT: ele só tem o cookie de sessão `HttpOnly`, então o XSS não alcança o token. Isso substitui a decisão de 12/10, do token no `localStorage`.
 - As mensagens de sucesso e erro aparecem como a API devolve, em pt-BR; o frontend não traduz nem cria texto de negócio.
 - **Portas:** frontend na 4000, API na 8080, nunca a mesma.
-- As telas reais consomem a API; a simulação do teste de iodo é a exceção explícita da decisão de 21/10/2026.
 - Campos de temperatura limitados a 0–100 °C com `min`/`max` no HTML, no lugar das barras deslizantes (14/10/2026).
 
 ## Stack
@@ -38,9 +37,9 @@ npm run build:css
 npm start            # http://localhost:4000; a API precisa estar em API_URL (padrão http://localhost:8080)
 ```
 
-## Integração entregue e recorte vigente
+## Integração entregue
 
-As rotas `/recipes` e os campos camelCase já estão na main do Back-End conferida em 21/10; as telas de receitas/rampas acompanham na #86. A conferência de schema não comprova o deploy público. OpenCV e todo o fluxo real do teste de iodo ficam no backlog para outro semestre. Neste semestre permanece somente a simulação no frontend, com cena obrigatória no pitch, sem etiqueta de simulação na cena ([decisão de 21/10/2026, #66](https://github.com/conloq/mash/issues/66)).
+As rotas `/recipes` e os campos camelCase já estão na `main` do Back-End; as telas de receitas/rampas acompanham na #86. A conferência de schema não comprova o deploy público. O recorte do semestre está centralizado em [geral/README.md](../geral/README.md) e na [#66](https://github.com/conloq/mash/issues/66).
 
 ## Issues da área
 
@@ -50,8 +49,8 @@ O status de cada issue fica no [Project Mash](https://github.com/orgs/conloq/pro
 
 | Aspecto | conloq/mash (legado) | conloq/frontend |
 |---|---|---|
-| Persistência | MySQL + Sequelize no próprio app | Nenhuma: os dados vêm da API do Back-End |
-| Autenticação | express-session + bcrypt | JWT da API, guardado no `localStorage` |
+| Persistência | MySQL + Sequelize no próprio app | Apenas a tabela técnica `sessions` no MySQL compartilhado; os dados de negócio vêm da API do Back-End |
+| Autenticação | express-session + bcrypt | Cookie de sessão `HttpOnly` no navegador; JWT da API guardado na sessão do servidor |
 | CSS | Custom | Tailwind compilado |
 | Regra de negócio | No servidor | No Back-End; o frontend só mostra |
 
