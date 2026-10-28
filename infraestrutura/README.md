@@ -72,7 +72,7 @@ flowchart LR
   API -->|Sequelize| DB[(TiDB Cloud)]
   API -->|upload| CL[Cloudinary]
   IOT[Sensores IoT] -.->|planejado| API
-  PY[Python + OpenCV] -.->|planejado| API
+  API -.->|POST /analyze, planejado| PY[Python + OpenCV]
 ```
 
 Linha contínua: entregue no depósito. Linha tracejada: planejado para o próximo semestre.

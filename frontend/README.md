@@ -2,18 +2,18 @@
 
 Documentação da área Frontend do projeto Mash.
 
-> **Atualizado em 27/10/2026.** O detalhe de telas, rotas e chamadas à API fica no README do [`conloq/frontend`](https://github.com/conloq/frontend#readme), que acompanha o código; aqui ficam só as decisões e o mapa da área.
+> **Atualizado em 28/10/2026.** O detalhe de telas, rotas e chamadas à API fica no README do [`conloq/frontend`](https://github.com/conloq/frontend#readme), que acompanha o código; aqui ficam só as decisões e o mapa da área.
 
 ## Repositório
 
 | Repositório | Papel | Status |
 |---|---|---|
-| [`conloq/frontend`](https://github.com/conloq/frontend) | Telas EJS com Tailwind que consomem a API do Back-End | Login, cadastro, perfil, receitas e rampas ligados à API desde 13/10, com sessão no servidor desde 24/10; lotes planejados |
+| [`conloq/frontend`](https://github.com/conloq/frontend) | Telas Next.js (React) com Tailwind que chamam a API do Back-End | Login, cadastro, perfil, receitas e rampas ligados à API desde 13/10; JWT no navegador desde 28/10; lotes planejados |
 
-## Arquitetura (sessão no servidor, 24/10/2026, conloq/mash#66)
+## Arquitetura (JWT no navegador, 28/10/2026, conloq/mash#66)
 
-- O `index.js` entrega as telas (EJS) e monta a sessão do navegador; o `controllers/pageController.js` chama a API do Back-End com `Authorization: Bearer` e guarda o JWT na sessão persistida na tabela `sessions` do MySQL.
-- **O navegador não chama a API direto** e não recebe o JWT: ele só tem o cookie de sessão `HttpOnly`, então o XSS não alcança o token. Isso substitui a decisão de 12/10, do token no `localStorage`.
+- As telas são páginas Next.js em `src/pages`; `src/services/api.js` chama a API do Back-End com `axios` e envia `Authorization: Bearer` em toda requisição.
+- **O navegador chama a API direto** e guarda o JWT no `localStorage` (`mash_token`), então um XSS alcança o token. Isso substitui a decisão de 24/10, da sessão no servidor; a tabela `sessions` foi removida do Back-End em 28/10/2026.
 - As mensagens de sucesso e erro aparecem como a API devolve, em pt-BR; o frontend não traduz nem cria texto de negócio.
 - **Portas:** frontend na 4000, API na 8080, nunca a mesma.
 - Campos de temperatura limitados a 0–100 °C com `min`/`max` no HTML, no lugar das barras deslizantes (14/10/2026).
@@ -22,8 +22,8 @@ Documentação da área Frontend do projeto Mash.
 
 | Tecnologia | Uso |
 |---|---|
-| Node.js (ESM) + Express 5 | Servidor que entrega as telas |
-| EJS | View engine |
+| Next.js (React, Pages Router) | Páginas e roteamento |
+| axios | Chamadas à API do Back-End, direto do navegador |
 | Tailwind CSS 4 | Estilos (`npm run build:css`) |
 | Phosphor Icons | Ícones |
 
@@ -34,7 +34,7 @@ git clone https://github.com/conloq/frontend.git
 cd frontend
 npm install
 npm run build:css
-npm start            # http://localhost:4000; a API precisa estar em API_URL (padrão http://localhost:8080)
+npm run dev          # http://localhost:4000; a API precisa estar em NEXT_PUBLIC_API_URL (padrão http://localhost:8080)
 ```
 
 ## Integração entregue
@@ -49,8 +49,8 @@ O status de cada issue fica no [Project Mash](https://github.com/orgs/conloq/pro
 
 | Aspecto | conloq/mash (legado) | conloq/frontend |
 |---|---|---|
-| Persistência | MySQL + Sequelize no próprio app | Apenas a tabela técnica `sessions` no MySQL compartilhado; os dados de negócio vêm da API do Back-End |
-| Autenticação | express-session + bcrypt | Cookie de sessão `HttpOnly` no navegador; JWT da API guardado na sessão do servidor |
+| Persistência | MySQL + Sequelize no próprio app | Nenhuma no app; os dados de negócio vêm da API do Back-End |
+| Autenticação | express-session + bcrypt | JWT no `localStorage` (`mash_token`), enviado em `Authorization: Bearer` |
 | CSS | Custom | Tailwind compilado |
 | Regra de negócio | No servidor | No Back-End; o frontend só mostra |
 

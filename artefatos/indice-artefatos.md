@@ -1,6 +1,6 @@
 # Índice de artefatos do Projeto de Software
 
-Estado conferido em 24/10/2026. A situação de cada entrega aponta para sua issue, que continua sendo a fonte do status e do escopo. Os arquivos originais ficam em seus repositórios e áreas de origem; este índice não os duplica.
+Estado conferido em 28/10/2026. A situação de cada entrega aponta para sua issue, que continua sendo a fonte do status e do escopo. Os arquivos originais ficam em seus repositórios e áreas de origem; este índice não os duplica.
 
 | Artefato | Arquivo | Versão (data) | Responsável | Issue | Situação |
 |---|---|---|---|---|---|
@@ -11,7 +11,7 @@ Estado conferido em 24/10/2026. A situação de cada entrega aponta para sua iss
 | Canvas e análise SWOT | `conloq/documentation`; artefatos ainda não encontrados na main | 24/10/2026 | Jocieli | [#52](https://github.com/conloq/mash/issues/52) | planejado |
 | Infraestrutura de rede e implantação | [infraestrutura/README.md](../infraestrutura/README.md); topologia e endereços descritos como proposta, com o ambiente local e o publicado na seção Ambiente do depósito | 28/10/2026; Pull Request da [#51](https://github.com/conloq/mash/issues/51) | Jocieli | [#51](https://github.com/conloq/mash/issues/51) | em revisão |
 | UI de alta fidelidade no Figma | Figma da equipe; referências de cada quadro dispensadas nas issues | 23/10/2026; issues #75 e #78 fechadas | Kevin | [#75](https://github.com/conloq/mash/issues/75), [#78](https://github.com/conloq/mash/issues/78) | entregue |
-| Interfaces do website no ambiente publicado | Capturas do frontend publicado; ainda não verificadas | 24/10/2026; publicação pendente | Haimon | [#69](https://github.com/conloq/mash/issues/69) | planejado |
+| Interfaces do website no ambiente publicado | Capturas do frontend publicado; ainda não verificadas | 24/10/2026; capturas ainda não verificadas | Haimon | [#69](https://github.com/conloq/mash/issues/69) | planejado |
 | Pitch de 1 a 2 minutos, com legendas em português e inglês | Vídeo, arquivos SRT e trilha final; ainda não entregues | 24/10/2026 | Kevin | [#25](https://github.com/conloq/mash/issues/25), [#26](https://github.com/conloq/mash/issues/26), [#27](https://github.com/conloq/mash/issues/27) | planejado |
 | Artigo científico | [artigo/artigo_main.pdf](../artigo/artigo_main.pdf) | 23/10/2026; publicado. #56 encerrada com exceções aceitas no comentário de fechamento | Haimon e Jocieli | [#56](https://github.com/conloq/mash/issues/56) | entregue |
 | Documento consolidado dos artefatos do projeto | [artigo/artefatos_projeto.pdf](../artigo/artefatos_projeto.pdf); cópia antiga, não comprova o DoD atual da #79 | 14/09/2026; oito seções finais ainda pendentes | Jocieli | [#79](https://github.com/conloq/mash/issues/79) | planejado |
