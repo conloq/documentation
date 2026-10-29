@@ -54,7 +54,7 @@ Guia de estilos (paleta 60-30-10, tipografia Poppins/Roboto), landing page insti
 
 ### 🧭 [Pesquisa de usuário (IHC)](./ihc/README.md)
 
-Mapa de Empatia hipotético do Mash e template da disciplina. Entrevistas, evidências e personas baseadas na pesquisa seguem pendentes na #77.
+Mapa de Empatia hipotético do Mash, template da disciplina, roteiro de entrevista, termo de autorização e personas hipotéticas. Entrevistas, evidências e personas reais seguem pendentes na #77.
 
 ### 🌐 [Infraestrutura](./infraestrutura/README.md)
 
@@ -75,7 +75,7 @@ Consulte [`geral/entregas/mind-map-entregas-pi.mm`](./geral/entregas/mind-map-en
 | Artigo Científico (PDF) | ✅ Versão de 23/10 publicada; #56 encerrada com pendências aceitas |
 | Artefatos do Projeto (LaTeX) | 🔄 Em atualização (#37, #50–#53) |
 | Projeto de Software (GitHub) | 🔄 Em desenvolvimento (#30–#36; Back-End com JWT/Argon2id, bugs em recipeController) |
-| Pesquisa de Usuário (IHC) | [Mapa e template publicados](ihc/README.md); pesquisa de campo e personas pendentes (#77) |
+| Pesquisa de Usuário (IHC) | [Roteiro, termo e personas hipotéticas publicados](ihc/README.md); pesquisa de campo e personas reais pendentes (#77) |
 | Banco de Dados (BDNR) | Schema local conferido; evidências em [database/evidencias](database/evidencias/README.md) |
 | Documentação (GAPS/SWOT) | 🔄 Em andamento (#52) |
 | Apresentação (10-11 min) | 🔄 Pitch em produção (#25–#27) |
