@@ -57,7 +57,7 @@ Projeto Mash, Projeto Integrador III, DSM3, FATEC Registro. Disciplina GAPS, ati
 | **Ofensivo (S × O)** | API autenticada e fluxo receita, rampas e lote ligados ponta a ponta, com banca focada no fluxo principal | Demonstrar o ciclo completo do login ao lote, começando com usuário, receita e lote já cadastrados, que foi o que a banca pediu em 09/10 |
 | **Reforço (W × O)** | Ausência de testes automatizados, com banca tolerante a escopo menor | Congelar o escopo e executar um roteiro de validação manual do fluxo nuclear na véspera, registrado na [#41](https://github.com/conloq/mash/issues/41), para não descobrir falha durante a apresentação |
 | **Confronto (S × T)** | Deploy publicado no Render, com rede e cota gratuita como ameaça | Manter banco local com migrations aplicadas e dados de demonstração cadastrados, API em `localhost:8080` e frontend em `localhost:4000`; gravar o vídeo do fluxo como plano B |
-| **Sobrevivência (W × T)** | Pipeline de visão computacional inexistente (sem serviço Python com OpenCV, sem integração com o Node) e documento de artefatos atrasado, contra prazo de 03/11 | **Corte inegociável:** sai todo o teste de iodo automatizado, ou seja, o serviço Python com OpenCV, a integração com o Back-End, o upload, a análise e o histórico de análises. Entra a simulação de interface já pronta. As edições de rampa e de lote também saem. O documento de artefatos consome a Sprint 6 inteira, sem esperar código novo |
+| **Sobrevivência (W × T)** | Pipeline de visão computacional inexistente (sem serviço Python com OpenCV, sem integração com o Node) e documento de artefatos atrasado, contra prazo de 03/11 | **Corte inegociável:** sai todo o teste de iodo automatizado, ou seja, o serviço Python com OpenCV, a integração com o Back-End, o upload, a análise e o histórico de análises. Entra a simulação de interface já pronta. O documento de artefatos consome a Sprint 6 inteira, sem esperar código novo |
 
 ## 4. Plano de contingência da apresentação
 
@@ -73,6 +73,5 @@ O corte é aplicado no GitHub pela [#108](https://github.com/conloq/mash/issues/
 - **Fluxo nuclear, o único Must Have:** login, receita com rampas de temperatura, lote e teste de iodo na simulação de interface, de ponta a ponta.
 - **Entra também na Sprint Final:** documento de artefatos e pitch.
 - **Fica fora, por corte de visão computacional:** o teste de iodo automatizado inteiro, isto é, serviço Python com OpenCV ([#43](https://github.com/conloq/mash/issues/43)), integração do Node com o serviço ([#44](https://github.com/conloq/mash/issues/44)), entidade e endpoint de análise ([#1](https://github.com/conloq/mash/issues/1)), upload da imagem ([#33](https://github.com/conloq/mash/issues/33)) e histórico de análises por lote ([#3](https://github.com/conloq/mash/issues/3)).
-- **Fica fora, por tempo:** edição de rampas ([#97](https://github.com/conloq/mash/issues/97)) e edição e exclusão de lote ([#92](https://github.com/conloq/mash/issues/92)).
 
 Este documento é o insumo da declaração de alinhamento do PO, que registra o fluxo demonstrável, a justificativa dos cortes e o plano de contingência.
