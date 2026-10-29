@@ -10,7 +10,7 @@ Projeto Integrador: Desenvolvimento de Software Multiplataforma, FATEC Registro 
 
 O Mash propõe uma plataforma para apoiar pequenos produtores de cerveja artesanal no acompanhamento da mosturação, no teste de iodo e na rastreabilidade das análises. O que entra em cada semestre é decidido na [decisão de recorte](#decisões-técnicas-relevantes) e na [#66](https://github.com/conloq/mash/issues/66).
 
-> **Status (15/10/2026):** Sprint 5 em andamento (16 a 30/10), com o código congelando em 30/10. Depósito do PI em 03/11 (Encerramento do PI: DSM), com o pitch e o banner. Bancas em 16–27/11. O banner é exposto na HubTec (data no calendário acadêmico, a confirmar); a FTX de 2026 foi em maio.
+> **Status (15/10/2026):** Sprint 5 em andamento (16 a 30/10), com o código congelando em 30/10. Depósito do PI em 03/11 (Encerramento do PI: DSM), com o pitch e o banner. Bancas em 16–27/11. O banner é exposto na HubTec, em 12 e 13/11/2026; a FTX de 2026 foi em maio.
 
 ## Papéis ágeis (GAPS)
 
@@ -90,7 +90,7 @@ Também ficam fora do depósito o upload, o armazenamento, a consulta e o histó
 ### Pitch, banner e apresentação
 
 - **Pitch** (#25 a #28): artefato do depósito, de 1 a 2 minutos, com legendas em português e inglês. Mostra o fluxo real e a cena do teste de iodo na simulação do frontend.
-- **Banner** (#29): pronto para o depósito e exposto na HubTec.
+- **Banner** (#29): pronto para o depósito de 03/11 e exposto na HubTec em 12 e 13/11/2026.
 - **Banca** (#62): 10 a 11 minutos, começando com dados já cadastrados; demonstração ao vivo com vídeo gravado como reserva.
 
 ### Regras de ouro antes de puxar uma issue
