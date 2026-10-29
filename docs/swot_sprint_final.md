@@ -25,6 +25,7 @@ Projeto Mash, Projeto Integrador III, DSM3, FATEC Registro. Disciplina GAPS, ati
 - Schema criado por migrations, sem `sync()` como fonte paralela ([#71](https://github.com/conloq/mash/issues/71)).
 - API e frontend publicados em ambiente acessível ([#68](https://github.com/conloq/mash/issues/68), [#69](https://github.com/conloq/mash/issues/69)).
 - Decisões e recorte do semestre registrados em um só lugar ([#66](https://github.com/conloq/mash/issues/66)).
+- A simulação do teste de iodo no frontend cobre a cena obrigatória sem OpenCV, sem upload e sem imagem real ([#9](https://github.com/conloq/mash/issues/9), [#10](https://github.com/conloq/mash/issues/10)).
 
 **Fraquezas**
 
@@ -41,7 +42,7 @@ Projeto Mash, Projeto Integrador III, DSM3, FATEC Registro. Disciplina GAPS, ati
 - 1.949 cervejarias no Brasil, com crescimento de 5,5% em 2024 (artigo científico, referência [1]).
 - EXPOBEER Vale do Ribeira e a produção regional de cerveja artesanal (artigo, referência [2]).
 - A banca avalia o fluxo principal, não a funcionalidade fora do recorte (críticas de 09/10, [#66](https://github.com/conloq/mash/issues/66)).
-- A simulação do teste de iodo no frontend dispensa OpenCV e imagem real ([#9](https://github.com/conloq/mash/issues/9), [#10](https://github.com/conloq/mash/issues/10), [#66](https://github.com/conloq/mash/issues/66)).
+- O ecossistema de componentes prontos de Next.js e Tailwind, já usado no `conloq/frontend`, permite montar telas sem escrever estilo do zero.
 
 **Ameaças**
 
@@ -71,6 +72,7 @@ Projeto Mash, Projeto Integrador III, DSM3, FATEC Registro. Disciplina GAPS, ati
 O corte é aplicado no GitHub pela [#108](https://github.com/conloq/mash/issues/108), com etiqueta `scope:wont-have` e Priority Low, e ratificado na declaração do PO.
 
 - **Fluxo nuclear, o único Must Have:** login, receita com rampas de temperatura, lote e teste de iodo na simulação de interface, de ponta a ponta.
+- **Ressalva do lote:** o lote entra nesse fluxo se a [#31](https://github.com/conloq/mash/issues/31) chegar à `main` do Back-End até o congelamento de 30/10. Sem ela, o fluxo demonstrado termina na receita com rampas, e o lote fica registrado como pendência.
 - **Entra também na Sprint Final:** documento de artefatos e pitch.
 - **Fica fora, por corte de visão computacional:** o teste de iodo automatizado inteiro, isto é, serviço Python com OpenCV ([#43](https://github.com/conloq/mash/issues/43)), integração do Node com o serviço ([#44](https://github.com/conloq/mash/issues/44)), entidade e endpoint de análise ([#1](https://github.com/conloq/mash/issues/1)), upload da imagem ([#33](https://github.com/conloq/mash/issues/33)) e histórico de análises por lote ([#3](https://github.com/conloq/mash/issues/3)).
 
