@@ -64,8 +64,9 @@ Projeto Mash, Projeto Integrador III, DSM3, FATEC Registro. Disciplina GAPS, ati
 
 1. Antes da banca, cadastrar no banco local um usuário, uma receita com rampas de temperatura e um lote, com o mesmo roteiro que será demonstrado.
 2. Conferir na véspera: `npm run db:migrate`, API respondendo em `localhost:8080` e frontend em `localhost:4000`.
-3. Se a rede do local falhar, rodar a demonstração inteira no ambiente local.
-4. Se o ambiente local falhar, exibir o vídeo gravado do mesmo fluxo, que é a gravação prevista na [#28](https://github.com/conloq/mash/issues/28).
+3. Se a demonstração usar o ambiente publicado, chamar a API do Render alguns minutos antes para acordá-la: no plano gratuito ela dorme após 15 minutos sem uso e leva cerca de um minuto para responder de novo ([#61](https://github.com/conloq/mash/issues/61)).
+4. Se a rede do local falhar, rodar a demonstração inteira no ambiente local.
+5. Se o ambiente local falhar, exibir o vídeo gravado do mesmo fluxo, que é a gravação prevista na [#28](https://github.com/conloq/mash/issues/28).
 
 ## 5. Corte de escopo resultante
 
@@ -77,3 +78,11 @@ O corte é aplicado no GitHub pela [#108](https://github.com/conloq/mash/issues/
 - **Fica fora, por corte de visão computacional:** o teste de iodo automatizado inteiro, isto é, serviço Python com OpenCV ([#43](https://github.com/conloq/mash/issues/43)), integração do Node com o serviço ([#44](https://github.com/conloq/mash/issues/44)), entidade e endpoint de análise ([#1](https://github.com/conloq/mash/issues/1)), upload da imagem ([#33](https://github.com/conloq/mash/issues/33)) e histórico de análises por lote ([#3](https://github.com/conloq/mash/issues/3)).
 
 Este documento é o insumo da declaração de alinhamento do PO, que registra o fluxo demonstrável, a justificativa dos cortes e o plano de contingência.
+
+## 6. Referências
+
+As três referências numéricas usadas na seção 2 são as do artigo científico do projeto, com a mesma numeração:
+
+- **[1]** Brasil. Ministério da Agricultura e Pecuária. *Anuário da Cerveja 2025: Ano de Referência 2024*. Brasília: MAPA, 2025. Disponível em <https://repositorio-dspace.agricultura.gov.br/handle/1/6055>.
+- **[2]** Prefeitura de Registro. *Encontro de cervejeiros vira EXPOBEER Vale do Ribeira e promete agitar Registro nos dias 24 e 25 de maio*. 2025. Disponível em <https://registro.sp.gov.br/encontro-de-cervejeiros-vira-expobeer-vale-do-ribeira-e-promete-agitar-registro-nos-dias-24-e-25-de-maio/>.
+- **[11]** W. Li, Y. Sha, J. Xiong, Y. Chen, Y. Zhang, J. Zhang, L. Xu and W. Lu. *LIGHt-based rapid detection of starch in tobacco leaves by smartphone sensing*. Scientific Reports, v. 15, p. 6689, 2025.
