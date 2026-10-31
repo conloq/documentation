@@ -7,11 +7,11 @@ Esta seção documenta a landing page da equipe. O website foi desenvolvido com 
 \centering
 \begin{tikzpicture}[
     level 1/.style={
-        sibling distance=4cm,
+        sibling distance=3.2cm,
         level distance=1.8cm
     },
     level 2/.style={
-        sibling distance=2.5cm,
+        sibling distance=3.2cm,
         level distance=1.8cm
     },
     every node/.style={
@@ -19,7 +19,7 @@ Esta seção documenta a landing page da equipe. O website foi desenvolvido com 
         draw,
         rounded corners,
         fill=brown!20,
-        text width=2.8cm,
+        text width=2.6cm,
         align=center,
         font=\small,
         minimum height=0.9cm
@@ -28,8 +28,7 @@ Esta seção documenta a landing page da equipe. O website foi desenvolvido com 
 
 \node {Conloq}
     child {
-        node {Sobre Nós}
-            child { node {Objetivo} }
+        node {Sobre a Conloq}
             child { node {Propósitos} }
     }
     child {
@@ -37,13 +36,16 @@ Esta seção documenta a landing page da equipe. O website foi desenvolvido com 
             child { node {Integrantes} }
     }
     child {
-        node {Portfólio}
-            child { node {Projetos} }
+        node {Cerveja artesanal}
+            child { node {Produção e teste do iodo} }
     }
     child {
-        node {Contato}
-            child { node {Redes Sociais} }
-            child { node {Contatos} }
+        node {Mash}
+            child { node {Sistema} }
+    }
+    child {
+        node {Contatos}
+            child { node {Redes sociais} }
     };
 \end{tikzpicture}
 \caption{Estrutura de navegação}
@@ -54,17 +56,37 @@ Esta seção documenta a landing page da equipe. O website foi desenvolvido com 
 
 \begin{itemize}
 
-    \item \textbf{Conloq:} Apresentação inicial da equipe e destaque do projeto desenvolvido.
+    \item \textbf{Conloq:} Página inicial, com a apresentação da equipe e o acesso ao projeto.
 
-    \item \textbf{Sobre Nós:} Informações sobre a equipe, objetivos e proposta do projeto.
+    \item \textbf{Sobre a Conloq:} Informações sobre a equipe e seus propósitos.
 
-    \item \textbf{Equipe:} Apresentação dos integrantes responsáveis pelo desenvolvimento da plataforma, incluindo nome, função e tecnologias utilizadas.
+    \item \textbf{Equipe:} Apresentação dos integrantes responsáveis pelo desenvolvimento da plataforma.
 
-    \item \textbf{Portfólio:} Exibição dos projetos, tecnologias e soluções desenvolvidas pela equipe.
+    \item \textbf{Cerveja artesanal:} Contexto da produção de cerveja artesanal e do teste do iodo na mosturação.
 
-    \item \textbf{Contato:} Área destinada às informações de comunicação da equipe, contendo links para redes sociais, GitHub, LinkedIn, e-mail e demais canais de contato.
+    \item \textbf{Mash:} Apresentação do sistema desenvolvido no projeto integrador.
+
+    \item \textbf{Contatos:} Área com as informações de contato e os links para as redes sociais da equipe.
 
 \end{itemize}
+
+\subsection{Telas do Site da Equipe}
+
+As figuras a seguir mostram as seções do site publicado em \url{https://conloq.github.io/landing-page-conloq/}.
+
+\newcommand{\telasite}[2]{%
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{imgs/website/#1.png}
+\caption{#2}
+\end{figure}}
+
+\telasite{home}{Página inicial do site da equipe}
+\telasite{sobre}{Seção Sobre a Conloq}
+\telasite{equipe}{Seção Equipe}
+\telasite{cerveja}{Seção Cerveja artesanal}
+\telasite{mash}{Seção Mash}
+\telasite{contatos}{Seção Contatos}
 
 \subsection{Especificações Técnicas do Site da Equipe}
 

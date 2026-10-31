@@ -21,32 +21,40 @@ A composição visual segue a proporção 60-30-10, técnica amplamente utilizad
 \textbf{Cor} & \textbf{Proporção} & \textbf{Código HEX} & \textbf{Aplicação} \\
 \hline
 
-\colorbox[HTML]{FAFAFA}{\rule{0pt}{0.4cm}\hspace{1cm}} &
+\colorbox[HTML]{F6F3F0}{\rule{0pt}{0.4cm}\hspace{1cm}} &
 60\% &
-\#FAFAFA &
-Cor estrutural da identidade visual, utilizada nos fundos principais da interface e áreas de respiro visual. \\
+\#F6F3F0 &
+Cor estrutural, utilizada no fundo principal da interface. Cartões e formulários usam branco (\#FFFFFF) sobre esse fundo. \\
 \hline
 
 \colorbox[HTML]{4E342E}{\rule{0pt}{0.4cm}\hspace{1cm}} &
 30\% &
 \#4E342E &
-Cor secundária aplicada no cabeçalho, menus e fundos secundários da plataforma. \\
+Cor secundária aplicada no cabeçalho e no painel das telas de login e cadastro. \\
+\hline
+
+\colorbox[HTML]{B35900}{\rule{0pt}{0.4cm}\hspace{1cm}} &
+10\% &
+\#B35900 &
+Cor de destaque utilizada em botões principais, links e chamadas de ação. É uma versão mais escura do laranja \#F57C00, escolhida porque o texto branco sobre ela atinge contraste de 4,83:1, acima do mínimo de 4,5:1 da WCAG~\cite{wcag22}; sobre \#F57C00 o contraste seria de 2,7:1. \\
 \hline
 
 \colorbox[HTML]{F57C00}{\rule{0pt}{0.4cm}\hspace{1cm}} &
-10\% &
+-- &
 \#F57C00 &
-Cor de destaque utilizada em botões principais, links e chamadas de ação da interface. \\
+Laranja da marca, utilizado no contorno de foco dos campos e botões. \\
 \hline
 
-\colorbox[HTML]{000000}{\rule{0pt}{0.4cm}\hspace{1cm}} &
+\colorbox[HTML]{1F1A17}{\rule{0pt}{0.4cm}\hspace{1cm}} &
 -- &
-\#000000 &
-Cor utilizada para textos principais e elementos informativos da interface. \\
+\#1F1A17 &
+Cor dos textos principais e elementos informativos da interface. \\
 \hline
 
 \end{tabular}
 \end{table}
+
+Além da paleta principal, a interface usa cores de estado nas mensagens de retorno: verde (\#1E7A45) para sucesso, âmbar (\#8A5300) para aviso, vermelho (\#B42318) para erro e para ações de exclusão, e azul (\#1D5D8C) para informação.
 
 \subsection{Tipografia}
 
@@ -65,3 +73,83 @@ Fonte moderna e versátil, utilizada em títulos, chamadas e elementos de destaq
 Fonte neutra e altamente legível, utilizada em textos longos e no corpo do conteúdo da aplicação. Sua estrutura proporciona clareza visual e facilidade de leitura em diferentes resoluções e tamanhos de tela.
 
 \end{itemize}
+
+\subsection{Tecnologias da Aplicação}
+
+\begin{table}[H]
+\centering
+\caption{Stack Tecnológica da Aplicação}
+\label{tab:stack-app}
+\begin{tabular}{|l|l|p{7cm}|}
+\hline
+\textbf{Camada} & \textbf{Tecnologia} & \textbf{Descrição} \\
+\hline
+Frontend & Next.js e React & Telas da aplicação web~\cite{nextjsdocs} \\
+\hline
+Estilização & Tailwind CSS & Estilos, tokens de cor e layout responsivo~\cite{tailwinddocs} \\
+\hline
+Comunicação & Axios & Chamadas à API com o token JWT no cabeçalho \\
+\hline
+Backend & Node.js e Express & API REST com as rotas de conta, receitas, rampas e lotes~\cite{expressdocs} \\
+\hline
+Banco de dados & MySQL e Sequelize & Models e migrations do schema~\cite{sequelizedocs} \\
+\hline
+Segurança & JWT e Argon2 & Autenticação por token e hash das senhas \\
+\hline
+Imagens & Cloudinary e Multer & Envio e armazenamento da foto de perfil \\
+\hline
+Documentação & Swagger & Contrato da API publicado com a aplicação \\
+\hline
+Prototipação & Figma & Design e protótipo navegável das telas \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Protótipo das Telas}
+
+As figuras a seguir apresentam as telas do protótipo de alta fidelidade feito no Figma. As telas de teste do iodo representam a simulação usada na demonstração; a leitura automática por visão computacional está planejada para o próximo semestre.
+
+\newcommand{\telaprototipo}[2]{%
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{imgs/figma/#1.png}
+\caption{#2}
+\end{subfigure}}
+
+\begin{figure}[H]
+\centering
+\telaprototipo{login}{Login}\hfill
+\telaprototipo{cadastro}{Cadastro}
+
+\vspace{0.4cm}
+\telaprototipo{perfil}{Perfil}
+\caption{Protótipo: acesso e perfil}
+\label{fig:prototipo-conta}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\telaprototipo{receitas}{Lista de receitas}\hfill
+\telaprototipo{receitas-nova}{Nova receita}
+
+\vspace{0.4cm}
+\telaprototipo{receita-detalhe}{Detalhe da receita}\hfill
+\telaprototipo{rampa-editar}{Edição de rampa}
+\caption{Protótipo: receitas e rampas de temperatura}
+\label{fig:prototipo-receitas}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\telaprototipo{lotes}{Lista de lotes}\hfill
+\telaprototipo{lote-detalhe}{Detalhe do lote}
+
+\vspace{0.4cm}
+\telaprototipo{receita-iodo}{Configuração do teste do iodo}\hfill
+\telaprototipo{iodo-sessao}{Preparação da leitura}
+
+\vspace{0.4cm}
+\telaprototipo{iodo-leitura}{Leitura do teste do iodo}
+\caption{Protótipo: lotes e simulação do teste do iodo}
+\label{fig:prototipo-lotes}
+\end{figure}
