@@ -64,9 +64,9 @@ Dispositivos móveis & DHCP automático & Conexão Wi-Fi \\
 
 \textbf{Servidor} &
 \begin{itemize}[leftmargin=*, nosep]
-    \item Processamento das análises do sistema
-    \item Execução da aplicação Flask
-    \item Armazenamento dos dados e resultados
+    \item Execução da API REST em Node.js com Express
+    \item Banco de dados MySQL acessado pelo Sequelize
+    \item Armazenamento dos dados de usuários, receitas, rampas e lotes
 \end{itemize} \\
 \hline
 
@@ -80,7 +80,7 @@ Dispositivos móveis & DHCP automático & Conexão Wi-Fi \\
 
 \textbf{Dispositivos Móveis} &
 \begin{itemize}[leftmargin=*, nosep]
-    \item Captura das imagens do teste do iodo
+    \item Acesso à aplicação web pelo navegador
     \item Acesso remoto à plataforma
     \item Comunicação via rede Wi-Fi
 \end{itemize} \\
@@ -102,7 +102,7 @@ A Figura \ref{fig:diagrama-de-infraestrutura} apresenta o diagrama da infraestru
 
 \subsection{Diagrama de Usabilidade}
 
-A Figura \ref{fig:diagrama-de-usabilidade} apresenta o diagrama de usabilidade da plataforma, demonstrando o fluxo de interação entre o funcionário e os principais componentes do sistema. O diagrama evidencia como o usuário acessa a aplicação, envia a imagem do teste do iodo, recebe o resultado da análise e consulta as informações armazenadas.
+A Figura \ref{fig:diagrama-de-usabilidade} apresenta o diagrama de usabilidade da plataforma, demonstrando o fluxo de interação entre o funcionário e os principais componentes do sistema. O diagrama evidencia como o usuário acessa a aplicação web, que se comunica com a API e o banco de dados para cadastrar e consultar receitas, rampas de temperatura e lotes. A leitura do teste do iodo por sensor e por visão computacional está planejada para o próximo semestre; neste semestre, o teste do iodo é demonstrado por uma simulação na interface.
 
 \begin{figure}[H]
 \centering
@@ -110,6 +110,56 @@ A Figura \ref{fig:diagrama-de-usabilidade} apresenta o diagrama de usabilidade d
 \caption{Diagrama de Usabilidade}
 \label{fig:diagrama-de-usabilidade}
 \end{figure}
+
+\subsection{Ambiente Publicado}
+
+Neste semestre, a aplicação está publicada em serviços de nuvem, conforme a Tabela \ref{tab:ambiente}. A rede local descrita acima representa a proposta de infraestrutura para a cervejaria.
+
+\begin{table}[H]
+\centering
+\caption{Ambiente Publicado da Aplicação}
+\label{tab:ambiente}
+\begin{tabular}{|l|l|p{7cm}|}
+\hline
+\textbf{Componente} & \textbf{Serviço} & \textbf{Função} \\
+\hline
+Frontend & Render & Aplicação web em Next.js com React \\
+\hline
+API REST & Render & Node.js com Express, autenticação JWT e documentação Swagger \\
+\hline
+Banco de dados & TiDB Cloud & Banco compatível com MySQL, com o schema criado pelas migrations do Sequelize \\
+\hline
+Imagens de perfil & Cloudinary & Armazenamento das fotos de perfil enviadas pelos usuários \\
+\hline
+Landing page & GitHub Pages & Site institucional da equipe \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Ferramentas DevOps Utilizadas}
+
+A Tabela~\ref{tab:devops} reúne as ferramentas de versionamento, integração contínua e entrega usadas nos repositórios do projeto.
+
+\begin{table}[H]
+\centering
+\caption{Ferramentas DevOps Utilizadas}
+\label{tab:devops}
+\begin{tabular}{|p{3cm}|p{3.4cm}|p{7.6cm}|}
+\hline
+\textbf{Categoria} & \textbf{Ferramenta} & \textbf{Finalidade} \\
+\hline
+Controle de versão & Git e GitHub & Versionamento, \textit{branches} e \textit{Pull Requests} para integrar as mudanças \\
+\hline
+Integração contínua & GitHub Actions & No Back-End, o autofix.ci formata o código com Prettier; no frontend, o Super-Linter valida JavaScript, React, CSS, HTML e JSON a cada \textit{Pull Request} \\
+\hline
+Qualidade local & Husky, lint-staged e Prettier & No frontend, formatam com o Prettier os arquivos alterados antes de cada \textit{commit} \\
+\hline
+Banco de dados & Sequelize CLI & O comando de início da API (\texttt{npm start}) aplica as \textit{migrations} pendentes antes de subir o servidor \\
+\hline
+Deploy & Render e GitHub Pages & Publicação da API e do frontend (Render) e da landing page (GitHub Pages) \\
+\hline
+\end{tabular}
+\end{table}
 
 \subsection{Conclusão}
 

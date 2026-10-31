@@ -2,6 +2,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{listings}
 \usepackage{lmodern}
+\usepackage[portuguese]{babel}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -15,6 +16,9 @@
 \usepackage{geometry}
 \usepackage{titlesec}
 \usepackage{lipsum}
+% O hyperref precisa vir antes do abntex2cite, senão sobrescreve o \bibitem dele
+\usepackage[hidelinks]{hyperref}
+\usepackage[alf]{abntex2cite}
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{enumitem}
@@ -22,6 +26,3 @@
 \usepackage{tikz}
 \usepackage{float}
 \usetikzlibrary{trees}
-\usepackage[hidelinks]{hyperref}
-\usepackage[portuguese]{babel}
-\usepackage[alf]{abntex2cite}
