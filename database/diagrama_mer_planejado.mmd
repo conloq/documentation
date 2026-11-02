@@ -1,10 +1,7 @@
 %% Estruturas planejadas; não criadas pelas migrations atuais da main do Back-End.
-%% users, recipes e temperatures aparecem como referências às tabelas do MER implementado.
+%% users, recipes, temperatures e lots aparecem como referências às tabelas do MER implementado.
 erDiagram
-    users ||--o{ lots : planejado
-    recipes ||--o{ lots : planejado
     recipes ||--o{ iodine_configs : planejado
-    users ||--o{ login_history : planejado
     lots ||--o{ analyses : planejado
     users ||--o{ analyses : planejado
 
@@ -20,13 +17,6 @@ erDiagram
     }
     lots {
         INT id PK
-        VARCHAR name
-        INT user_id FK
-        INT recipe_id FK
-        DATETIME mash_start
-        ENUM status "active ou completed"
-        DATETIME created_at
-        DATETIME updated_at
     }
     analyses {
         INT id PK
@@ -47,16 +37,6 @@ erDiagram
         TIME test_interval
         INT max_tests
         INT recipe_id FK
-        DATETIME created_at
-        DATETIME updated_at
-    }
-    login_history {
-        INT id PK
-        VARCHAR ip_address
-        DATETIME logged_at
-        VARCHAR location
-        BOOLEAN status "nullable"
-        INT user_id FK
         DATETIME created_at
         DATETIME updated_at
     }

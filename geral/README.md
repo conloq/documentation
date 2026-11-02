@@ -184,7 +184,7 @@ Espelho da seção "Decisões vigentes" da [#66](https://github.com/conloq/mash/
 | Padrão de resposta | Sucesso `{ "message": "..." }` (+ entidade nomeada), erro `{ "error": "..." }` em pt-BR, sem wrapper `data`; `DELETE` responde 204 sem corpo | #30, #41 |
 | Recurso alheio | O mesmo 404 de recurso inexistente | #38 |
 | Portas | Frontend **4000**, API **8080** | #6 |
-| Frontend chama a API | Pelo servidor Express do frontend (`controllers/pageController.js`), que chama a API com `Authorization: Bearer` e guarda o JWT na sessão persistida na tabela `sessions` do MySQL; o navegador só recebe o cookie `HttpOnly` (24/10/2026, substitui o token no `localStorage` de 12/10) | #6, #66 |
+| Frontend chama a API | O frontend Next.js chama a API direto do navegador com `Authorization: Bearer`; o JWT fica no `localStorage` e a API libera a origem em `FRONTEND_URL` (28/10/2026, substitui a sessão no servidor de 24/10; a tabela `sessions` foi removida) | #6, #66 |
 | Hospedagem | Render gratuito para API e frontend; MySQL gratuito externo no TiDB Cloud (`#68`); imagens no Cloudinary (13/10, substitui Railway; banco revisto em 24/10) | #61, #68, #69 |
 | Escopo do depósito | 14 rotas planejadas em 3 grupos reais: receitas, rampas e lotes | #66 |
 | Recorte de 21/10/2026 | Teste de iodo somente como simulação no frontend neste semestre, com cena obrigatória no pitch e sem etiqueta de simulação na cena; não exigir captura, persistência, consulta, histórico ou análise reais no depósito. Upload e armazenamento de imagem, análise com OpenCV, protocolo de validação (#21) e temperatura por dispositivo ficam no backlog do próximo semestre | #9, #10, #21, #25, #28, #33, #34, #36, #66 |
@@ -195,6 +195,6 @@ Espelho da seção "Decisões vigentes" da [#66](https://github.com/conloq/mash/
 
 ## Evidências atuais de código e banco
 
-A conferência de 21/10 compara o banco local com as migrations da `main` do Back-End: três tabelas de negócio, 25 colunas, duas FKs e três migrations naquele momento, sem divergências estruturais nos atributos conferidos. A `main` atual tem quatro migrations, com `users`, `recipes`, `temperatures` e `sessions`. [Metadados, comparação e limites](../database/evidencias/README.md).
+A conferência de 21/10 compara o banco local com as migrations da `main` do Back-End: três tabelas de negócio, 25 colunas, duas FKs e três migrations naquele momento, sem divergências estruturais nos atributos conferidos. Depois disso, a `main` criou e removeu `sessions` (24/10 e 28/10) e acrescentou `lots` (29/10) e `login_history` (02/11); essas duas ainda não foram conferidas em banco. [Metadados, comparação e limites](../database/evidencias/README.md).
 
 Detalhe de receita, rotas em inglês e nomes físicos snake_case já existem na main auditada. Estado das pendências de lotes, rampas, perfil e deploy deve ser consultado nas issues; tabelas históricas de bugs não substituem a evidência do código atual.

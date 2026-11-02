@@ -31,7 +31,7 @@ flowchart LR
   LP[landing page] -. product presentation, not runtime evidence .-> MASH[Mash product]
 ```
 
-- `frontend` renders EJS pages and calls the Back-End API from its Express server (`controllers/pageController.js`) with a Bearer token; the JWT stays in the server-side session persisted in the MySQL `sessions` table, and the browser holds only the `HttpOnly` session cookie. The frontend repository does not own API business rules.
+- `frontend` is a Next.js (React) app that calls the Back-End API directly from the browser with a Bearer token kept in `localStorage`; the API allows its origin through `FRONTEND_URL`. The `sessions` table was dropped on 2026-10-28. The frontend repository does not own API business rules.
 - Back-End is the runtime API and uses Sequelize/MySQL. **Back-End migrations are the canonical schema creation/evolution mechanism.** SQL and diagrams in `database` are reference material.
 - Back-End uploads user profile images through Cloudinary (`config/cloudinary.js`, `controllers/userController.js`); that integration does not prove iodine image upload or analysis.
 - `.github` automation operates on GitHub work items; it is not in the HTTP request path of the product.
