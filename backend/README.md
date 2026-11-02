@@ -28,7 +28,7 @@ Documentação da área Backend do projeto Mash.
 - **Upload:** Multer memoryStorage → Cloudinary
 - **Credenciais:** Via `.env` (dotenv): `DB_HOST`, `DB_USERNAME`, `DB_PASSWORD`, `DB_DATABASE`, `JWT_SECRET_KEY`, `CLOUD_NAME`, `API_KEY_CLOUDINARY`, `API_SECRET_KEY_CLOUDINARY`, `FRONTEND_URL` (CORS para o frontend)
 - **Database:** `mash` (⚠️ diferente de `cervejaria` do mash original)
-- **Tabelas da API:** `users`, `recipes`, `temperatures` e `sessions`; atributos camelCase e colunas snake_case. `SequelizeMeta` registra as quatro migrations aplicadas.
+- **Tabelas da API:** `users`, `recipes`, `temperatures`, `lots` e `login_history`; atributos camelCase e colunas snake_case. A tabela `sessions` foi criada em 24/10 e removida em 28/10/2026, quando o frontend passou a guardar o JWT no navegador.
 - **Foreign key:** coluna `user_id` e `recipe_id` (atributo `userId` e `recipeId` no model e no JSON); diferente de `usuario_id` do mash
 - **Banco (decisão de 12/10/2026):** o schema vem das **migrations do Sequelize**; `npm run db:migrate` roda antes de `npm start` e a cada deploy. O bootstrap atual não chama `Connection.sync()`; `prestart` executa as migrations. A #40 continua fechada.
 - **Nomes (08/10/2026, reafirmada em 15/10/2026, #30):** JSON em camelCase em inglês (`userId`, `recipeId`, `urlImage`, `collectedAt`, `createdAt`); banco em **snake_case** nas tabelas e colunas (`user_id`, `recipe_id`, `url_image`, `created_at`). Os models declaram os atributos em camelCase e a conexão usa `define: { underscored: true }`, sem código de tradução. Rotas em inglês. Os nomes atuais já usam `name`, `phone` e a tabela `recipes`; os nomes em português pertencem ao legado. A regra de 13/10 (banco em camelCase) foi revertida; a de 28/09 (snake_case no JSON) continua substituída.
@@ -46,7 +46,7 @@ Documentação da área Backend do projeto Mash.
 
 Na `main` do Back-End, receitas usam `/recipes` e `/recipes/:id` (`GET`, `PUT` e `DELETE`; edição e exclusão pela #93, conloq/Back-End#25). Criar e listar rampas usa `/recipes/:id/temperatures`. Usuário/login continuam em `/user` e `/login`, com foto de perfil em `/user/upload`. Essas rotas têm documentação no Swagger versionado.
 
-Lotes (#31/#92) e edição/exclusão de rampas (#97) são planejamento, não tabelas ou rotas observadas na main auditada. O 409 ao excluir receita com lotes entra com a #31. A comprovação do banco local está em [database/evidencias](../database/evidencias/README.md).
+Lotes usam `/lots` e `/lots/:id` (`GET`, `POST`, `PUT` e `DELETE`; #31/#92, conloq/Back-End#35), e rampas têm `PUT` e `DELETE` em `/temperatures/:id` (#97). Excluir receita que tem lote responde `409`. O histórico de acessos é `GET /user/login-history` (#102, conloq/Back-End#37): cada login bem-sucedido grava IP, localidade aproximada (ip-api.com) e se o IP já era conhecido pela conta; no Render o IP vem do header `CF-Connecting-IP`. A comprovação do banco local está em [database/evidencias](../database/evidencias/README.md).
 
 ## Models Sequelize do legado (conloq/mash)
 

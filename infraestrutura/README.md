@@ -45,7 +45,7 @@ O depósito usa duas configurações do mesmo sistema: o ambiente de desenvolvim
 |---|---|
 | Frontend | `http://localhost:4000`, com `npm run dev` e `npm run watch:css` em outro terminal |
 | API | `http://localhost:8080`, com `npm start`, que aplica as migrations antes de subir |
-| Banco | MySQL local, banco `mash`; nas evidências, MariaDB 10.4.32, com as migrations `users`, `recipes` e `temperatures` |
+| Banco | MySQL local, banco `mash`; nas evidências, MariaDB 10.4.32, com `users`, `recipes` e `temperatures`; as migrations atuais também criam `lots` e `login_history` |
 | Imagens | Cloudinary, recebendo a foto de perfil enviada pela API |
 
 O frontend Next.js chama a API direto do navegador: o login devolve o JWT, que fica no `localStorage` (`mash_token`), e um interceptor o envia em `Authorization: Bearer`. A API libera a origem do frontend em `FRONTEND_URL`, com preflight para `Authorization` e `Content-Type`. Não há sessão guardada no servidor: a migration de 28/10/2026 removeu a tabela `sessions`. A documentação interativa da API fica em `GET /api-docs`.

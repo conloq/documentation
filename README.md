@@ -42,7 +42,7 @@ Frontend EJS com Tailwind e sessão no servidor, integrado à API REST nas telas
 
 ### 🗄️ [Database](./database/README.md)
 
-Schema atual `mash` conferido no banco local (MariaDB 10.4.32): `users`, `recipes`, `temperatures`, `sessions` e `SequelizeMeta`, com MER, DDL de referência e evidências de metadados. O legado `cervejaria` fica preservado separadamente.
+Schema `mash` criado pelas migrations do Back-End: `users`, `recipes`, `temperatures`, `lots` e `login_history`, com MER, DDL de referência e evidências de metadados (as três primeiras conferidas no banco local, MariaDB 10.4.32). O legado `cervejaria` fica preservado separadamente.
 
 ### 📝 [Artigo](./artigo/README.md)
 
