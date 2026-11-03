@@ -78,7 +78,7 @@ Consulte [`geral/entregas/mind-map-entregas-pi.mm`](./geral/entregas/mind-map-en
 | Pesquisa de Usuário (IHC) | [Roteiro, termo e personas hipotéticas publicados](ihc/README.md); pesquisa de campo e personas reais pendentes (#77) |
 | Banco de Dados (BDNR) | Schema local conferido; evidências em [database/evidencias](database/evidencias/README.md) |
 | Documentação (GAPS/SWOT) | 🔄 Em andamento (#52) |
-| Apresentação (10-11 min) | 🔄 Pitch em produção (#25–#27) |
+| Apresentação (10-11 min) | ✅ Pitch entregue (#25–#27); roteiro e ensaios da banca na #62 |
 | Escola de Inovadores | [TODO] |
 
 ---

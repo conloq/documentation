@@ -1,6 +1,6 @@
 # Índice de artefatos do Projeto de Software
 
-Estado conferido em 31/10/2026. A situação de cada entrega aponta para sua issue, que continua sendo a fonte do status e do escopo. Os arquivos originais ficam em seus repositórios e áreas de origem; este índice não os duplica.
+Estado conferido em 31/10/2026; linha do pitch atualizada em 03/11/2026. A situação de cada entrega aponta para sua issue, que continua sendo a fonte do status e do escopo. Os arquivos originais ficam em seus repositórios e áreas de origem; este índice não os duplica.
 
 | Artefato | Arquivo | Versão (data) | Responsável | Issue | Situação |
 |---|---|---|---|---|---|
@@ -12,7 +12,7 @@ Estado conferido em 31/10/2026. A situação de cada entrega aponta para sua iss
 | Infraestrutura de rede e implantação | [infraestrutura/README.md](../infraestrutura/README.md); topologia e endereços descritos como proposta, com o ambiente local e o publicado na seção Ambiente do depósito | 28/10/2026; Pull Request da [#51](https://github.com/conloq/mash/issues/51) | Jocieli | [#51](https://github.com/conloq/mash/issues/51) | em revisão |
 | UI de alta fidelidade no Figma | 12 capturas exportadas do Figma em [artefatos/imgs/figma/](imgs/figma/); Painel e Configurações saíram porque essas telas foram removidas do frontend em 30/10 | 31/10/2026; PR #34 mesclada | Kevin | [#75](https://github.com/conloq/mash/issues/75), [#78](https://github.com/conloq/mash/issues/78) | entregue |
 | Interfaces do website no ambiente publicado | 6 capturas do site da equipe em [artefatos/imgs/website/](imgs/website/) | 29/10/2026; PR #35 mesclada | Haimon | [#79](https://github.com/conloq/mash/issues/79) | entregue |
-| Pitch de 1 a 2 minutos, com legendas em português e inglês | Vídeo, arquivos SRT e trilha final; ainda não entregues | 24/10/2026 | Kevin | [#25](https://github.com/conloq/mash/issues/25), [#26](https://github.com/conloq/mash/issues/26), [#27](https://github.com/conloq/mash/issues/27) | planejado |
+| Pitch de 1 a 2 minutos, com legendas em português e inglês | Vídeo publicado pela equipe; link registrado na [#25](https://github.com/conloq/mash/issues/25) | 03/11/2026 | Kevin | [#25](https://github.com/conloq/mash/issues/25), [#26](https://github.com/conloq/mash/issues/26), [#27](https://github.com/conloq/mash/issues/27) | entregue |
 | Artigo científico | [artigo/artigo_main.pdf](../artigo/artigo_main.pdf) | 23/10/2026; publicado. #56 encerrada com exceções aceitas no comentário de fechamento | Haimon e Jocieli | [#56](https://github.com/conloq/mash/issues/56) | entregue |
 | Documento consolidado dos artefatos do projeto | [artefatos/artefatos.pdf](artefatos.pdf), gerado do LaTeX desta pasta; [artigo/artefatos_projeto.pdf](../artigo/artefatos_projeto.pdf) é a cópia antiga de 14/09 | 31/10/2026; Diário de Bordo, Canvas, SWOT, UX/UI, website, UML, MER, infraestrutura, DevOps e referências | Jocieli e Haimon | [#79](https://github.com/conloq/mash/issues/79) | em revisão |
 
@@ -20,5 +20,5 @@ Estado conferido em 31/10/2026. A situação de cada entrega aponta para sua iss
 
 - O PR #10 foi mesclado em 24/10/2026 na `main` de `conloq/database`. Em 29/10/2026, por decisão do Haimon, `lots` entrou no MER implementado pela PR #15, antes da migration da #31; se a #31 não entrar até 03/11/2026, `lots` volta ao bloco planejado. A entrega completa da #87 continua em revisão.
 - O README de infraestrutura separa a proposta de rede física do ambiente publicado: a topologia e o endereçamento continuam como proposta, e o depósito está descrito com as URLs do Render e as evidências das #68 e #69. As capturas de interface do produto e do site da equipe foram publicadas nos PRs #34 e #35.
-- O PDF consolidado de 31/10/2026 inclui a SWOT, o Diário de Bordo com o quadro Kanban e as capturas do produto e do site. Os diagramas de classes, objetos, casos de uso e o MER ainda têm ajustes apontados na revisão das #50 e #87, e o pitch (#25 a #27) não está no documento.
+- O PDF consolidado de 31/10/2026 inclui a SWOT, o Diário de Bordo com o quadro Kanban e as capturas do produto e do site. Os diagramas de classes, objetos, casos de uso e o MER ainda têm ajustes apontados na revisão das #50 e #87. O pitch (#25 a #27) foi entregue em vídeo e segue no pacote do depósito por link, fora do PDF consolidado.
 - O Diário de Bordo tem as Sprints 1 a 5 mescladas (PRs #1 a #6 do `conloq/logbook-backup`). A Sprint 6 será gerada depois de 03/11.
