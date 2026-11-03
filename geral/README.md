@@ -78,7 +78,7 @@ Cada épico entrega uma funcionalidade inteira, da API à tela (aula 09 de GAPS)
 | [#30: Base da API](https://github.com/conloq/mash/issues/30) | Padrões, schema por migrations e evidências (#41) |
 | [#12: Interface](https://github.com/conloq/mash/issues/12) | Design das telas e navegação sem botões quebrados |
 | [#61: Deploy](https://github.com/conloq/mash/issues/61) | API, MySQL e frontend publicados |
-| [#37: Artefatos do PI](https://github.com/conloq/mash/issues/37) | UML, MER, infraestrutura, Canvas, SWOT, Diário de Bordo e documento em LaTeX |
+| [#37: Artefatos do PI](https://github.com/conloq/mash/issues/37) | UML, MER, infraestrutura, Canvas, SWOT e documento em LaTeX |
 | [#56: Artigo](https://github.com/conloq/mash/issues/56) | Metodologia com o que é entregue e o que é planejado |
 | [#57: Pitch e banner](https://github.com/conloq/mash/issues/57) | Pitch de 1 a 2 minutos com legendas e banner da HubTec |
 | [#84: Entrega e apresentação](https://github.com/conloq/mash/issues/84) | Depósito pelo Teams, pesquisa de usuário de IHC e ensaios |
