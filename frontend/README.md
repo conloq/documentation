@@ -8,7 +8,7 @@ Documentação da área Frontend do projeto Mash.
 
 | Repositório | Papel | Status |
 |---|---|---|
-| [`conloq/frontend`](https://github.com/conloq/frontend) | Telas Next.js (React) com Tailwind que chamam a API do Back-End | Login, cadastro, perfil, receitas e rampas ligados à API desde 13/10; JWT no navegador desde 28/10; lotes planejados |
+| [`conloq/frontend`](https://github.com/conloq/frontend) | Telas Next.js (React) com Tailwind que chamam a API do Back-End | Login, cadastro, perfil, receitas e rampas ligados à API desde 13/10; JWT no navegador desde 28/10; lotes ligados à API (`/lots`) na `main` do frontend em 03/11 |
 
 ## Arquitetura (JWT no navegador, 28/10/2026, conloq/mash#66)
 
@@ -39,7 +39,7 @@ npm run dev          # http://localhost:4000; a API precisa estar em NEXT_PUBLIC
 
 ## Integração entregue
 
-As rotas `/recipes` e os campos camelCase já estão na `main` do Back-End; as telas de receitas/rampas acompanham na #86. A conferência de schema não comprova o deploy público. O recorte do semestre está centralizado em [geral/README.md](../geral/README.md) e na [#66](https://github.com/conloq/mash/issues/66).
+Na `main` do frontend (03/11/2026), as telas de receitas, rampas, lotes, perfil e histórico de acessos chamam a API (`/recipes`, `/temperatures`, `/lots`, `/user/login-history`); a simulação do teste de iodo continua sem API, por decisão do escopo. A conferência de código não comprova o deploy público. O recorte do semestre está centralizado em [geral/README.md](../geral/README.md) e na [#66](https://github.com/conloq/mash/issues/66).
 
 ## Issues da área
 
