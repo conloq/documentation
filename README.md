@@ -16,7 +16,7 @@ Não é um repositório de código: use os repositórios de código para impleme
 |---|---|
 | [`conloq/mash`](https://github.com/conloq/mash) | Aplicação original (Express + EJS + MySQL) |
 | [`conloq/Back-End`](https://github.com/conloq/Back-End) | API REST (JWT + Argon2id, migração em andamento, código mapeado) |
-| [`conloq/frontend`](https://github.com/conloq/frontend) | Frontend EJS/Tailwind com integração à API |
+| [`conloq/frontend`](https://github.com/conloq/frontend) | Frontend Next.js (React) e Tailwind, que chama a API direto do navegador |
 
 
 ## Contexto e arquitetura canônicos
@@ -38,7 +38,7 @@ Documentação da área Backend: arquitetura da aplicação original (mash) e da
 
 ### 🎨 [Frontend](./frontend/README.md)
 
-Frontend EJS com Tailwind e sessão no servidor, integrado à API REST nas telas entregues.
+Frontend Next.js (React, Pages Router) com Tailwind; o navegador chama a API REST e guarda o JWT no `localStorage`.
 
 ### 🗄️ [Database](./database/README.md)
 

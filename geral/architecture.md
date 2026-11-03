@@ -8,7 +8,7 @@ Este documento descreve as fronteiras técnicas comprovadas, não a arquitetura 
 |---|---|---:|---|
 | `conloq/.github` | Perfil da organização, templates, workflows e automação GitHub | Não | Workflows/configuração e código de automação |
 | `conloq/Back-End` | API REST, regras de negócio, persistência e migrations executáveis | Sim | Código e configuração no SHA; migrations para criação/evolução de schema |
-| `conloq/frontend` | Aplicação web; telas EJS com sessão no servidor, que chamam a API REST | Sim | `index.js`, `controllers/pageController.js`, views e manifest |
+| `conloq/frontend` | Aplicação web Next.js (React); o navegador chama a API REST com JWT | Sim | `src/pages/`, `src/components/`, `src/services/` e manifest |
 | `conloq/landing-page-conloq` | Apresentação institucional/comercial da visão completa do produto | Não | Conteúdo e assets da própria página; não comprova implementação Mash |
 | `conloq/conloq` | Repositório institucional da organização | Não | Conteúdo institucional; package Python existente é stub observado, não runtime Mash |
 | `conloq/database` | Documentação e referência de banco/schema | Não | Artefatos documentais; não substituem migrations |
@@ -19,9 +19,8 @@ Este documento descreve as fronteiras técnicas comprovadas, não a arquitetura 
 
 ```mermaid
 flowchart LR
-  BROWSER[Browser] -->|HttpOnly session cookie| FE[Frontend Express: views EJS]
-  FE -->|HTTP fetch; Bearer token| API[Back-End Express API]
-  FE -->|session store| MYSQL[(MySQL)]
+  BROWSER[Browser] -->|Next.js app| FE[Frontend Next.js]
+  BROWSER -->|HTTP; Bearer token| API[Back-End Express API]
   API -->|Sequelize| MYSQL
   MIG[Back-End migrations] -->|create/evolve schema| MYSQL
   API -->|profile image upload| CLOUD[Cloudinary]
