@@ -2,7 +2,7 @@
 
 Documentação da área Backend do projeto Mash.
 
-> Conferido em 21/10/2026 contra a `main` do [`conloq/Back-End`](https://github.com/conloq/Back-End/tree/main) e os metadados do banco local. [Evidências do schema](../database/evidencias/README.md). O contrato vigente está nas issues e na #66.
+> Conferido em 03/11/2026 contra a `main` do [`conloq/Back-End`](https://github.com/conloq/Back-End/tree/main) (rotas, migrations, hash, `/health`); os metadados do banco local são de 21/10/2026. [Evidências do schema](../database/evidencias/README.md). O contrato vigente está nas issues e na #66.
 
 ## Repositórios
 
