@@ -1,0 +1,327 @@
+\documentclass[aspectratio=169]{beamer}
+
+% Pacotes essenciais
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{tikz}
+
+% Fonte moderna Roboto
+\usepackage[sfdefault]{roboto}
+
+% Definição das cores
+\definecolor{vermelhoPrincipal}{HTML}{b11116}
+\definecolor{azulComplementar}{HTML}{3a5461}
+\definecolor{brancoFundo}{HTML}{FFFFFF}
+
+% Configuração do tema
+\usetheme{Madrid}
+\usecolortheme{default}
+
+% Cores personalizadas - texto sempre em preto
+\setbeamercolor{structure}{fg=black}
+\setbeamercolor{palette primary}{bg=vermelhoPrincipal,fg=white}
+\setbeamercolor{palette secondary}{bg=azulComplementar,fg=white}
+\setbeamercolor{palette tertiary}{bg=vermelhoPrincipal,fg=white}
+\setbeamercolor{palette quaternary}{bg=azulComplementar,fg=white}
+\setbeamercolor{frametitle}{bg=vermelhoPrincipal,fg=white}
+\setbeamercolor{background canvas}{bg=brancoFundo}
+\setbeamercolor{title}{fg=black}
+\setbeamercolor{subtitle}{fg=azulComplementar}
+\setbeamercolor{author}{fg=black}
+\setbeamercolor{date}{fg=black}
+\setbeamercolor{itemize item}{fg=black}
+\setbeamercolor{itemize subitem}{fg=black}
+\setbeamercolor{enumerate item}{fg=black}
+\setbeamercolor{block title}{bg=vermelhoPrincipal,fg=white}
+\setbeamercolor{block body}{bg=vermelhoPrincipal!10,fg=black}
+\setbeamercolor{normal text}{fg=black}
+
+% Configurar fonte dos itemize
+\setbeamerfont{itemize/enumerate body}{size=\scriptsize}
+\setbeamerfont{itemize/enumerate subbody}{size=\scriptsize}
+% Notas de rodapé (referências, conforme manual NDE-DSM-07/2024, item 1.10)
+\setbeamerfont{footnote}{size=\tiny}
+
+% Marcadores modernos e minimalistas
+\setbeamertemplate{itemize item}{\raisebox{0.2ex}{\rule{0.6ex}{0.6ex}}}
+\setbeamertemplate{itemize subitem}{\raisebox{0.3ex}{\rule{0.4ex}{0.4ex}}}
+\setbeamertemplate{itemize subsubitem}{\raisebox{0.35ex}{\rule{0.3ex}{0.3ex}}}
+\setbeamertemplate{enumerate items}[square]
+
+% Transições suaves
+\setbeamercovered{transparent}
+
+% Remover símbolos de navegação
+\setbeamertemplate{navigation symbols}{}
+
+% Customizar o cabeçalho com barra vermelha e logo
+% [TEMPLATE ORIGINAL - NÃO MODIFICAR: estrutura definida pelo coordenador]
+\setbeamertemplate{headline}{
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.6cm,dp=0.15cm,leftskip=0.2cm,rightskip=0.4cm]{palette primary}
+    \raisebox{-0.05cm}{\includegraphics[height=0.45cm]{imgs/base/fatec-rgt.png}}
+    \hfill
+    \raisebox{-0.18cm}{\includegraphics[height=0.85cm]{imgs/base/governo-sp-secretaria-logo.png}}
+    \hspace{0.2cm}
+    \raisebox{-0.08cm}{\includegraphics[height=0.6cm]{imgs/base/cps-logo.png}}
+  \end{beamercolorbox}
+}
+% Remover sombras dos blocks
+\setbeamertemplate{blocks}[default]
+\setbeamertemplate{itemize/enumerate body begin}{\scriptsize}
+\setbeamertemplate{itemize/enumerate subbody begin}{\scriptsize}
+% Customizar o rodapé
+% [TEMPLATE ORIGINAL - NÃO MODIFICAR: estrutura definida pelo coordenador]
+\setbeamertemplate{footline}{
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.4cm,dp=0.2cm,leftskip=0.3cm,rightskip=0.3cm]{palette secondary}
+    \usebeamerfont{footline}
+    \insertshortauthor \hfill \hfill {\fontsize{5}{6}\selectfont\insertshorttitle} \hfill \hfill \insertframenumber/\inserttotalframenumber
+  \end{beamercolorbox}
+}
+
+% Customizar título do frame
+% [TEMPLATE ORIGINAL - NÃO MODIFICAR]
+\setbeamertemplate{frametitle}{
+  \vspace{0.3cm}
+  \textcolor{black}{\insertframetitle}
+  \vspace{0.1cm}
+}
+
+% Informações da apresentação
+% Título curto (opcional) aparece no rodapé; o texto longo aparece na capa.
+\title[Mash \textbar{} Mosturação e teste do iodo]{Mash}
+\subtitle{Plataforma de monitoramento da mosturação}
+\author[DSM]{VIEIRA, H.; CAMARGO, J.; OLIVEIRA, K.; DOMINGUES, J.}
+\institute{Desenvolvimento de Software Multiplataforma\\FATEC Registro}
+\date{2026}
+
+\begin{document}
+
+% ============================================================
+% 01 - LOGOMARCA
+% ============================================================
+\begin{frame}
+  \vspace{0.3cm}
+  \begin{center}
+    \includegraphics[height=2.3cm]{imgs/produto/logo-mash.png}\par
+
+    \vspace{0.2cm}
+
+    {\normalsize\bfseries\inserttitle}\par
+
+    \vspace{0.1cm}
+
+    {\small\textcolor{azulComplementar}{\insertsubtitle}}\par
+
+    \vspace{0.3cm}
+
+    \begin{tikzpicture}
+      \draw[azulComplementar, line width=1.5pt] (-2.5,0) -- (2.5,0);
+    \end{tikzpicture}
+
+    \vspace{0.2cm}
+
+    {\tiny\insertauthor}\par
+
+    \vspace{0.1cm}
+
+    {\scriptsize\insertinstitute}\par
+
+    \vspace{0.05cm}
+
+    {\tiny\textcolor{azulComplementar}{\insertdate}}\par
+  \end{center}
+\end{frame}
+
+% ============================================================
+% 02 - AGENDA
+% ============================================================
+\begin{frame}[b]{Agenda}
+  \begin{itemize}
+    \item Pitch
+    \item Problematização
+    \item Estado da Arte
+    \item Objetivo
+    \item Metodologia
+    \item Ferramental
+  \end{itemize}
+
+  \vfill
+
+  \hfill{\scriptsize \textbf{Duração prevista:} 10 a 11 min.}
+\end{frame}
+
+% ============================================================
+% 03 - PITCH
+% ============================================================
+% Pendente: o vídeo do pitch (1 a 2 min) deve ser inserido aqui antes da banca.
+\section{Pitch}
+{
+\usebackgroundtemplate{%
+  \includegraphics[width=\paperwidth,height=\paperheight]{imgs/fundo/pitch.jpg}%
+}
+\begin{frame}[b]{Pitch}
+  \begin{itemize}
+    \item \parbox{0.55\textwidth}{O Mash acompanha a mosturação, etapa em que as enzimas quebram o amido do malte em açúcares fermentáveis}
+    \item \parbox{0.55\textwidth}{O teste do iodo mostra se ainda há amido detectável no mosto}
+    \item \parbox{0.55\textwidth}{Hoje, a leitura da cor depende da percepção de quem faz o teste}
+    \item \parbox{0.55\textwidth}{Propomos interpretar a cor da reação por visão computacional e registrar o resultado junto ao lote}
+    \item \parbox{0.55\textwidth}{Público-alvo: produtores de cerveja artesanal}
+  \end{itemize}
+
+  \vfill
+
+  {\tiny\textbf{Figura 1}: produção de cerveja artesanal, com tanques de fermentação e barris.\\
+  \textit{Fonte: acervo da landing page do projeto Mash (autoria e licença a confirmar).}}
+\end{frame}
+}
+
+% ============================================================
+% 04 - PROBLEMATIZAÇÃO
+% ============================================================
+\section{Problematização}
+{
+\usebackgroundtemplate{%
+  \includegraphics[width=\paperwidth,height=\paperheight]{imgs/fundo/problema.jpg}%
+}
+\begin{frame}[b]{Problematização}
+  \begin{itemize}
+    \item \parbox{0.55\textwidth}{A leitura manual compara cores a olho, e as gradações intermediárias são difíceis de separar}
+    \item \parbox{0.55\textwidth}{Iluminação, reflexos e a própria amostra mudam a cor que se vê}
+    \item \parbox{0.55\textwidth}{Temperatura e tempo mostram se o programa térmico foi cumprido, mas não confirmam a conversão do amido}
+    \item \parbox{0.55\textwidth}{Sem data, hora e temperatura junto da leitura, revisar a decisão e comparar lotes fica difícil}
+  \end{itemize}
+
+  \vfill
+
+  {\tiny\textbf{Figura 2}: copos de cerveja e barril de madeira.\\
+  \textit{Fonte: site do projeto Mash, seção Cerveja artesanal (autoria e licença a confirmar).}}
+\end{frame}
+}
+
+% ============================================================
+% 05 - ESTADO DA ARTE
+% ============================================================
+\section{Estado da Arte}
+
+\begin{frame}[t]{Estado da Arte}
+  \scriptsize
+  Quatro trabalhos relacionados. Cada um cobre uma parte do problema, mas nenhum automatiza a leitura do teste do iodo com registro digital.\footnote{\tiny Referências: PARIZOTTO (2017), TCC de Engenharia Elétrica, UTFPR; ALMEIDA; RIBEIRO (2024), \emph{Revista Ifes Ciência}, v. 10, n. 2; NYARKO et al. (2021), \emph{Fermentation}, v. 7, n. 2; LI et al. (2025), \emph{Scientific Reports}, v. 15.}
+
+  \vspace{0.3cm}
+
+  \begin{center}
+    \scriptsize
+    \begin{tabular}{|>{\raggedright\arraybackslash}p{2.6cm}|>{\raggedright\arraybackslash}p{3.0cm}|>{\raggedright\arraybackslash}p{3.2cm}|>{\raggedright\arraybackslash}p{2.8cm}|}
+      \hline
+      \textbf{Trabalho} & \textbf{Contribuição} & \textbf{Limitação} & \textbf{Lacuna para o Mash} \\
+      \hline
+      Parizotto (2017) & Controle PI de rampas térmicas; sobressinal máximo de 2,54\% & Sem monitoramento bioquímico do amido & Controle térmico sem leitura do iodo \\
+      \hline
+      Almeida e Ribeiro (2024) & Teste de iodo no início e no fim da mosturação & Leitura manual, sem repetibilidade nem registro digital & Falta leitura automatizada \\
+      \hline
+      Nyarko et al. (2021) & Estabilidade da espuma por segmentação HSV & Reflexos, autofoco e aderência da espuma nas imagens RGB & Não analisa o teste do iodo \\
+      \hline
+      Li et al. (2025) & Cor no canal vermelho RGB ($R^2 = 0{,}9941$) & Erro médio de 3,83\% entre iluminações; matriz vegetal, não mosto & Não validado com mosto e iodo \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{frame}
+
+% ============================================================
+% 06 - OBJETIVO
+% ============================================================
+\section{Objetivo}
+{
+\usebackgroundtemplate{%
+  \includegraphics[width=\paperwidth,height=\paperheight]{imgs/fundo/objetivo.jpg}%
+}
+\begin{frame}[b]{Objetivo}
+  \begin{itemize}
+    \item \parbox{0.46\textwidth}{\textbf{Geral}: desenvolver uma plataforma que acompanhe a mosturação e automatize a interpretação do teste do iodo}
+    \item \parbox{0.46\textwidth}{\textbf{Específicos}:}
+    \begin{itemize}
+      \item \parbox{0.42\textwidth}{Padronizar a captura das imagens da reação}
+      \item \parbox{0.42\textwidth}{Classificar a amostra em presença de amido, conversão parcial ou ausência de amido detectável}
+      \item \parbox{0.42\textwidth}{Associar o resultado à receita e ao lote}
+      \item \parbox{0.42\textwidth}{Avaliar o método com testes futuros}
+    \end{itemize}
+  \end{itemize}
+
+  \vfill
+
+  {\tiny\textbf{Figura 3}: tela de rampas de temperatura de uma receita, versão atual do sistema Mash (dados de exemplo).\\
+  \textit{Fonte: captura de tela do frontend do projeto (commit e8ac629).}}
+\end{frame}
+}
+
+% ============================================================
+% 07 - METODOLOGIA
+% ============================================================
+\section{Metodologia}
+{
+\begin{frame}[t]{Metodologia}
+  \scriptsize
+  A plataforma terá quatro módulos: aquisição de imagens e dados, processamento de imagem, registro da mosturação e interface de acompanhamento.
+
+  \vspace{0.2cm}
+
+  \begin{center}
+    \includegraphics[height=4.0cm]{imgs/produto/fluxograma-artigo.png}\\
+    \vspace{0.1cm}
+    {\tiny\textbf{Figura 4}: fluxograma operacional da plataforma. Caixas azuis: funcionalidades implementadas. Caixas roxas tracejadas: etapas planejadas.\\
+    \textit{Fonte: artigo do projeto Mash, Figura 1.}}
+  \end{center}
+\end{frame}
+}
+
+% ============================================================
+% 08 - FERRAMENTAL (dentro de Metodologia; manual, item 1.6: não criar novas seções)
+% ============================================================
+{
+\usebackgroundtemplate{%
+  \includegraphics[width=\paperwidth,height=\paperheight]{imgs/fundo/ferramental.jpg}%
+}
+\begin{frame}[t]{Ferramental}
+  \begin{flushright}
+    \tiny\textbf{Figura 5}: tela de receitas, versão atual do sistema Mash (dados de exemplo).\\
+    \textit{Fonte: captura de tela do frontend do projeto (commit e8ac629).}
+  \end{flushright}
+
+  \vspace{0.4cm}
+
+  \begin{itemize}
+    \item \parbox{0.46\textwidth}{Visão computacional prevista: Python e OpenCV\footnote{\tiny BRADSKI (2000). \emph{The OpenCV Library}.}}
+    \item \parbox{0.46\textwidth}{Protótipo de demonstração: OpenCV.js no navegador}
+    \item \parbox{0.46\textwidth}{Espaços de cor: HSV e CIELAB}
+    \item \parbox{0.46\textwidth}{Captura: câmera comum ou de celular}
+    \item \parbox{0.46\textwidth}{Back-end: Node.js com Express, Sequelize e MySQL}
+    \item \parbox{0.46\textwidth}{Frontend: React com Next.js e Tailwind CSS; código versionado com Git e GitHub}
+  \end{itemize}
+
+\end{frame}
+}
+
+% ============================================================
+% 09 - ENCERRAMENTO (manual, item 2.5: agradecimento à banca e à plateia)
+% ============================================================
+{
+\usebackgroundtemplate{%
+  \includegraphics[width=\paperwidth,height=\paperheight]{imgs/fundo/obrigado.jpg}%
+}
+\begin{frame}[b]{}
+  \vspace{0.2cm}
+
+  \hspace*{0.25\paperwidth}{\Large \textbf{Obrigado!}}\par
+  \hspace*{0.25\paperwidth}{\small Estamos à disposição para perguntas.}
+
+  \vfill
+
+  {\tiny\textbf{Figura 6}: cerveja artesanal com copos, garrafa e barril.\\
+  \textit{Fonte: carrossel da landing page do projeto Mash (autoria e licença a confirmar).}}
+\end{frame}
+}
+
+\end{document}
