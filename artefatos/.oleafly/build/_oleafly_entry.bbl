@@ -1,0 +1,80 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.7 }
+
+\bibitem[Booch, Rumbaugh e Jacobson 2005]{booch2005}
+\abntrefinfo{Booch, Rumbaugh e Jacobson}{BOOCH; RUMBAUGH; JACOBSON}{2005}
+{BOOCH, G.; RUMBAUGH, J.; JACOBSON, I. \emph{The Unified Modeling Language User
+  Guide}. 2. ed. Upper Saddle River: Addison-Wesley, 2005.}
+
+\bibitem[{BRASIL}. {Ministério da Agricultura e Pecuária} 2025]{MAPA2025}
+\abntrefinfo{Brasil}{BRASIL}{2025}
+{{BRASIL}. {Ministério da Agricultura e Pecuária}. \emph{Anuário da Cerveja
+  2025: Ano de Referência 2024}. Brasília: MAPA, 2025. Dispon{\'\i}vel em:
+  \url{https://repositorio-dspace.agricultura.gov.br/handle/1/6055}. Acesso em:
+  29 maio 2026.}
+
+\bibitem[Chen 1976]{chen1976}
+\abntrefinfo{Chen}{CHEN}{1976}
+{CHEN, P. P.-S. The entity-relationship model: Toward a unified view of data.
+\emph{ACM Transactions on Database Systems}, v.~1, n.~1, p. 9--36, 1976.}
+
+\bibitem[Helms e Nixon 2010]{helms2010}
+\abntrefinfo{Helms e Nixon}{HELMS; NIXON}{2010}
+{HELMS, M.~M.; NIXON, J. Exploring {SWOT} analysis: Where are we now?
+\emph{Journal of Strategy and Management}, v.~3, n.~3, p. 215--251, 2010.}
+
+\bibitem[Li et al. 2025]{li2025starch}
+\abntrefinfo{Li et al.}{LI et al.}{2025}
+{LI, W. et al. {LIGHt}-based rapid detection of starch in tobacco leaves by
+  smartphone sensing.
+\emph{Scientific Reports}, v.~15, p.~6689, 2025.}
+
+\bibitem[{OPENJS FOUNDATION} 2026]{expressdocs}
+\abntrefinfo{{OPENJS FOUNDATION}}{{OPENJS FOUNDATION}}{2026}
+{{OPENJS FOUNDATION}. \emph{Express: Fast, Unopinionated, Minimalist Web
+  Framework for {Node.js}}. 2026.
+Dispon{\'\i}vel em: \url{https://expressjs.com/}. Acesso em: 31 out. 2026.}
+
+\bibitem[Osterwalder e Pigneur 2010]{osterwalder2010}
+\abntrefinfo{Osterwalder e Pigneur}{OSTERWALDER; PIGNEUR}{2010}
+{OSTERWALDER, A.; PIGNEUR, Y. \emph{Business Model Generation: A Handbook for
+  Visionaries, Game Changers, and Challengers}. Hoboken: John Wiley \& Sons,
+  2010.}
+
+\bibitem[{REGISTRO (SP)}. {Prefeitura} 2025]{ExpoBeerEvento2025}
+\abntrefinfo{Registro}{REGISTRO}{2025}
+{{REGISTRO (SP)}. {Prefeitura}. \emph{Encontro de Cervejeiros vira {EXPOBEER}
+  Vale do Ribeira e promete agitar Registro nos dias 24 e 25 de maio}. 2025.
+Dispon{\'\i}vel em:
+  \url{https://registro.sp.gov.br/encontro-de-cervejeiros-vira-expobeer-vale-do-ribeira-e-promete-agitar-registro-nos-dias-24-e-25-de-maio/}.
+  Acesso em: 28 fev. 2026.}
+
+\bibitem[{SEQUELIZE} 2026]{sequelizedocs}
+\abntrefinfo{{SEQUELIZE}}{{SEQUELIZE}}{2026}
+{{SEQUELIZE}. \emph{Sequelize v6 Documentation}. 2026.
+Dispon{\'\i}vel em: \url{https://sequelize.org/docs/v6/}. Acesso em: 31 out.
+  2026.}
+
+\bibitem[{TAILWIND LABS} 2026]{tailwinddocs}
+\abntrefinfo{{TAILWIND LABS}}{{TAILWIND LABS}}{2026}
+{{TAILWIND LABS}. \emph{Tailwind {CSS} Documentation}. 2026.
+Dispon{\'\i}vel em: \url{https://tailwindcss.com/docs}. Acesso em: 31 out.
+  2026.}
+
+\bibitem[{VERCEL} 2026]{nextjsdocs}
+\abntrefinfo{{VERCEL}}{{VERCEL}}{2026}
+{{VERCEL}. \emph{Next.js Documentation}. 2026.
+Dispon{\'\i}vel em: \url{https://nextjs.org/docs}. Acesso em: 31 out. 2026.}
+
+\bibitem[{WORLD WIDE WEB CONSORTIUM} 2023]{wcag22}
+\abntrefinfo{{WORLD WIDE WEB CONSORTIUM}}{{WORLD WIDE WEB CONSORTIUM}}{2023}
+{{WORLD WIDE WEB CONSORTIUM}. \emph{Web Content Accessibility Guidelines
+  ({WCAG}) 2.2}. 2023.
+Dispon{\'\i}vel em: \url{https://www.w3.org/TR/WCAG22/}. Acesso em: 31 out.
+  2026.}
+
+\end{thebibliography}
