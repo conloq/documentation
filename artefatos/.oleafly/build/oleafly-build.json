@@ -1,0 +1,1532 @@
+{
+  "schema_version": 1,
+  "version": "0.4.10",
+  "engine": "latexmk",
+  "main_document": "artefatos.tex",
+  "ok": true,
+  "finished_at_ms": 1793727920452,
+  "compile_time_ms": 17844,
+  "output_id": "pdf-sha256:5104727:581a4d9b96c692b47164b98f549c86450fff4f7e3acb6082e99f538b14101c7e",
+  "errors": [],
+  "diagnostics": [
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Overwriting symbol font `operators' in version `normal'\n(Font)\tOT1/cmr/m/n --> OT1/lmr/m/n.",
+      "file": "/usr/share/texmf/tex/latex/lm/lmodern.sty",
+      "line": 22,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Overwriting symbol font `letters' in version `normal'\n(Font)\tOML/cmm/m/it --> OML/lmm/m/it.",
+      "file": "/usr/share/texmf/tex/latex/lm/lmodern.sty",
+      "line": 23,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Overwriting symbol font `symbols' in version `normal'\n(Font)\tOMS/cmsy/m/n --> OMS/lmsy/m/n.",
+      "file": "/usr/share/texmf/tex/latex/lm/lmodern.sty",
+      "line": 24,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Overwriting symbol font `largesymbols' in version `normal'\n(Font)\tOMX/cmex/m/n --> OMX/lmex/m/n.",
+      "file": "/usr/share/texmf/tex/latex/lm/lmodern.sty",
+      "line": 25,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Overwriting symbol font `operators' in version `bold'\n(Font)\tOT1/cmr/bx/n --> OT1/lmr/bx/n.",
+      "file": "/usr/share/texmf/tex/latex/lm/lmodern.sty",
+      "line": 26,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Overwriting symbol font `letters' in version `bold'\n(Font)\tOML/cmm/b/it --> OML/lmm/b/it.",
+      "file": "/usr/share/texmf/tex/latex/lm/lmodern.sty",
+      "line": 27,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Overwriting symbol font `symbols' in version `bold'\n(Font)\tOMS/cmsy/b/n --> OMS/lmsy/b/n.",
+      "file": "/usr/share/texmf/tex/latex/lm/lmodern.sty",
+      "line": 28,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Overwriting symbol font `largesymbols' in version `bold'\n(Font)\tOMX/cmex/m/n --> OMX/lmex/m/n.",
+      "file": "/usr/share/texmf/tex/latex/lm/lmodern.sty",
+      "line": 29,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Overwriting math alphabet `\\mathbf' in version `normal'\n(Font)\tOT1/cmr/bx/n --> OT1/lmr/bx/n.",
+      "file": "/usr/share/texmf/tex/latex/lm/lmodern.sty",
+      "line": 31,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Overwriting math alphabet `\\mathsf' in version `normal'\n(Font)\tOT1/cmss/m/n --> OT1/lmss/m/n.",
+      "file": "/usr/share/texmf/tex/latex/lm/lmodern.sty",
+      "line": 32,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Overwriting math alphabet `\\mathit' in version `normal'\n(Font)\tOT1/cmr/m/it --> OT1/lmr/m/it.",
+      "file": "/usr/share/texmf/tex/latex/lm/lmodern.sty",
+      "line": 33,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Overwriting math alphabet `\\mathtt' in version `normal'\n(Font)\tOT1/cmtt/m/n --> OT1/lmtt/m/n.",
+      "file": "/usr/share/texmf/tex/latex/lm/lmodern.sty",
+      "line": 34,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Overwriting math alphabet `\\mathbf' in version `bold'\n(Font)\tOT1/cmr/bx/n --> OT1/lmr/bx/n.",
+      "file": "/usr/share/texmf/tex/latex/lm/lmodern.sty",
+      "line": 35,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Overwriting math alphabet `\\mathsf' in version `bold'\n(Font)\tOT1/cmss/bx/n --> OT1/lmss/bx/n.",
+      "file": "/usr/share/texmf/tex/latex/lm/lmodern.sty",
+      "line": 36,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Overwriting math alphabet `\\mathit' in version `bold'\n(Font)\tOT1/cmr/bx/it --> OT1/lmr/bx/it.",
+      "file": "/usr/share/texmf/tex/latex/lm/lmodern.sty",
+      "line": 37,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Overwriting math alphabet `\\mathtt' in version `bold'\n(Font)\tOT1/cmtt/m/n --> OT1/lmtt/m/n.",
+      "file": "/usr/share/texmf/tex/latex/lm/lmodern.sty",
+      "line": 38,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package babel: Making \" an active character.",
+      "file": "/usr/share/texlive/texmf-dist/tex/generic/babel-portuges/portuguese.ldf",
+      "line": 143,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package babel: Importing font and identification data for portuguese\n(babel)\tfrom babel-pt.ini. Reported.",
+      "file": "/usr/share/texlive/texmf-dist/tex/generic/babel/locale/pt/babel-portuguese.tex",
+      "line": 11,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package graphics: Driver file: pdftex.def.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty",
+      "line": 107,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX: Redefining \\frac.\n\\uproot@=\\count272\n\\leftroot@=\\count273",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty",
+      "line": 234,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX: Redefining \\overline.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty",
+      "line": 399,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX: Redefining \\colon.\n\\classnum@=\\count274\n\\DOTSCASE@=\\count275",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty",
+      "line": 410,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX: Redefining \\ldots.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty",
+      "line": 496,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX: Redefining \\dots.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty",
+      "line": 499,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX: Redefining \\cdots.\n\\Mathstrutbox@=\\box53\n\\strutbox@=\\box54",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty",
+      "line": 620,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX: Redefining \\big.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty",
+      "line": 722,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX: Redefining \\Big.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty",
+      "line": 723,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX: Redefining \\bigg.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty",
+      "line": 724,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX: Redefining \\Bigg.\n\\big@size=\\dimen150",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty",
+      "line": 725,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Redeclaring font encoding OML.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty",
+      "line": 743,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Redeclaring font encoding OMS.\n\\macc@depth=\\count276",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty",
+      "line": 744,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX: Redefining \\bmod.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty",
+      "line": 905,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX: Redefining \\pmod.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty",
+      "line": 910,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX: Redefining \\smash.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty",
+      "line": 940,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX: Redefining \\relbar.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty",
+      "line": 970,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX: Redefining \\Relbar.\n\\c@MaxMatrixCols=\\count277\n\\dotsspace@=\\muskip16\n\\c@parentequation=\\count278\n\\dspbrk@lvl=\\count279\n\\tag@help=\\toks22\n\\row@=\\count280\n\\column@=\\count281\n\\maxfields@=\\count282\n\\andhelp@=\\toks23\n\\eqnshift@=\\dimen151\n\\alignsep@=\\dimen152\n\\tagshift@=\\dimen153\n\\tagwidth@=\\dimen154\n\\totwidth@=\\dimen155\n\\lineht@=\\dimen156\n\\@envbody=\\toks24\n\\multlinegap=\\skip51\n\\multlinetaggap=\\skip52\n\\mathdisplay@stack=\\toks25",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty",
+      "line": 971,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX: Redefining \\[.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty",
+      "line": 2953,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX: Redefining \\].",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty",
+      "line": 2954,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Redeclaring math symbol \\hbar.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty",
+      "line": 98,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Overwriting math alphabet `\\mathfrak' in version `bold'\n(Font)\tU/euf/m/n --> U/euf/b/n.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty",
+      "line": 106,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package caption: Standard document class detected.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package caption: float package is loaded.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package caption: listings package is loaded.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package caption: New subtype `subfigure'.\n\\c@subfigure=\\count286",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty",
+      "line": 238,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package caption: New subtype `subtable'.\n\\c@subtable=\\count287",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty",
+      "line": 238,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package xcolor: Driver file: pdftex.def.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty",
+      "line": 274,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package xcolor: Model `cmy' substituted by `cmy0'.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty",
+      "line": 1350,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package xcolor: Model `hsb' substituted by `rgb'.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty",
+      "line": 1354,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package xcolor: Model `RGB' extended.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty",
+      "line": 1366,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package xcolor: Model `HTML' substituted by `rgb'.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty",
+      "line": 1368,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package xcolor: Model `Hsb' substituted by `hsb'.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty",
+      "line": 1369,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package xcolor: Model `tHsb' substituted by `hsb'.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty",
+      "line": 1370,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package xcolor: Model `HSB' substituted by `hsb'.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty",
+      "line": 1371,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package xcolor: Model `Gray' substituted by `gray'.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty",
+      "line": 1372,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package xcolor: Model `wave' substituted by `hsb'.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty",
+      "line": 1373,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftexcmds: \\pdf@primitive is available.",
+      "file": "/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftexcmds: \\pdf@ifprimitive is available.",
+      "file": "/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftexcmds: \\pdfdraftmode found.",
+      "file": "/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package hyperref: Hyper figures OFF.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty",
+      "line": 4179,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package hyperref: Link nesting OFF.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty",
+      "line": 4184,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package hyperref: Hyper index ON.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty",
+      "line": 4187,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package hyperref: Plain pages OFF.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty",
+      "line": 4194,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package hyperref: Backreferencing OFF.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty",
+      "line": 4199,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package hyperref: Implicit mode ON; LaTeX internals redefined.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package hyperref: Bookmarks ON.\n\\c@Hy@tempcnt=\\count301",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty",
+      "line": 4446,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX: Redefining \\url.\n\\XeTeXLinkMargin=\\dimen181",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty",
+      "line": 4784,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package hyperref: Hyper figures OFF.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty",
+      "line": 6063,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package hyperref: Link nesting OFF.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty",
+      "line": 6068,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package hyperref: Hyper index ON.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty",
+      "line": 6071,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package hyperref: backreferencing OFF.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty",
+      "line": 6078,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package hyperref: Link coloring OFF.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty",
+      "line": 6083,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package hyperref: Link coloring with OCG OFF.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty",
+      "line": 6088,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package hyperref: PDF/A mode OFF.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty",
+      "line": 6093,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package hyperref: Driver (autodetected): hpdftex.",
+      "file": "./config/packages.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package uniquecounter: New unique counter `rerunfilecheck'.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty",
+      "line": 285,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX: Redefining \\setlength.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty",
+      "line": 80,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX: Redefining \\addtolength.\n\\calc@Ccount=\\count310\n\\calc@Cskip=\\skip70",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty",
+      "line": 81,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX: Redefining \\newblock.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/abntex2/abntex2cite.sty",
+      "line": 591,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX: Redefining \\cite.\n\\ABCItoken=\\toks32",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/abntex2/abntex2cite.sty",
+      "line": 618,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdflscape: Auto-detected driver: pdftex.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty",
+      "line": 81,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Trying to load font information for T1+lmr\n.",
+      "file": "./artefatos.tex",
+      "line": 17,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Checking defaults for OML/cmm/m/it.",
+      "file": "./artefatos.tex",
+      "line": 17,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: ... okay.",
+      "file": "./artefatos.tex",
+      "line": 17,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Checking defaults for OMS/cmsy/m/n.",
+      "file": "./artefatos.tex",
+      "line": 17,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: ... okay.",
+      "file": "./artefatos.tex",
+      "line": 17,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Checking defaults for OT1/cmr/m/n.",
+      "file": "./artefatos.tex",
+      "line": 17,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: ... okay.",
+      "file": "./artefatos.tex",
+      "line": 17,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Checking defaults for T1/cmr/m/n.",
+      "file": "./artefatos.tex",
+      "line": 17,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: ... okay.",
+      "file": "./artefatos.tex",
+      "line": 17,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Checking defaults for TS1/cmr/m/n.",
+      "file": "./artefatos.tex",
+      "line": 17,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: ... okay.",
+      "file": "./artefatos.tex",
+      "line": 17,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Checking defaults for OMX/cmex/m/n.",
+      "file": "./artefatos.tex",
+      "line": 17,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: ... okay.",
+      "file": "./artefatos.tex",
+      "line": 17,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Checking defaults for U/cmr/m/n.",
+      "file": "./artefatos.tex",
+      "line": 17,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: ... okay.",
+      "file": "./artefatos.tex",
+      "line": 17,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Checking defaults for PD1/pdf/m/n.",
+      "file": "./artefatos.tex",
+      "line": 17,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: ... okay.",
+      "file": "./artefatos.tex",
+      "line": 17,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Checking defaults for PU/pdf/m/n.",
+      "file": "./artefatos.tex",
+      "line": 17,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: ... okay.\n\\c@lstlisting=\\count340",
+      "file": "./artefatos.tex",
+      "line": 17,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package epstopdf-base: Redefining graphics rule for `.eps'.",
+      "file": "/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty",
+      "line": 485,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package caption: Begin \\AtBeginDocument code.",
+      "file": "./artefatos.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package caption: hyperref package is loaded.",
+      "file": "./artefatos.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package caption: End \\AtBeginDocument code.",
+      "file": "./artefatos.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package hyperref: Link coloring OFF.\n(.oleafly/build/_oleafly_entry.out)\t(.oleafly/build/_oleafly_entry.out)\n\\@outlinefile=\\write4\n\\openout4 = `_oleafly_entry.out'.",
+      "file": "./artefatos.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/fatec-rgt.png  used.\n(pdftex.def)\tRequested size: 50.38678pt x 22.76228pt.\n<imgs/base/cps-logo.png, id=124, 63.1158pt x 42.3984pt>\nFile: imgs/base/cps-logo.png Graphic file (type png)\n<use imgs/base/cps-logo.png>",
+      "file": "./frontmatter/capa.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/cps-logo.png  used.\n(pdftex.def)\tRequested size: 38.12112pt x 25.6073pt.\n<imgs/base/governo-sp-secretaria-logo.png, id=125, 3144.74875pt x 557.08125pt>\nFile: imgs/base/governo-sp-secretaria-logo.png Graphic file (type png)\n<use imgs/base/governo-sp-secretaria-logo.png>",
+      "file": "./frontmatter/capa.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/governo-sp-secretaria-logo.png  used on inpu\nt line 11.\n(pdftex.def)\tRequested size: 168.61908pt x 29.87547pt.\n [1",
+      "file": "./frontmatter/capa.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Trying to load font information for OT1+lmr\n.",
+      "file": "./.oleafly/build/_oleafly_entry.toc",
+      "line": 4,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Trying to load font information for OML+lmm\n.",
+      "file": "./.oleafly/build/_oleafly_entry.toc",
+      "line": 4,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Trying to load font information for OMS+lmsy on input line \n4.",
+      "file": "./.oleafly/build/_oleafly_entry.toc",
+      "line": 4,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Trying to load font information for OMX+lmex on input line \n4.",
+      "file": "./.oleafly/build/_oleafly_entry.toc",
+      "line": 4,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: External font `lmex10' loaded for size\n(Font)\t<10.95>.",
+      "file": "./.oleafly/build/_oleafly_entry.toc",
+      "line": 4,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: External font `lmex10' loaded for size\n(Font)\t<8>.",
+      "file": "./.oleafly/build/_oleafly_entry.toc",
+      "line": 4,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: External font `lmex10' loaded for size\n(Font)\t<6>.",
+      "file": "./.oleafly/build/_oleafly_entry.toc",
+      "line": 4,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Trying to load font information for U+msa.",
+      "file": "./.oleafly/build/_oleafly_entry.toc",
+      "line": 4,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Trying to load font information for U+msb.",
+      "file": "./.oleafly/build/_oleafly_entry.toc",
+      "line": 4,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/fatec-rgt.png  used.\n(pdftex.def)\tRequested size: 50.38678pt x 22.76228pt.\nFile: imgs/base/cps-logo.png Graphic file (type png)\n<use imgs/base/cps-logo.png>",
+      "file": "./frontmatter/sumario.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/cps-logo.png  used.\n(pdftex.def)\tRequested size: 38.12112pt x 25.6073pt.\nFile: imgs/base/governo-sp-secretaria-logo.png Graphic file (type png)\n<use imgs/base/governo-sp-secretaria-logo.png>",
+      "file": "./frontmatter/sumario.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/governo-sp-secretaria-logo.png  used on inpu\nt line 2.\n(pdftex.def)\tRequested size: 168.61908pt x 29.87547pt.",
+      "file": "./frontmatter/sumario.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: External font `lmex10' loaded for size\n(Font)\t<9>.",
+      "file": "./sections/04-canvas.tex",
+      "line": 3,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: External font `lmex10' loaded for size\n(Font)\t<5>.\n<imgs/canvas.jpg, id=173, 845.559pt x 597.432pt>\nFile: imgs/canvas.jpg Graphic file (type jpg)\n<use imgs/canvas.jpg>",
+      "file": "./sections/04-canvas.tex",
+      "line": 3,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/canvas.jpg  used.\n(pdftex.def)\tRequested size: 500.77129pt x 353.83101pt.",
+      "file": "./sections/04-canvas.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "typesetting",
+      "message": "Overfull \\hbox (45.52718pt too wide)",
+      "file": "./sections/04-canvas.tex",
+      "line": 7,
+      "category": "overfull-box"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Trying to load font information for TS1+lmr.",
+      "file": "./sections/04-canvas.tex",
+      "line": 32,
+      "category": "info"
+    },
+    {
+      "severity": "typesetting",
+      "message": "Underfull \\hbox (badness 7504)",
+      "file": "./sections/04-canvas.tex",
+      "line": 58,
+      "category": "underfull-box"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/fatec-rgt.png  used.\n(pdftex.def)\tRequested size: 50.38678pt x 22.76228pt.\nFile: imgs/base/cps-logo.png Graphic file (type png)\n<use imgs/base/cps-logo.png>",
+      "file": "./sections/04-canvas.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/cps-logo.png  used.\n(pdftex.def)\tRequested size: 38.12112pt x 25.6073pt.\nFile: imgs/base/governo-sp-secretaria-logo.png Graphic file (type png)\n<use imgs/base/governo-sp-secretaria-logo.png>",
+      "file": "./sections/04-canvas.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/governo-sp-secretaria-logo.png  used on inpu\nt line 66.\n(pdftex.def)\tRequested size: 168.61908pt x 29.87547pt.\n[2 <./imgs/canvas.jpg>]) (./sections/06-ux-ui.tex\nFile: imgs/base/fatec-rgt.png Graphic file (type png)\n<use imgs/base/fatec-rgt.png>",
+      "file": "./sections/04-canvas.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/fatec-rgt.png  used.\n(pdftex.def)\tRequested size: 50.38678pt x 22.76228pt.\nFile: imgs/base/cps-logo.png Graphic file (type png)\n<use imgs/base/cps-logo.png>",
+      "file": "./sections/04-canvas.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/cps-logo.png  used.\n(pdftex.def)\tRequested size: 38.12112pt x 25.6073pt.\nFile: imgs/base/governo-sp-secretaria-logo.png Graphic file (type png)\n<use imgs/base/governo-sp-secretaria-logo.png>",
+      "file": "./sections/04-canvas.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/governo-sp-secretaria-logo.png  used on inpu\nt line 8.\n(pdftex.def)\tRequested size: 168.61908pt x 29.87547pt.\n [3{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}]\nFile: imgs/base/fatec-rgt.png Graphic file (type png)\n<use imgs/base/fatec-rgt.png>",
+      "file": "./sections/04-canvas.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/fatec-rgt.png  used.\n(pdftex.def)\tRequested size: 50.38678pt x 22.76228pt.\nFile: imgs/base/cps-logo.png Graphic file (type png)\n<use imgs/base/cps-logo.png>",
+      "file": "./sections/04-canvas.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/cps-logo.png  used.\n(pdftex.def)\tRequested size: 38.12112pt x 25.6073pt.\nFile: imgs/base/governo-sp-secretaria-logo.png Graphic file (type png)\n<use imgs/base/governo-sp-secretaria-logo.png>",
+      "file": "./sections/04-canvas.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/governo-sp-secretaria-logo.png  used on inpu\nt line 70.\n(pdftex.def)\tRequested size: 168.61908pt x 29.87547pt.\n [4]\n<imgs/figma/login.png, id=226, 1927.2pt x 1084.05pt>\nFile: imgs/figma/login.png Graphic file (type png)\n<use imgs/figma/login.png>",
+      "file": "./sections/04-canvas.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/figma/login.png  used.\n(pdftex.def)\tRequested size: 218.51521pt x 122.90147pt.\n<imgs/figma/cadastro.png, id=227, 1927.2pt x 1084.05pt>\nFile: imgs/figma/cadastro.png Graphic file (type png)\n<use imgs/figma/cadastro.png>",
+      "file": "./sections/04-canvas.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/figma/cadastro.png  used.\n(pdftex.def)\tRequested size: 218.51521pt x 122.90147pt.\n<imgs/figma/perfil.png, id=228, 1927.2pt x 1084.05pt>\nFile: imgs/figma/perfil.png Graphic file (type png)\n<use imgs/figma/perfil.png>",
+      "file": "./sections/04-canvas.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/figma/perfil.png  used.\n(pdftex.def)\tRequested size: 218.51521pt x 122.90147pt.\nFile: imgs/base/fatec-rgt.png Graphic file (type png)\n<use imgs/base/fatec-rgt.png>",
+      "file": "./sections/04-canvas.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/fatec-rgt.png  used.\n(pdftex.def)\tRequested size: 50.38678pt x 22.76228pt.\nFile: imgs/base/cps-logo.png Graphic file (type png)\n<use imgs/base/cps-logo.png>",
+      "file": "./sections/04-canvas.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/cps-logo.png  used.\n(pdftex.def)\tRequested size: 38.12112pt x 25.6073pt.\nFile: imgs/base/governo-sp-secretaria-logo.png Graphic file (type png)\n<use imgs/base/governo-sp-secretaria-logo.png>",
+      "file": "./sections/04-canvas.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/governo-sp-secretaria-logo.png  used on inpu\nt line 129.\n(pdftex.def)\tRequested size: 168.61908pt x 29.87547pt.\n [5]\n<imgs/figma/receitas.png, id=239, 1927.2pt x 1084.05pt>\nFile: imgs/figma/receitas.png Graphic file (type png)\n<use imgs/figma/receitas.png>",
+      "file": "./sections/04-canvas.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/figma/receitas.png  used.\n(pdftex.def)\tRequested size: 218.51521pt x 122.90147pt.\n<imgs/figma/receitas-nova.png, id=240, 1927.2pt x 1084.05pt>\nFile: imgs/figma/receitas-nova.png Graphic file (type png)\n<use imgs/figma/receitas-nova.png>",
+      "file": "./sections/04-canvas.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/figma/receitas-nova.png  used.\n(pdftex.def)\tRequested size: 218.51521pt x 122.90147pt.\n<imgs/figma/receita-detalhe.png, id=241, 1927.2pt x 1084.05pt>\nFile: imgs/figma/receita-detalhe.png Graphic file (type png)\n<use imgs/figma/receita-detalhe.png>",
+      "file": "./sections/04-canvas.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/figma/receita-detalhe.png  used\n.\n(pdftex.def)\tRequested size: 218.51521pt x 122.90147pt.\n<imgs/figma/rampa-editar.png, id=242, 1927.2pt x 1084.05pt>\nFile: imgs/figma/rampa-editar.png Graphic file (type png)\n<use imgs/figma/rampa-editar.png>",
+      "file": "./sections/04-canvas.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/figma/rampa-editar.png  used.\n(pdftex.def)\tRequested size: 218.51521pt x 122.90147pt.\n<imgs/figma/lotes.png, id=243, 1927.2pt x 1084.05pt>\nFile: imgs/figma/lotes.png Graphic file (type png)\n<use imgs/figma/lotes.png>",
+      "file": "./sections/04-canvas.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/figma/lotes.png  used.\n(pdftex.def)\tRequested size: 218.51521pt x 122.90147pt.\n<imgs/figma/lote-detalhe.png, id=244, 1927.2pt x 1084.05pt>\nFile: imgs/figma/lote-detalhe.png Graphic file (type png)\n<use imgs/figma/lote-detalhe.png>",
+      "file": "./sections/04-canvas.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/figma/lote-detalhe.png  used.\n(pdftex.def)\tRequested size: 218.51521pt x 122.90147pt.\n<imgs/figma/receita-iodo.png, id=245, 1927.2pt x 1084.05pt>\nFile: imgs/figma/receita-iodo.png Graphic file (type png)\n<use imgs/figma/receita-iodo.png>",
+      "file": "./sections/04-canvas.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/figma/receita-iodo.png  used.\n(pdftex.def)\tRequested size: 218.51521pt x 122.90147pt.\n<imgs/figma/iodo-sessao.png, id=246, 1927.2pt x 1084.05pt>\nFile: imgs/figma/iodo-sessao.png Graphic file (type png)\n<use imgs/figma/iodo-sessao.png>",
+      "file": "./sections/04-canvas.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/figma/iodo-sessao.png  used.\n(pdftex.def)\tRequested size: 218.51521pt x 122.90147pt.\n<imgs/figma/iodo-leitura.png, id=247, 1927.2pt x 1084.05pt>\nFile: imgs/figma/iodo-leitura.png Graphic file (type png)\n<use imgs/figma/iodo-leitura.png>",
+      "file": "./sections/04-canvas.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/figma/iodo-leitura.png  used.\n(pdftex.def)\tRequested size: 218.51521pt x 122.90147pt.",
+      "file": "./sections/04-canvas.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/fatec-rgt.png  used.\n(pdftex.def)\tRequested size: 50.38678pt x 22.76228pt.\nFile: imgs/base/cps-logo.png Graphic file (type png)\n<use imgs/base/cps-logo.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/cps-logo.png  used.\n(pdftex.def)\tRequested size: 38.12112pt x 25.6073pt.\nFile: imgs/base/governo-sp-secretaria-logo.png Graphic file (type png)\n<use imgs/base/governo-sp-secretaria-logo.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/governo-sp-secretaria-logo.png  used on inpu\nt line 1.\n(pdftex.def)\tRequested size: 168.61908pt x 29.87547pt.\n [6 <./imgs/figma/login.png> <./imgs/figma/cadastro.png> <./imgs/figma/perfil.p\nng> <./imgs/figma/receitas.png> <./imgs/figma/receitas-nova.png> <./imgs/figma/\nreceita-detalhe.png> <./imgs/figma/rampa-editar.png>]\nFile: imgs/base/fatec-rgt.png Graphic file (type png)\n<use imgs/base/fatec-rgt.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/fatec-rgt.png  used.\n(pdftex.def)\tRequested size: 50.38678pt x 22.76228pt.\nFile: imgs/base/cps-logo.png Graphic file (type png)\n<use imgs/base/cps-logo.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/cps-logo.png  used.\n(pdftex.def)\tRequested size: 38.12112pt x 25.6073pt.\nFile: imgs/base/governo-sp-secretaria-logo.png Graphic file (type png)\n<use imgs/base/governo-sp-secretaria-logo.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/governo-sp-secretaria-logo.png  used on inpu\nt line 54.\n(pdftex.def)\tRequested size: 168.61908pt x 29.87547pt.\n [7 <./imgs/figma/lotes.png> <./imgs/figma/lote-detalhe.png> <./imgs/figma/rece\nita-iodo.png> <./imgs/figma/iodo-sessao.png> <./imgs/figma/iodo-leitura.png>]",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "typesetting",
+      "message": "Overfull \\hbox (49.98535pt too wide)",
+      "file": "./sections/07-website.tex",
+      "line": 75,
+      "category": "overfull-box"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/website/home.png  used.\n(pdftex.def)\tRequested size: 409.71692pt x 230.45268pt.\n<imgs/website/sobre.png, id=274, 1927.2pt x 803.0pt>\nFile: imgs/website/sobre.png Graphic file (type png)\n<use imgs/website/sobre.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/website/sobre.png  used.\n(pdftex.def)\tRequested size: 409.71692pt x 170.70569pt.\n<imgs/website/equipe.png, id=275, 1927.2pt x 612.2875pt>\nFile: imgs/website/equipe.png Graphic file (type png)\n<use imgs/website/equipe.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/website/equipe.png  used.\n(pdftex.def)\tRequested size: 409.71692pt x 130.16309pt.\nFile: imgs/base/fatec-rgt.png Graphic file (type png)\n<use imgs/base/fatec-rgt.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/fatec-rgt.png  used.\n(pdftex.def)\tRequested size: 50.38678pt x 22.76228pt.\nFile: imgs/base/cps-logo.png Graphic file (type png)\n<use imgs/base/cps-logo.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/cps-logo.png  used.\n(pdftex.def)\tRequested size: 38.12112pt x 25.6073pt.\nFile: imgs/base/governo-sp-secretaria-logo.png Graphic file (type png)\n<use imgs/base/governo-sp-secretaria-logo.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/governo-sp-secretaria-logo.png  used on inpu\nt line 86.\n(pdftex.def)\tRequested size: 168.61908pt x 29.87547pt.\n[8 <./imgs/website/home.png (PNG copy)>]\n<imgs/website/cerveja.png, id=283, 1927.2pt x 923.45pt>\nFile: imgs/website/cerveja.png Graphic file (type png)\n<use imgs/website/cerveja.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/website/cerveja.png  used.\n(pdftex.def)\tRequested size: 409.71692pt x 196.31154pt.\n<imgs/website/mash.png, id=284, 1927.2pt x 642.4pt>\nFile: imgs/website/mash.png Graphic file (type png)\n<use imgs/website/mash.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/website/mash.png  used.\n(pdftex.def)\tRequested size: 409.71692pt x 136.56456pt.\n<imgs/website/contatos.png, id=285, 1927.2pt x 531.9875pt>\nFile: imgs/website/contatos.png Graphic file (type png)\n<use imgs/website/contatos.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/website/contatos.png  used.\n(pdftex.def)\tRequested size: 409.71692pt x 113.09251pt.\nFile: imgs/base/fatec-rgt.png Graphic file (type png)\n<use imgs/base/fatec-rgt.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/fatec-rgt.png  used.\n(pdftex.def)\tRequested size: 50.38678pt x 22.76228pt.\nFile: imgs/base/cps-logo.png Graphic file (type png)\n<use imgs/base/cps-logo.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/cps-logo.png  used.\n(pdftex.def)\tRequested size: 38.12112pt x 25.6073pt.\nFile: imgs/base/governo-sp-secretaria-logo.png Graphic file (type png)\n<use imgs/base/governo-sp-secretaria-logo.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/governo-sp-secretaria-logo.png  used on inpu\nt line 89.\n(pdftex.def)\tRequested size: 168.61908pt x 29.87547pt.\n [9 <./imgs/website/sobre.png (PNG copy)> <./imgs/website/equipe.png (PNG copy)\n> <./imgs/website/cerveja.png (PNG copy)>]) (./sections/02-diagrama-uml.tex\n<imgs/caso-de-uso.png, id=295, 616.3025pt x 1115.16624pt>\nFile: imgs/caso-de-uso.png Graphic file (type png)\n<use imgs/caso-de-uso.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/caso-de-uso.png  used.\n(pdftex.def)\tRequested size: 345.31512pt x 624.8182pt.\nFile: imgs/base/fatec-rgt.png Graphic file (type png)\n<use imgs/base/fatec-rgt.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/fatec-rgt.png  used.\n(pdftex.def)\tRequested size: 50.38678pt x 22.76228pt.\nFile: imgs/base/cps-logo.png Graphic file (type png)\n<use imgs/base/cps-logo.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/cps-logo.png  used.\n(pdftex.def)\tRequested size: 38.12112pt x 25.6073pt.\nFile: imgs/base/governo-sp-secretaria-logo.png Graphic file (type png)\n<use imgs/base/governo-sp-secretaria-logo.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/governo-sp-secretaria-logo.png  used on inpu\nt line 13.\n(pdftex.def)\tRequested size: 168.61908pt x 29.87547pt.\n [10 <./imgs/website/mash.png (PNG copy)> <./imgs/website/contatos.png (PNG cop\ny)>]\n<imgs/diagrama-de-classes.png, id=304, 689.57625pt x 1214.5375pt>\nFile: imgs/diagrama-de-classes.png Graphic file (type png)\n<use imgs/diagrama-de-classes.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/diagrama-de-classes.png  used.\n(pdftex.def)\tRequested size: 318.66948pt x 561.27003pt.\nFile: imgs/base/fatec-rgt.png Graphic file (type png)\n<use imgs/base/fatec-rgt.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/fatec-rgt.png  used.\n(pdftex.def)\tRequested size: 50.38678pt x 22.76228pt.\nFile: imgs/base/cps-logo.png Graphic file (type png)\n<use imgs/base/cps-logo.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/cps-logo.png  used.\n(pdftex.def)\tRequested size: 38.12112pt x 25.6073pt.\nFile: imgs/base/governo-sp-secretaria-logo.png Graphic file (type png)\n<use imgs/base/governo-sp-secretaria-logo.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/governo-sp-secretaria-logo.png  used on inpu\nt line 23.\n(pdftex.def)\tRequested size: 168.61908pt x 29.87547pt.\n [11 <./imgs/caso-de-uso.png>]\n<imgs/diagrama-de-objetos.png, id=311, 402.50375pt x 661.47125pt>\nFile: imgs/diagrama-de-objetos.png Graphic file (type png)\n<use imgs/diagrama-de-objetos.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/diagrama-de-objetos.png  used.\n(pdftex.def)\tRequested size: 318.66948pt x 523.6971pt.\nFile: imgs/base/fatec-rgt.png Graphic file (type png)\n<use imgs/base/fatec-rgt.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/fatec-rgt.png  used.\n(pdftex.def)\tRequested size: 50.38678pt x 22.76228pt.\nFile: imgs/base/cps-logo.png Graphic file (type png)\n<use imgs/base/cps-logo.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/cps-logo.png  used.\n(pdftex.def)\tRequested size: 38.12112pt x 25.6073pt.\nFile: imgs/base/governo-sp-secretaria-logo.png Graphic file (type png)\n<use imgs/base/governo-sp-secretaria-logo.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/governo-sp-secretaria-logo.png  used on inpu\nt line 34.\n(pdftex.def)\tRequested size: 168.61908pt x 29.87547pt.\n [12 <./imgs/diagrama-de-classes.png>]) (./sections/03-diagrama-de-banco-de-dad\nos.tex\n<imgs/diagrama-mer.png, id=321, 393.47pt x 384.43625pt>\nFile: imgs/diagrama-mer.png Graphic file (type png)\n<use imgs/diagrama-mer.png>",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/diagrama-mer.png  used.\n(pdftex.def)\tRequested size: 409.71692pt x 400.30873pt.",
+      "file": "./sections/07-website.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/fatec-rgt.png  used.\n(pdftex.def)\tRequested size: 50.38678pt x 22.76228pt.\nFile: imgs/base/cps-logo.png Graphic file (type png)\n<use imgs/base/cps-logo.png>",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/cps-logo.png  used.\n(pdftex.def)\tRequested size: 38.12112pt x 25.6073pt.\nFile: imgs/base/governo-sp-secretaria-logo.png Graphic file (type png)\n<use imgs/base/governo-sp-secretaria-logo.png>",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/governo-sp-secretaria-logo.png  used on inpu\nt line 1.\n(pdftex.def)\tRequested size: 168.61908pt x 29.87547pt.\n [13 <./imgs/diagrama-de-objetos.png>]\nFile: imgs/base/fatec-rgt.png Graphic file (type png)\n<use imgs/base/fatec-rgt.png>",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/fatec-rgt.png  used.\n(pdftex.def)\tRequested size: 50.38678pt x 22.76228pt.\nFile: imgs/base/cps-logo.png Graphic file (type png)\n<use imgs/base/cps-logo.png>",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/cps-logo.png  used.\n(pdftex.def)\tRequested size: 38.12112pt x 25.6073pt.\nFile: imgs/base/governo-sp-secretaria-logo.png Graphic file (type png)\n<use imgs/base/governo-sp-secretaria-logo.png>",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/governo-sp-secretaria-logo.png  used on inpu\nt line 16.\n(pdftex.def)\tRequested size: 168.61908pt x 29.87547pt.",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "typesetting",
+      "message": "Overfull \\hbox (14.18011pt too wide)",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": 44,
+      "category": "overfull-box"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/redes.png  used.\n(pdftex.def)\tRequested size: 409.71692pt x 402.39418pt.\nFile: imgs/base/fatec-rgt.png Graphic file (type png)\n<use imgs/base/fatec-rgt.png>",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/fatec-rgt.png  used.\n(pdftex.def)\tRequested size: 50.38678pt x 22.76228pt.\nFile: imgs/base/cps-logo.png Graphic file (type png)\n<use imgs/base/cps-logo.png>",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/cps-logo.png  used.\n(pdftex.def)\tRequested size: 38.12112pt x 25.6073pt.\nFile: imgs/base/governo-sp-secretaria-logo.png Graphic file (type png)\n<use imgs/base/governo-sp-secretaria-logo.png>",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/governo-sp-secretaria-logo.png  used on inpu\nt line 102.\n(pdftex.def)\tRequested size: 168.61908pt x 29.87547pt.\n[15]\n<imgs/usabilidade.png, id=346, 442.65375pt x 474.27188pt>\nFile: imgs/usabilidade.png Graphic file (type png)\n<use imgs/usabilidade.png>",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/usabilidade.png  used.\n(pdftex.def)\tRequested size: 409.71692pt x 439.0058pt.\nFile: imgs/base/fatec-rgt.png Graphic file (type png)\n<use imgs/base/fatec-rgt.png>",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/fatec-rgt.png  used.\n(pdftex.def)\tRequested size: 50.38678pt x 22.76228pt.\nFile: imgs/base/cps-logo.png Graphic file (type png)\n<use imgs/base/cps-logo.png>",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/cps-logo.png  used.\n(pdftex.def)\tRequested size: 38.12112pt x 25.6073pt.\nFile: imgs/base/governo-sp-secretaria-logo.png Graphic file (type png)\n<use imgs/base/governo-sp-secretaria-logo.png>",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/governo-sp-secretaria-logo.png  used on inpu\nt line 113.\n(pdftex.def)\tRequested size: 168.61908pt x 29.87547pt.\n [16 <./imgs/redes.png>]",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "typesetting",
+      "message": "Underfull \\hbox (badness 10000)",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": 126,
+      "category": "underfull-box"
+    },
+    {
+      "severity": "typesetting",
+      "message": "Underfull \\hbox (badness 10000)",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": 128,
+      "category": "underfull-box"
+    },
+    {
+      "severity": "typesetting",
+      "message": "Underfull \\hbox (badness 2245)",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": 128,
+      "category": "underfull-box"
+    },
+    {
+      "severity": "typesetting",
+      "message": "Underfull \\hbox (badness 10000)",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": 130,
+      "category": "underfull-box"
+    },
+    {
+      "severity": "typesetting",
+      "message": "Underfull \\hbox (badness 5050)",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": 130,
+      "category": "underfull-box"
+    },
+    {
+      "severity": "typesetting",
+      "message": "Underfull \\hbox (badness 4441)",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": 132,
+      "category": "underfull-box"
+    },
+    {
+      "severity": "typesetting",
+      "message": "Overfull \\hbox (28.70427pt too wide)",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": 122,
+      "category": "overfull-box"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/fatec-rgt.png  used.\n(pdftex.def)\tRequested size: 50.38678pt x 22.76228pt.\nFile: imgs/base/cps-logo.png Graphic file (type png)\n<use imgs/base/cps-logo.png>",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/cps-logo.png  used.\n(pdftex.def)\tRequested size: 38.12112pt x 25.6073pt.\nFile: imgs/base/governo-sp-secretaria-logo.png Graphic file (type png)\n<use imgs/base/governo-sp-secretaria-logo.png>",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/governo-sp-secretaria-logo.png  used on inpu\nt line 138.\n(pdftex.def)\tRequested size: 168.61908pt x 29.87547pt.\n[17 <./imgs/usabilidade.png>]",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "typesetting",
+      "message": "Underfull \\hbox (badness 1728)",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": 153,
+      "category": "underfull-box"
+    },
+    {
+      "severity": "info",
+      "message": "LaTeX Font: Trying to load font information for T1+lmtt.",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": 157,
+      "category": "info"
+    },
+    {
+      "severity": "typesetting",
+      "message": "Underfull \\hbox (badness 5696)",
+      "file": "./sections/05-diagrama-de-redes.tex",
+      "line": 159,
+      "category": "underfull-box"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/fatec-rgt.png  used.\n(pdftex.def)\tRequested size: 50.38678pt x 22.76228pt.\nFile: imgs/base/cps-logo.png Graphic file (type png)\n<use imgs/base/cps-logo.png>",
+      "file": "./backmatter/referencias.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/cps-logo.png  used.\n(pdftex.def)\tRequested size: 38.12112pt x 25.6073pt.\nFile: imgs/base/governo-sp-secretaria-logo.png Graphic file (type png)\n<use imgs/base/governo-sp-secretaria-logo.png>",
+      "file": "./backmatter/referencias.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/governo-sp-secretaria-logo.png  used on inpu\nt line 1.\n(pdftex.def)\tRequested size: 168.61908pt x 29.87547pt.\n [18] (.oleafly/build/_oleafly_entry.bbl",
+      "file": "./backmatter/referencias.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "typesetting",
+      "message": "Overfull \\hbox (53.1675pt too wide)",
+      "file": "./backmatter/referencias.tex",
+      "line": 50,
+      "category": "overfull-box"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/fatec-rgt.png  used.\n(pdftex.def)\tRequested size: 50.38678pt x 22.76228pt.\nFile: imgs/base/cps-logo.png Graphic file (type png)\n<use imgs/base/cps-logo.png>",
+      "file": "artefatos.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/cps-logo.png  used.\n(pdftex.def)\tRequested size: 38.12112pt x 25.6073pt.\nFile: imgs/base/governo-sp-secretaria-logo.png Graphic file (type png)\n<use imgs/base/governo-sp-secretaria-logo.png>",
+      "file": "artefatos.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package pdftex.def: imgs/base/governo-sp-secretaria-logo.png  used on inpu\nt line 33.\n(pdftex.def)\tRequested size: 168.61908pt x 29.87547pt.\n [19] (.oleafly/build/_oleafly_entry.aux)\n ***********\nLaTeX2e <2023-11-01> patch level 1\nL3 programming layer <2024-01-22>\n ***********",
+      "file": "artefatos.tex",
+      "line": null,
+      "category": "info"
+    },
+    {
+      "severity": "info",
+      "message": "Package rerunfilecheck: File `_oleafly_entry.out' has not changed.\n(rerunfilecheck)\tChecksum: E01A076A859999A7167454D7478A0F2B;5282.",
+      "file": "artefatos.tex",
+      "line": null,
+      "category": "info"
+    }
+  ]
+}

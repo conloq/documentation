@@ -87,11 +87,13 @@ Consulte [`geral/entregas/mind-map-entregas-pi.mm`](./geral/entregas/mind-map-en
 
 Os documentos acadêmicos seguem os templates da FATEC:
 
-| Template | Repositório |
-|---|---|
-| Artigo científico (LaTeX) | [fbamuniz/template-paper-f299](https://github.com/fbamuniz/template-paper-f299) |
-| Artefatos do projeto | [fbamuniz/template-artefacts-f299](https://github.com/fbamuniz/template-artefacts-f299) |
-| Apresentação Beamer | [fbamuniz/template-beamer-f299](https://github.com/fbamuniz/template-beamer-f299) |
+| Template | Cópia local | Repositório de origem |
+|---|---|---|
+| Artigo científico (LaTeX) | [`templates/paper/`](./templates/paper/) | [fbamuniz/template-paper-f299](https://github.com/fbamuniz/template-paper-f299) |
+| Artefatos do projeto | [`templates/artefatos/`](./templates/artefatos/) | [fbamuniz/template-artefacts-f299](https://github.com/fbamuniz/template-artefacts-f299) |
+| Apresentação Beamer | [`templates/beamer/`](./templates/beamer/) | [fbamuniz/template-beamer-f299](https://github.com/fbamuniz/template-beamer-f299) |
+
+Procedência, commits e licenças em [`templates/README.md`](./templates/README.md).
 
 ---
 
